@@ -28,6 +28,7 @@ export default function Home() {
   useEffect(() => {
     dispatch({ type: IS_ADMIN, payload: true });
     dispatch(fetchBio());
+    // fetchBio(dispatch());
     dispatch(fetchBioCard());
     dispatch(fetchBioSkill());
     dispatch(fetchProject());
