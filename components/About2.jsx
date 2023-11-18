@@ -11,6 +11,7 @@ import {
   patchBioCard,
   postBioCard,
 } from "@/lib/action/bioCardAction";
+import { DeleteIcons, EditIcons } from "./Icons";
 
 const ServiceCard = ({
   adminState,
@@ -56,13 +57,7 @@ const ServiceCard = ({
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-          <Image
-            src={"/assets/icons/edit.svg"}
-            className="h-[20px] w-[20px]"
-            alt="Edit Icon"
-            width={"20"}
-            height={"20"}
-          />
+          <EditIcons />
         </button>
         <button
           aria-label="BTN"
@@ -72,13 +67,7 @@ const ServiceCard = ({
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-          <Image
-            src={"/assets/icons/delete.jsx"}
-            className="h-[20px] w-[20px]"
-            alt="Edit Icon"
-            width={"20"}
-            height={"20"}
-          />
+          <DeleteIcons />
         </button>
       </div>
       {/* <div className="flex flex-col justify-normal  xs:justify-end"></div> */}

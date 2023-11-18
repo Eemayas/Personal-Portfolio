@@ -5,6 +5,7 @@ import { SectionWrapper } from "@/lib/hoc";
 import { useDispatch, useSelector } from "react-redux";
 import { fadeIn, slideIn } from "@/lib/utils/motion";
 import FileBase from "react-file-base64";
+import { EditIcons } from "./Icons";
 
 const Skills = () => {
   const [form, setForm] = useState({
@@ -84,11 +85,7 @@ const SkillsCard = ({
             }}
             className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
           >
-            <img
-              src={"/assets/icons/edit.svg"}
-              className="h-[20px] w-[20px]"
-              alt="Edit Icon"
-            />
+            <EditIcons />
           </button>
           <button
             aria-label="BTN"

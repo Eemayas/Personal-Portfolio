@@ -5,8 +5,8 @@ import { styles } from "@/app/style";
 import { TypeAnimation } from "react-type-animation";
 import { ProfilePicPath, contacts } from "@/constants";
 import { fadeIn } from "@/lib/utils/motion";
-import { ProfilePic2 } from "@/public/assets";
-import { Image } from "@nextui-org/react";
+import Image from "next/image";
+// import { Image } from "@nextui-org/react";
 
 const Hero = () => {
   return (
@@ -91,8 +91,8 @@ const ProfileAvatars = () => {
         <Image
           src={ProfilePicPath}
           alt=".."
-          width={"auto"}
-          height={"auto"}
+          width={"1020"}
+          height={"1020"}
           // loading="lazy"
           className=" shadow-slate-500 shadow-md w-60 h-60 aspect-square rounded-2xl bg-center bg-cover duration-500 object-cover"
         />
@@ -100,13 +100,13 @@ const ProfileAvatars = () => {
     </div>
   );
 };
-type ContactCardProps = {
-  index: number;
-  name: string;
-  links: string;
-  logo: string;
-};
-const ContactCard = ({ index, name, links, logo }: ContactCardProps) => {
+// type ContactCardProps = {
+//   index: number;
+//   name: string;
+//   links: string;
+//   logo: string;
+// };
+const ContactCard = ({ index, name, links, logo }) => {
   return (
     <motion.div
       className=" w-[50px] green-pink-gradient p-[1.5px] rounded-[10px] shadow-card "
@@ -119,8 +119,8 @@ const ContactCard = ({ index, name, links, logo }: ContactCardProps) => {
         <Image
           src={logo}
           alt={name}
-          width={"full"}
-          height={"full"}
+          width={"50"}
+          height={"50"}
           loading="lazy"
           className="w-full h-full object-contain"
         ></Image>

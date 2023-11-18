@@ -10,7 +10,7 @@ import {
   patchContact,
   postContact,
 } from "@/lib/action/contactAction";
-import { DeleteIcons } from "./Icons";
+import { DeleteIcons, EditIcons } from "./Icons";
 
 // import { EmailIcon } from "../assets";
 // import { FaMapMarkedAlt,FaPhoneSquare } from "react-icons/fa/index.esm.js";
@@ -203,11 +203,7 @@ const ContactCard = ({
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-          <img
-            src={"/assets/icons/edit.svg"}
-            className="h-[20px] w-[20px]"
-            alt="Edit Icon"
-          />
+         <EditIcons />
         </button>
         <button
           aria-label="BTN"

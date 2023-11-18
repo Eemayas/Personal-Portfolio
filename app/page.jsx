@@ -27,24 +27,23 @@ export default function Home() {
 
   useEffect(() => {
     dispatch({ type: IS_ADMIN, payload: true });
-    // dispatch(fetchBio());
-    // dispatch(fetchBioCard());
-    // dispatch(fetchBioSkill());
-    // dispatch(fetchProject());
-    // dispatch(fetchContact());
-    // dispatch(fetchSocialMedia());
-    // dispatch(fetchTestimonial());
-    // dispatch(fetchExperience());
+    dispatch(fetchBio());
+    dispatch(fetchBioCard());
+    dispatch(fetchBioSkill());
+    dispatch(fetchProject());
+    dispatch(fetchContact());
+    dispatch(fetchSocialMedia());
+    dispatch(fetchTestimonial());
+    dispatch(fetchExperience());
   }, [dispatch]);
   return (
     <>
       <div className="relative z-0 bg-primary  text-white">
         <div>
-          <div className=" bg-cover bg-no-repeat bg-center custom-background ">
+          <div className="bg-cover bg-no-repeat bg-center custom-background ">
             <NavBar />
             <Hero />
           </div>
-
           <About />
           <About2 />
           {/* <Experience /> */}
