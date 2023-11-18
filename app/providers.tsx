@@ -1,8 +1,12 @@
 // app/providers.tsx
 "use client";
-
+import { Provider } from "react-redux";
 import { NextUIProvider } from "@nextui-org/react";
-
+import store from "./store";
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <NextUIProvider>{children}</NextUIProvider>;
+  return (
+    <Provider store={store}>
+      <NextUIProvider>{children}</NextUIProvider>
+    </Provider>
+  );
 }
