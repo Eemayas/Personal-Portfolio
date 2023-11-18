@@ -1,51 +1,6 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
-
-
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-/* @import url('https://fonts.googleapis.com/css2?family=Papyrus:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Glass+Antiqua&family=Nova+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -54,14 +9,19 @@ code {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Papyrus',"Poppins", sans-serif;
-  font-family:"Poppins" , sans-serif;
+  font-family: 'Nova Mono', monospace;
+  font-family: 'Dancing Script', cursive;
+/* font-family: 'Glass Antiqua', cursive; */
+   font-family: 'Papyrus',"Poppins", sans-serif;
+ /* font-family:"Poppins" , sans-serif; */
   font-display: swap;
   scroll-behavior: smooth;
   color-scheme: dark;
 }
+
+
 .custom-background {
-  background-image: url('/assets/herobg.webp');
+  /* background-image: url('/assets/herobg.webp'); */
   background-size: cover;
   background-position: center;
   height: 100vh; /* 100% of the viewport height */

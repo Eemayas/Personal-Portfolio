@@ -1,12 +1,17 @@
 import React, { useRef, useState } from "react";
-import { Tilt } from "react-tilt";
-import { DeleteIcons } from "../assets";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { SectionWrapper } from "@/lib/hoc";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
 import { styles } from "@/app/style";
 import { motion } from "framer-motion";
+import {
+  deleteProject,
+  patchProject,
+  postProject,
+} from "@/lib/action/projectAction";
+import { DeleteIcons } from "./Icons";
+import { Tilt } from "react-tilt";
 
 const tagColorList = [
   "green-text-gradient",
@@ -135,6 +140,7 @@ const ProjectCard = ({
         style={{ display: adminState ? "block" : "none" }}
       >
         <button
+          aria-label="BTN"
           onClick={() => {
             setId(_id);
             setForm({
@@ -155,16 +161,13 @@ const ProjectCard = ({
           />
         </button>
         <button
+          aria-label="BTN"
           onClick={() => {
             dispatch(deleteProject(_id));
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-          <img
-            className="h-[20px] w-[20px]"
-            src={DeleteIcons}
-            alt="Delete Icon"
-          />
+          <DeleteIcons />
         </button>
       </div>
     </motion.div>
@@ -305,6 +308,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
               </div>
             )}
             <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >

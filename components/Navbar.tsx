@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-// import menu from "assets/menu.svg";
 import { styles } from "@/app/style";
 import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
+import { CloseIcons, MenuIcons } from "./Icons";
 const Navbar = () => {
   const [actice, setActice] = useState("");
   const [toggle, setToogle] = useState(false);
@@ -50,17 +50,13 @@ const Navbar = () => {
           })}
           <li></li>
         </ul>
-        <div className="sm:hidden flex flex-1 justify-end items-center">
-          <Image
-            src={!toggle ? "/assets/menu.svg" : "/assets/close.svg"}
-            width={28}
-            height={28}
-            alt="menu"
-            loading="lazy"
-            className="w-[28px] h-[28px] object-contain
-        cursor-pointer"
-            onClick={() => setToogle(!toggle)}
-          />
+        <div
+          className="sm:hidden flex flex-1 justify-end items-center"
+          onClick={() => setToogle(!toggle)}
+        >
+          <div className="w-[30px] h-[30px] object-contain">
+            {!toggle ? <MenuIcons /> : <CloseIcons />}
+          </div>
           <div
             className={`${
               !toggle ? "hidden" : "flex"

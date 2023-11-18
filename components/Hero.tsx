@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "@/lib/hoc";
 import { styles } from "@/app/style";
 import { TypeAnimation } from "react-type-animation";
-import { contacts } from "@/constants";
+import { ProfilePicPath, contacts } from "@/constants";
 import { fadeIn } from "@/lib/utils/motion";
 import { ProfilePic2 } from "@/public/assets";
 import { Image } from "@nextui-org/react";
@@ -89,7 +89,7 @@ const ProfileAvatars = () => {
     <div className="w-full h-60  flex justify-center items-center md:h-80 md:w-80">
       <div className="w-60 relative flex justify-center items-center md:w-full h-full">
         <Image
-          src={"/assets/Profilepic2.webp"}
+          src={ProfilePicPath}
           alt=".."
           width={"auto"}
           height={"auto"}
@@ -116,12 +116,14 @@ const ContactCard = ({ index, name, links, logo }: ContactCardProps) => {
         className="bg-tertiary rounded-[10px] "
         onClick={() => window.open(links, "_blank")}
       >
-        <img
+        <Image
           src={logo}
           alt={name}
+          width={"full"}
+          height={"full"}
           loading="lazy"
           className="w-full h-full object-contain"
-        ></img>
+        ></Image>
       </div>
     </motion.div>
   );

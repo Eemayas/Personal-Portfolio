@@ -1,11 +1,17 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
-import { EditIcon, DeleteIcons } from "../assets";
+
 import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
 import { SectionWrapper } from "@/lib/hoc";
 import { styles } from "@/app/style";
+import {
+  deleteTestimonial,
+  patchTestimonial,
+  postTestimonial,
+} from "@/lib/action/testinomialAction";
+import { DeleteIcons } from "./Icons";
 
 const Feedbacks = () => {
   const [form, setForm] = useState({
@@ -110,6 +116,7 @@ const FeedBackCard = ({
         style={{ display: adminState ? "block" : "none" }}
       >
         <button
+          aria-label="BTN"
           onClick={() => {
             console.log(_id);
             setId(_id);
@@ -130,16 +137,13 @@ const FeedBackCard = ({
           />
         </button>
         <button
+          aria-label="BTN"
           onClick={() => {
             dispatch(deleteTestimonial(_id));
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-          <img
-            className="h-[20px] w-[20px]"
-            src={DeleteIcons}
-            alt="Delete Icon"
-          />
+          <DeleteIcons />
         </button>
       </div>
     </motion.div>
@@ -263,6 +267,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
             )}{" "}
             {/*  */}
             <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >

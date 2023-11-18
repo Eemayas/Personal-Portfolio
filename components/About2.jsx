@@ -49,6 +49,7 @@ const ServiceCard = ({
         style={{ display: adminState ? "block" : "none" }}
       >
         <button
+          aria-label="BTN"
           onClick={() => {
             setId(_id);
             setForm({ title: title, selectedImage: selectedImage });
@@ -64,6 +65,7 @@ const ServiceCard = ({
           />
         </button>
         <button
+          aria-label="BTN"
           onClick={() => {
             console.log(_id);
             dispatch(deleteBioCard(_id));
@@ -201,6 +203,7 @@ const About2Form = ({ setId, id, form, setForm, adminState }) => {
               </div>
             )}
             <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >

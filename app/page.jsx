@@ -27,39 +27,31 @@ export default function Home() {
 
   useEffect(() => {
     dispatch({ type: IS_ADMIN, payload: true });
-    dispatch(fetchBio());
-    dispatch(fetchBioCard());
-    dispatch(fetchBioSkill());
-    dispatch(fetchProject());
-    dispatch(fetchContact());
-    dispatch(fetchSocialMedia());
-    dispatch(fetchTestimonial());
-    dispatch(fetchExperience());
+    // dispatch(fetchBio());
+    // dispatch(fetchBioCard());
+    // dispatch(fetchBioSkill());
+    // dispatch(fetchProject());
+    // dispatch(fetchContact());
+    // dispatch(fetchSocialMedia());
+    // dispatch(fetchTestimonial());
+    // dispatch(fetchExperience());
   }, [dispatch]);
   return (
     <>
-      <div className="relative z-0 bg-primary">
+      <div className="relative z-0 bg-primary  text-white">
         <div>
           <div className=" bg-cover bg-no-repeat bg-center custom-background ">
-            {" "}
             <NavBar />
             <Hero />
           </div>
 
-          {/* <div className=" absolute left-4 top-16">
-            <h1 className="text-red-700 xs:block">xs</h1>
-            <h1 className="text-red-700 sm:block hidden ">sm</h1>
-            <h1 className="text-red-700 md:block hidden">md</h1>
-            <h1 className="text-red-700 lg:block hidden">lg</h1>
-          </div> */}
-
           <About />
           <About2 />
-          <Experience />
+          {/* <Experience /> */}
           <Skills />
           <Projects />
           <Feedbacks />
-          <div className="relative z-0 bg-primary">
+          <div className="relative z-0 bg-primary  text-white">
             <LetSTalk />
             <Contact />
           </div>

@@ -2,10 +2,15 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { useDispatch, useSelector } from "react-redux";
-import { EditIcon, DeleteIcons } from "../assets";
 import { SectionWrapper } from "@/lib/hoc";
 import { slideIn } from "@/lib/utils/motion";
 import { styles } from "@/app/style";
+import {
+  deleteContact,
+  patchContact,
+  postContact,
+} from "@/lib/action/contactAction";
+import { DeleteIcons } from "./Icons";
 
 // import { EmailIcon } from "../assets";
 // import { FaMapMarkedAlt,FaPhoneSquare } from "react-icons/fa/index.esm.js";
@@ -70,7 +75,7 @@ const LetsTalk = () => {
           className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
         >
           <p className={styles.sectionSubText}>Get in touch</p>
-          <h3 className={styles.sectionHeadText}>Let's Talk.</h3>
+          <h2 className={styles.sectionHeadText}>Let's Talk.</h2>
 
           <form
             ref={formRef}
@@ -115,6 +120,7 @@ const LetsTalk = () => {
             </label>
 
             <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >
@@ -178,7 +184,7 @@ const ContactCard = ({
     <div className="flex flex-row items-center gap-3 ">
       <div className="md:w-96 mb-6 flex items-center flex-col justify-evenly w-full bg-black-100 p-5 rounded-2xl min-h-[200px] sm:w-[360px]">
         {/* {icon} */}
-        <h4 className="m-0 text-white">{title}</h4>
+        <h3 className="m-0 text-white">{title}</h3>
         <hr className="mt-2 mb-2 w-full bg-white" />
         <div className="small text-white">{detail}</div>
       </div>
@@ -187,6 +193,7 @@ const ContactCard = ({
         style={{ display: adminState ? "block" : "none" }}
       >
         <button
+          aria-label="BTN"
           onClick={() => {
             setId(_id);
             setForm({
@@ -203,16 +210,13 @@ const ContactCard = ({
           />
         </button>
         <button
+          aria-label="BTN"
           onClick={() => {
             dispatch(deleteContact(_id));
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-          <img
-            className="h-[20px] w-[20px]"
-            src={DeleteIcons}
-            alt="Delete Icon"
-          />
+          <DeleteIcons />
         </button>
       </div>
     </div>
@@ -283,6 +287,7 @@ const ContactForm = ({ adminState, setId, setForm, id, form }) => {
             </label>
 
             <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >

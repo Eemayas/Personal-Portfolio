@@ -3,10 +3,15 @@ import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
-import { EditIcon, DeleteIcons } from "../assets";
 import { SectionWrapper } from "@/lib/hoc";
 import { styles } from "@/app/style";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
+import {
+  deleteSocialMedia,
+  patchSocialMedia,
+  postSocialMedia,
+} from "@/lib/action/socialMediaAction";
+import { DeleteIcons, EditIcons } from "./Icons";
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
@@ -91,30 +96,22 @@ const ContactCard = ({
           className="flex items-end flex-col justify-normal  xs:justify-end"
           style={{ display: adminState ? "block" : "none" }}
         >
-          <button
+          <button aria-label="BTN"
             onClick={() => {
               setId(_id);
               setForm({ name: name, logo: logo, links: links });
             }}
             className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
           >
-            <img
-              src={"/assets/icons/edit.svg"}
-              className="h-[20px] w-[20px]"
-              alt="Edit Icon"
-            />
+            <EditIcons />
           </button>
-          <button
+          <button aria-label="BTN"
             onClick={() => {
               dispatch(deleteSocialMedia(_id));
             }}
             className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
           >
-            <img
-              className="h-[20px] w-[20px]"
-              src={DeleteIcons}
-              alt="Delete Icon"
-            />
+            <DeleteIcons />
           </button>
         </div>
       </motion.div>
@@ -154,9 +151,6 @@ const SocialMediaForm = ({ adminState, setId, form, setForm, id }) => {
           variants={slideIn("left", "tween", 0.2, 1)}
           className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
         >
-          {/* <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Let's Talk.</h3> */}
-
           <form
             ref={formRef}
             onSubmit={handleSubmit}
@@ -213,7 +207,7 @@ const SocialMediaForm = ({ adminState, setId, form, setForm, id }) => {
               </div>
             )}
 
-            <button
+            <button aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >

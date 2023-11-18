@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { EditIcon, DeleteIcons } from "/assets";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 import { SectionWrapper } from "@/lib/hoc";
@@ -78,6 +77,7 @@ const SkillsCard = ({
           style={{ display: adminState ? "block" : "none" }}
         >
           <button
+            aria-label="BTN"
             onClick={() => {
               setId(_id);
               setForm({ title: title, selectedImage: selectedImage });
@@ -91,6 +91,7 @@ const SkillsCard = ({
             />
           </button>
           <button
+            aria-label="BTN"
             onClick={() => {
               dispatch(deleteBioSkill(_id));
             }}
@@ -183,6 +184,7 @@ const TechForm = ({ adminState, setId, id, form, setForm }) => {
               </div>
             )}
             <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >
