@@ -154,7 +154,7 @@ const ProjectCard = ({
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-        <EditIcons />
+          <EditIcons />
         </button>
         <button
           aria-label="BTN"

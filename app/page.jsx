@@ -37,28 +37,21 @@ export default function Home() {
     dispatch(fetchExperience());
   }, [dispatch]);
   return (
-    <>
-      <div className="relative z-0 bg-primary  text-white">
-        <div>
-          <div className="bg-cover bg-no-repeat bg-center custom-background ">
-            <NavBar />
-            <Hero />
-          </div>
-          <About />
-          <About2 />
-          {/* <Experience /> */}
-          <Skills />
-          <Projects />
-          <Feedbacks />
-          <div className="relative z-0 bg-primary  text-white">
-            <LetSTalk />
-            <Contact />
-          </div>
-        </div>
-        {/* <div className="fixed bottom-5 right-5">
-          <Popup />
-        </div> */}
+    <div className="relative z-0 bg-primary">
+      <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        <NavBar />
+        <Hero />
       </div>
-    </>
+      <About />
+      <About2 />
+      <Skills />
+      <Projects />
+      {/* <Experience /> */}
+      <Feedbacks />
+      <div className="relative z-0 bg-primary">
+        <LetSTalk />
+        <Contact />
+      </div>
+    </div>
   );
 }

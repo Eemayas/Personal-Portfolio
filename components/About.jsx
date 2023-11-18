@@ -66,9 +66,9 @@ const Form = ({ formI }) => {
     console.log(form);
 
     if (formI.length === 0) {
-      dispatch(postBio(form));
+      postBio(form);
     } else {
-      dispatch(patchBio(formI[0]._id, form));
+      patchBio(formI[0]._id, form);
     }
 
     setLoading(false);
