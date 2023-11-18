@@ -12,6 +12,7 @@ import {
   postBioCard,
 } from "@/lib/action/bioCardAction";
 import { DeleteIcons, EditIcons } from "./Icons";
+import { bioCardServices } from "@/constants";
 
 const ServiceCard = ({
   adminState,
@@ -82,10 +83,20 @@ const About2 = () => {
   const [id, setId] = useState("0");
   const adminState = useSelector((state) => state.AdminReducer);
   const bioCards = useSelector((state) => state.BioCardReducer);
-  console.log(bioCards);
+  // console.log(bioCards);
   return (
     <>
       <div className=" flex flex-wrap gap-10">
+        {bioCardServices.map((service, index) => {
+          return (
+            <ServiceCard
+              key={service.title}
+              index={index}
+              title={service.title}
+              selectedImage={service.icon}
+            />
+          );
+        })}
         {bioCards.length ? (
           bioCards.map((service, index) => {
             return (
@@ -94,14 +105,14 @@ const About2 = () => {
                 setForm={setForm}
                 setId={setId}
                 key={service.title}
-                index={index}
+                index={bioCardServices.length + index}
                 title={service.title}
                 {...service}
               />
             );
           })
         ) : (
-          <h1>LOADING..........</h1>
+          <h1></h1>
         )}
       </div>
       <About2Form

@@ -13,7 +13,8 @@ export const navLinks = [
   },
 ];
 
-export const ProfilePicPath = "/assets/Profilepic2.webp";
+export const ProfilePicPath = "/assets/Profilepic.webp";
+export const ProfilePic2Path = "/assets/Profilepic2.webp";
 
 export const contacts = [
   {
@@ -43,90 +44,91 @@ export const contacts = [
   },
 ];
 
-// import {
-//   Html2,
-//   css2,
-//   C,
-//   react,
-//   pythonimg,
-//   flutter,
-//   web,
-//   javascript,
-//   flutter2,
-//   tailwind,
-//   nodejs,
-//   git,
-//   figma,
-//   threejs,
-//   CommingSoon,
-//   Cplus,
-// } from "@/assets/index";
+export const Bio = `"Hello there! I am a highly skilled computer engineering professional with expertise in various programming languages such as C, C++, Flutter, Dart, React, HTML, CSS, and JavaScript. I am a quick learner and always eager to take on new challenges that help me further expand my skillset. In my free time, I love to indulge in my hobbies of cycling and reading novels and comics. My passion for technology and innovation drives me to continuously learn and stay up-to-date with the latest trends in the industry. With my strong work ethic and exceptional problem-solving skills, I am confident in my ability to contribute to any project I am a part of. Thank you for taking the time to read my bio, and I look forward to potentially working with you!"`;
 
-// const services = [
-//   {
-//     title: "Web Developer",
-//     icon: web,
-//   },
-//   {
-//     title: "Flutter Developer",
-//     icon: flutter,
-//   },
-// ];
+export const bioCardServices = [
+  {
+    title: "Web Developer",
+    icon: "/assets/bioCard/Web.webp",
+  },
+  {
+    title: "Flutter Developer",
+    icon: "/assets/bioCard/flutter.webp",
+  },
+];
 
-// const technologies = [
-//   {
-//     name: "C",
-//     icon: C,
-//   },
-//   {
-//     name: "C++",
-//     icon: Cplus,
-//   },
-//   {
-//     name: "HTML 5",
-//     icon: Html2,
-//   },
-//   {
-//     name: "CSS 3",
-//     icon: css2,
-//   },
-//   {
-//     name: "JavaScript",
-//     icon: javascript,
-//   },
-//   {
-//     name: "React",
-//     icon: react,
-//   },
-//   {
-//     name: "Python",
-//     icon: pythonimg,
-//   },
-//   {
-//     name: "Tailwind CSS",
-//     icon: tailwind,
-//   },
-//   {
-//     name: "Node JS",
-//     icon: nodejs,
-//   },
-//   {
-//     name: "Three JS",
-//     icon: threejs,
-//   },
-//   {
-//     name: "Git",
-//     icon: git,
-//   },
-//   {
-//     name: "Figma",
-//     icon: figma,
-//   },
-//   {
-//     name: "Flutter",
-//     icon: flutter2,
-//   },
-// ];
+export const technologies = [
+  {
+    name: "Flutter",
+    icon: "/assets/skills/Flutter.webp",
+  },
+  {
+    name: "C",
+    icon: "/assets/skills/C.webp",
+  },
+  {
+    name: "C++",
+    icon: "/assets/skills/C++.webp",
+  },
+
+  {
+    name: "HTML 5",
+    icon: "/assets/skills/HTML.webp",
+  },
+  {
+    name: "CSS 3",
+    icon: "/assets/skills/CSS.webp",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "/assets/skills/Tailwind.webp",
+  },
+  {
+    name: "JavaScript",
+    icon: "/assets/skills/JS.webp",
+  },
+  {
+    name: "TypeScript",
+    icon: "/assets/skills/TS.webp",
+  },
+  {
+    name: "React",
+    icon: "/assets/skills/React.webp",
+  },
+  {
+    name: "Next JS",
+    icon: "/assets/skills/NextJS.webp",
+  },
+
+  {
+    name: "Node JS",
+    icon: "/assets/skills/Node.webp",
+  },
+  {
+    name: "Three JS",
+    icon: "/assets/skills/ThreeJS.webp",
+  },
+  {
+    name: "MongoDB",
+    icon: "/assets/skills/SQL.webp",
+  },
+  {
+    name: "My SQL",
+    icon: "/assets/skills/MongoDB.webp",
+  },
+  {
+    name: "Python",
+    icon: "/assets/skills/Python.webp",
+  },
+  {
+    name: "Git",
+    icon: "/assets/skills/Git.webp",
+  },
+  {
+    name: "Figma",
+    icon: "/assets/skills/Figma.webp",
+  },
+];
 
 // const experiences = [
 //   {

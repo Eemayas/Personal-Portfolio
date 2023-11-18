@@ -5,7 +5,14 @@ import { SectionWrapper } from "@/lib/hoc";
 import { useDispatch, useSelector } from "react-redux";
 import { fadeIn, slideIn } from "@/lib/utils/motion";
 import FileBase from "react-file-base64";
-import { EditIcons } from "./Icons";
+import { DeleteIcons, EditIcons } from "./Icons";
+import { technologies } from "@/constants";
+import Image from "next/image";
+import {
+  deleteBioSkill,
+  patchBioSkill,
+  postBioSkill,
+} from "@/lib/action/bioSkillAction";
 
 const Skills = () => {
   const [form, setForm] = useState({
@@ -17,24 +24,32 @@ const Skills = () => {
   const adminState = useSelector((state) => state.AdminReducer);
   return (
     <>
-      {bioSkils.length ? (
-        <div className="flex flex-row flex-wrap justify-center gap-10">
-          {bioSkils.map((technology, index) => (
+      <div className="flex flex-row flex-wrap justify-center gap-10">
+        {technologies.map((technology, index) => (
+          <SkillsCard
+            index={index}
+            key={technology.name}
+            selectedImage={technology.icon}
+            title={technology.name}
+          />
+        ))}
+        {bioSkils.length ? (
+          bioSkils.map((technology, index) => (
             <SkillsCard
               adminState={adminState}
               setForm={setForm}
               setId={setId}
               _id={technology._id}
-              index={index}
+              index={technologies.length + index}
               key={technology.title}
               selectedImage={technology.selectedImage}
               title={technology.title}
             />
-          ))}
-        </div>
-      ) : (
-        <h1>loading.........</h1>
-      )}
+          ))
+        ) : (
+          <h1></h1>
+        )}
+      </div>
       <TechForm
         adminState={adminState}
         setId={setId}
@@ -60,13 +75,14 @@ const SkillsCard = ({
       <motion.div variants={fadeIn("right", "spring", 0.25 * index, 0.55)}>
         <div className="w-full green-pink-gradient p-[1px] rounded-[30px] shadow-card ">
           <div className="bg-tertiary rounded-[30px] ">
-            <img
-              id={_id}
-              loading="lazy"
+            <Image
               src={selectedImage}
+              width={100}
+              height={100}
               alt={title}
-              className="w-full h-full object-contain py-5 px-5"
-            ></img>
+              loading="lazy"
+              className="w-full h-[110px] object-contain py-5 px-5"
+            />
 
             <div className=" pb-2 truncate  w-full text-secondary font-quicksand flex flex-col items-center justify-center">
               {title}
@@ -94,11 +110,7 @@ const SkillsCard = ({
             }}
             className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
           >
-            <img
-              className="h-[20px] w-[20px]"
-              src={DeleteIcons}
-              alt="Delete Icon"
-            />
+            <DeleteIcons />
           </button>
         </div>
       </motion.div>

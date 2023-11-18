@@ -12,6 +12,7 @@ import {
   postSocialMedia,
 } from "@/lib/action/socialMediaAction";
 import { DeleteIcons, EditIcons } from "./Icons";
+import { contacts } from "@/constants";
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
@@ -29,26 +30,32 @@ const Contact = () => {
             <p className={styles.sectionSubText}>Get In Touch.</p>
             <h2 className={styles.sectionHeadText}>Contacts</h2>
           </motion.div>
+        </div>{" "}
+        <div className="flex flex-row flex-wrap justify-center gap-10 pb-10">
+          {socialMedias.length
+            ? socialMedias.map((socialMedia, index) => (
+                <ContactCard
+                  adminState={adminState}
+                  setForm={setForm}
+                  setId={setId}
+                  index={index}
+                  key={`socialMedia-${index}`}
+                  name={socialMedia.name}
+                  links={socialMedia.links}
+                  logo={socialMedia.logo}
+                  _id={socialMedia._id}
+                />
+              ))
+            : contacts.map((contact, index) => (
+                <ContactCard
+                  index={index}
+                  key={`contacts-${index}`}
+                  name={contact.name}
+                  links={contact.links}
+                  logo={contact.logo}
+                />
+              ))}
         </div>
-        {socialMedias.length ? (
-          <div className="flex flex-row flex-wrap justify-center gap-10 pb-10">
-            {socialMedias.map((socialMedia, index) => (
-              <ContactCard
-                adminState={adminState}
-                setForm={setForm}
-                setId={setId}
-                index={index}
-                key={`socialMedia-${index}`}
-                name={socialMedia.name}
-                links={socialMedia.links}
-                logo={socialMedia.logo}
-                _id={socialMedia._id}
-              />
-            ))}
-          </div>
-        ) : (
-          <h1>Uploading progress: 50%</h1>
-        )}
       </div>
       <SocialMediaForm
         adminState={adminState}
@@ -96,7 +103,8 @@ const ContactCard = ({
           className="flex items-end flex-col justify-normal  xs:justify-end"
           style={{ display: adminState ? "block" : "none" }}
         >
-          <button aria-label="BTN"
+          <button
+            aria-label="BTN"
             onClick={() => {
               setId(_id);
               setForm({ name: name, logo: logo, links: links });
@@ -105,7 +113,8 @@ const ContactCard = ({
           >
             <EditIcons />
           </button>
-          <button aria-label="BTN"
+          <button
+            aria-label="BTN"
             onClick={() => {
               dispatch(deleteSocialMedia(_id));
             }}
@@ -207,7 +216,8 @@ const SocialMediaForm = ({ adminState, setId, form, setForm, id }) => {
               </div>
             )}
 
-            <button aria-label="BTN"
+            <button
+              aria-label="BTN"
               type="submit"
               className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >

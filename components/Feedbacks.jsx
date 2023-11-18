@@ -25,7 +25,7 @@ const Feedbacks = () => {
   const testimonials = useSelector((state) => state.TestimonialReducer);
   const adminState = useSelector((state) => state.AdminReducer);
   // console.log(testimonials);
-  return (
+  return testimonials.length ? (
     <>
       <div className="mt-12 bg-black-100 pb-5 rounded-[20px] ">
         <div
@@ -37,23 +37,19 @@ const Feedbacks = () => {
           </motion.div>
         </div>
         <div className={`${styles.paddingX} -mt-20 pd-14 flex flex-wrap gap-7`}>
-          {testimonials.length ? (
-            <div className=" mt-20 flex flex-wrap justify-center gap-7">
-              {testimonials.map((testimonial, index) => (
-                <FeedBackCard
-                  adminState={adminState}
-                  key={`testinomial-${index} `}
-                  index={index}
-                  {...testimonial}
-                  // _id={id}
-                  setForm={setForm}
-                  setId={setId}
-                />
-              ))}
-            </div>
-          ) : (
-            <h1>Loading..............</h1>
-          )}
+          <div className=" mt-20 flex flex-wrap justify-center gap-7">
+            {testimonials.map((testimonial, index) => (
+              <FeedBackCard
+                adminState={adminState}
+                key={`testinomial-${index} `}
+                index={index}
+                {...testimonial}
+                // _id={id}
+                setForm={setForm}
+                setId={setId}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <TestinomialForm
@@ -62,8 +58,10 @@ const Feedbacks = () => {
         setId={setId}
         setForm={setForm}
         id={id}
-      />
+      />{" "}
     </>
+  ) : (
+    <h1></h1>
   );
 };
 const FeedBackCard = ({
