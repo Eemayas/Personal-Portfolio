@@ -49,7 +49,7 @@ export default function Home() {
     }
   }, []);
   return isLoading && isHome ? (
-    <SplashScreen finishedLoading={() => setIsLoading(true)} />
+    <SplashScreen finishedLoading={() => setIsLoading(false)} />
   ) : (
     <div className="relative z-0 ">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
