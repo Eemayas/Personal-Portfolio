@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
@@ -166,7 +167,7 @@ const ContactInfo = ({ adminState, contacts, setForm, setId }) => {
       ))}
     </motion.div>
   ) : (
-    <h1>Uploading progress: 50%</h1>
+    <h1></h1>
   );
 };
 
@@ -203,7 +204,7 @@ const ContactCard = ({
           }}
           className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
-         <EditIcons />
+          <EditIcons />
         </button>
         <button
           aria-label="BTN"

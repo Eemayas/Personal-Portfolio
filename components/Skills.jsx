@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
@@ -185,7 +186,9 @@ const TechForm = ({ adminState, setId, id, form, setForm }) => {
                 <span className="text-white font-medium mb-4">
                   Selected Image:
                 </span>
-                <img
+                <Image
+                  width={160}
+                  height={160}
                   src={form.selectedImage}
                   alt="Selected"
                   className="w-40 h-40 mt-2 rounded-[40px] border-4 border-red-500"

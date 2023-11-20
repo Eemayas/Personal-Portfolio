@@ -9,26 +9,29 @@ import Projects from "@/components/Projects";
 import Feedbacks from "@/components/Feedbacks";
 import LetSTalk from "@/components/Let'sTalk";
 import Contact from "@/components/Contact";
-
-import { fetchSocialMedia } from "@/lib/action/socialMediaAction";
-import { fetchBio } from "@/lib/action/bioAction";
-import { fetchBioCard } from "@/lib/action/bioCardAction";
-import { fetchBioSkill } from "@/lib/action/bioSkillAction";
-import { fetchProject } from "@/lib/action/projectAction";
-import { fetchContact } from "@/lib/action/contactAction";
-import { fetchTestimonial } from "@/lib/action/testinomialAction";
-import { fetchExperience } from "@/lib/action/experiencesAction";
-import { IS_ADMIN } from "@/lib/constant";
+import {
+  fetchSocialMedia,
+  fetchBio,
+  fetchBioCard,
+  fetchBioSkill,
+  fetchProject,
+  fetchContact,
+  fetchTestimonial,
+  fetchExperience,
+  IS_ADMIN,
+} from "@/lib/action/index";
 
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import SplashScreen from "@/components/SplashScreen";
+import { usePathname } from "next/navigation";
 export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch({ type: IS_ADMIN, payload: true });
     dispatch(fetchBio());
-    // fetchBio(dispatch());
     dispatch(fetchBioCard());
     dispatch(fetchBioSkill());
     dispatch(fetchProject());
@@ -37,8 +40,18 @@ export default function Home() {
     dispatch(fetchTestimonial());
     dispatch(fetchExperience());
   }, [dispatch]);
-  return (
-    <div className="relative z-0 bg-primary">
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [isLoading, setIsLoading] = useState(isHome);
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+  }, []);
+  return isLoading && isHome ? (
+    <SplashScreen finishedLoading={() => setIsLoading(true)} />
+  ) : (
+    <div className="relative z-0 ">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
         <NavBar />
         <Hero />
@@ -49,7 +62,7 @@ export default function Home() {
       <Projects />
       {/* <Experience /> */}
       <Feedbacks />
-      <div className="relative z-0 bg-primary">
+      <div className="relative z-0 ">
         <LetSTalk />
         <Contact />
       </div>

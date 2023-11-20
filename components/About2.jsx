@@ -13,68 +13,6 @@ import {
 } from "@/lib/action/bioCardAction";
 import { DeleteIcons, EditIcons } from "./Icons";
 import { bioCardServices } from "@/constants";
-
-const ServiceCard = ({
-  adminState,
-  setId,
-  _id,
-  index,
-  title,
-  selectedImage,
-  setForm,
-}) => {
-  const dispatch = useDispatch();
-  return (
-    <Tilt className="xs:w-[250px] w-full ">
-      <motion.div
-        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card "
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-      >
-        <div
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex flex-col justify-evenly items-center "
-          options={{ max: 45, scale: 1, speed: 450 }}
-        >
-          <img
-            id={_id}
-            loading="lazy"
-            src={selectedImage}
-            alt={title}
-            className="w-16 h-16 object-contain "
-          ></img>
-          <h3 className="text-white text-[20px] font-bold text-center ">
-            {title}
-          </h3>
-        </div>
-      </motion.div>
-      <div
-        className="flex items-end flex-col justify-normal  xs:justify-end"
-        style={{ display: adminState ? "block" : "none" }}
-      >
-        <button
-          aria-label="BTN"
-          onClick={() => {
-            setId(_id);
-            setForm({ title: title, selectedImage: selectedImage });
-          }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-        >
-          <EditIcons />
-        </button>
-        <button
-          aria-label="BTN"
-          onClick={() => {
-            console.log(_id);
-            dispatch(deleteBioCard(_id));
-          }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-        >
-          <DeleteIcons />
-        </button>
-      </div>
-      {/* <div className="flex flex-col justify-normal  xs:justify-end"></div> */}
-    </Tilt>
-  );
-};
 const About2 = () => {
   const [form, setForm] = useState({
     title: "",
@@ -123,6 +61,69 @@ const About2 = () => {
         setForm={setForm}
       />
     </>
+  );
+};
+const ServiceCard = ({
+  adminState,
+  setId,
+  _id,
+  index,
+  title,
+  selectedImage,
+  setForm,
+}) => {
+  const dispatch = useDispatch();
+  return (
+    <Tilt className="xs:w-[250px] w-full ">
+      <motion.div
+        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card "
+        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+      >
+        <div
+          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex flex-col justify-evenly items-center "
+          options={{ max: 45, scale: 1, speed: 450 }}
+        >
+          <Image
+            width={64}
+            height={64}
+            id={_id}
+            loading="lazy"
+            src={selectedImage}
+            alt={title}
+            className="w-16 h-16 object-contain "
+          />
+          <h3 className="text-white text-[20px] font-bold text-center ">
+            {title}
+          </h3>
+        </div>
+      </motion.div>
+      <div
+        className="flex items-end flex-col justify-normal  xs:justify-end"
+        style={{ display: adminState ? "block" : "none" }}
+      >
+        <button
+          aria-label="BTN"
+          onClick={() => {
+            setId(_id);
+            setForm({ title: title, selectedImage: selectedImage });
+          }}
+          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+        >
+          <EditIcons />
+        </button>
+        <button
+          aria-label="BTN"
+          onClick={() => {
+            console.log(_id);
+            dispatch(deleteBioCard(_id));
+          }}
+          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+        >
+          <DeleteIcons />
+        </button>
+      </div>
+      {/* <div className="flex flex-col justify-normal  xs:justify-end"></div> */}
+    </Tilt>
   );
 };
 
@@ -195,7 +196,9 @@ const About2Form = ({ setId, id, form, setForm, adminState }) => {
                 <span className="text-white font-medium mb-4">
                   Selected Image:
                 </span>
-                <img
+                <Image
+                  width={240}
+                  height={240}
                   src={form.selectedImage}
                   alt="Selected"
                   className="w-40 h-40 mt-2 rounded-[40px] border-4 border-red-500"

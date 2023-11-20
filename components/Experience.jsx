@@ -8,6 +8,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { SectionWrapper } from "@/lib/hoc";
 import { textVariant } from "@/lib/utils/motion";
 import { styles } from "@/app/style";
+import Image from "next/image";
 
 const ExperienceCard = ({ experience }) => {
   return (
@@ -18,7 +19,9 @@ const ExperienceCard = ({ experience }) => {
       iconStyle={{ background: experience.iconBg }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
-          <img
+          <Image
+            width={240}
+            height={240}
             loading="lazy"
             src={experience.icon}
             alt={experience.company_name}

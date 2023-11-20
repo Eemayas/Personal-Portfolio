@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
@@ -13,6 +14,7 @@ import {
 } from "@/lib/action/socialMediaAction";
 import { DeleteIcons, EditIcons } from "./Icons";
 import { contacts } from "@/constants";
+import Image from "next/image";
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
@@ -87,12 +89,14 @@ const ContactCard = ({
             className="bg-tertiary rounded-[30px] "
             onClick={() => window.open(links, "_blank")}
           >
-            <img
+            <Image
+              width={100}
+              height={100}
               loading="lazy"
               src={logo}
               alt={name}
               className="w-full h-full object-contain py-5 px-5"
-            ></img>
+            />
 
             <div className=" pb-2 truncate  w-full text-secondary font-quicksand flex flex-col items-center justify-center">
               {name}
@@ -207,7 +211,9 @@ const SocialMediaForm = ({ adminState, setId, form, setForm, id }) => {
                 <span className="text-white font-medium mb-4">
                   Selected Image:
                 </span>
-                <img
+                <Image
+                  width={240}
+                  height={240}
                   src={form.logo}
                   alt="Selected"
                   // className="max-w-full mt-2 rounded-sm"

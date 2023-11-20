@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,9 @@ import { styles } from "@/app/style";
 import { SectionWrapper } from "@/lib/hoc";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
 import { Avatar } from "@nextui-org/react";
-import { Bio } from "@/constants";
+import { Bio, ProfilePic2Path } from "@/constants";
+import Image from "next/image";
+
 
 const About = () => {
   const bios = useSelector((state) => state.BioReducer);
@@ -26,7 +28,9 @@ const About = () => {
           {!bios.length ? Bio : bios[0].bio}
         </motion.p>
 
-        <ProfileAvatars imgsrc={bios.length ? bios[0].selectedImage : ""} />
+        <ProfileAvatars
+          imgsrc={bios.length ? bios[0].selectedImage : ProfilePic2Path}
+        />
       </div>
       <Form formI={bios} />
     </>
@@ -115,7 +119,9 @@ const Form = ({ formI }) => {
               <span className="text-white font-medium mb-4">
                 Selected Image:
               </span>
-              <img
+              <Image
+                width={240}
+                height={240}
                 src={form.selectedImage}
                 alt="Selected"
                 className="max-w-full object-cover mt-2 h-60 w-60 rounded-[40px] border-4 border-red-500"

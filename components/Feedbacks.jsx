@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
@@ -12,6 +13,7 @@ import {
   postTestimonial,
 } from "@/lib/action/testinomialAction";
 import { DeleteIcons, EditIcons } from "./Icons";
+import Image from "next/image";
 
 const Feedbacks = () => {
   const [form, setForm] = useState({
@@ -99,7 +101,9 @@ const FeedBackCard = ({
                 {designation} of {company}
               </p>
             </div>
-            <img
+            <Image
+              width={40}
+              height={40}
               loading="lazy"
               src={image}
               alt={`Feedback-by-${name}`}
@@ -252,7 +256,9 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
                 <span className="text-white font-medium mb-4">
                   Selected Image:
                 </span>
-                <img
+                <Image
+                  width={160}
+                  height={160}
                   src={form.image}
                   alt="Selected"
                   className="w-40 h-40 mt-2 rounded-[40px] border-4 border-red-500"

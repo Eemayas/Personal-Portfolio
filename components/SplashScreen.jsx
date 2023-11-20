@@ -1,0 +1,79 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import anime from "animejs";
+import Image from "next/image";
+import { ProfilePic2Path } from "@/constants";
+import { TypeAnimation } from "react-type-animation";
+import { Avatar } from "@nextui-org/react";
+import { styles } from "@/app/style";
+const SplashScreen = ({ finishedLoading }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  const animate = () => {
+    const loader = anime.timeline({
+      complete: () => finishedLoading(),
+    });
+    loader
+      .add({
+        targets: "#logo",
+        delay: 0,
+        scale: 1,
+        duration: 300,
+        easing: "cubicBezier(.5, .05, .1, .3)",
+      })
+
+      .add({
+        targets: "#logo",
+        delay: 0,
+        scale: 2,
+        duration: 300,
+        easing: "spring(1, 80, 10, 0)",
+        // easing: "easeInOutSine",
+      });
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 15);
+    animate();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <div className="flex flex-col w-screen h-screen items-center justify-center">
+      <Avatar
+        style={{ height: "120px", width: "120px", marginBottom: "125px" }}
+        className=" border-4 border-[#915eff] "
+        id="logo"
+        src={ProfilePic2Path}
+        //   src={"/assets/logo-no-background.webp"}
+        alt={"profile Pic"}
+      />
+
+      <span
+        className={`lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] text-[#915eff] text-center `}
+      >
+        <TypeAnimation
+          sequence={["Prashant Manandhar", 1000]}
+          wrapper="span"
+          cursor={false}
+        />
+      </span>
+      <span className="font-medium lg:text-[10px] sm:text-[16px] xs:text-[10px] text-[6px] text-[#915eff] text-center">
+        <TypeAnimation
+          sequence={["(Eemayas)", 1000]}
+          wrapper="span"
+          cursor={false}
+        />
+      </span>
+      <span className="font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] text-[#915eff] text-center">
+        <TypeAnimation
+          sequence={["Computer Engineer", 1000]}
+          wrapper="span"
+          cursor={false}
+        />
+      </span>
+    </div>
+  );
+};
+
+export default SplashScreen;

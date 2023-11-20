@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +13,7 @@ import {
 } from "@/lib/action/projectAction";
 import { DeleteIcons, EditIcons } from "./Icons";
 import { Tilt } from "react-tilt";
+import Image from "next/image";
 
 const tagColorList = [
   "green-text-gradient",
@@ -60,7 +62,7 @@ const Projects = () => {
           ))}
         </div>
       ) : (
-        <h1>Loading...........</h1>
+        <h1></h1>
       )}
       <ProjectForm
         adminState={adminState}
@@ -98,7 +100,9 @@ const ProjectCard = ({
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
-          <img
+          <Image
+            width={240}
+            height={240}
             loading="lazy"
             src={image}
             alt="project_image"
@@ -296,7 +300,9 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                 <span className="text-white font-medium mb-4">
                   Selected Image:
                 </span>
-                <img
+                <Image
+                  width={160}
+                  height={160}
                   src={form.image}
                   alt="Selected"
                   className="w-40 h-40 mt-2 rounded-[40px] border-4 border-red-500"
