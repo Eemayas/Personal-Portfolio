@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     await connectToDB();
 
     const body = await request.json();
-    const { bio, selectedImage } = body;
+    const { bio, selectedImage, password } = body;
 
     // //Checking if the data are empty
     if (!bio || !selectedImage) {
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         }
       );
     }
-    const newBio = new IntroductionModel({ bio, selectedImage });
+    const newBio = new IntroductionModel({ bio, selectedImage, password });
     await newBio.save();
     return new NextResponse(JSON.stringify(newBio), { status: 200 });
   } catch (error: any) {

@@ -10,10 +10,9 @@ import { Avatar } from "@nextui-org/react";
 import { Bio, ProfilePic2Path } from "@/constants";
 import Image from "next/image";
 
-
 const About = () => {
   const bios = useSelector((state) => state.BioReducer);
-
+  console.log(bios);
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -64,15 +63,17 @@ const Form = ({ formI }) => {
     selectedImage: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     console.log(form);
 
     if (formI.length === 0) {
-      postBio(form);
+      await dispatch(postBio(form));
     } else {
-      patchBio(formI[0]._id, form);
+      await dispatch(
+        patchBio(formI[0]._id, { ...form, password: formI.password })
+      );
     }
 
     setLoading(false);

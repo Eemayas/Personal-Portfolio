@@ -122,14 +122,14 @@ const TechForm = ({ adminState, setId, id, form, setForm }) => {
   const dispatch = useDispatch();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
     if (id != "0") {
-      dispatch(patchBioSkill(id, form));
+      await   dispatch(patchBioSkill(id, form));
     } else {
-      dispatch(postBioSkill(form));
+      await  dispatch(postBioSkill(form));
     }
     setId("0");
     setForm({

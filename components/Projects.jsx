@@ -178,14 +178,14 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
   const dispatch = useDispatch();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
     if (id != "0") {
-      dispatch(patchProject(id, form));
+      await   dispatch(patchProject(id, form));
     } else {
-      dispatch(postProject(form));
+      await  dispatch(postProject(form));
     }
     setId("0");
     setForm({

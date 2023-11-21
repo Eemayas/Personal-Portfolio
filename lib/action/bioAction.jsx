@@ -34,7 +34,7 @@ export const postBio = (newBio) => {
       // console.log(newBio);
       const response = await api.postBio(newBio);
       // console.log(response);
-      dispatch({ type: POST_BIO_SUCCESS, payload: response.data });
+      await dispatch({ type: POST_BIO_SUCCESS, payload: response.data });
     } catch (error) {
       console.error("postBio  (Action):");
       // Handle the error here
@@ -58,7 +58,7 @@ export const patchBio = (id, updatedBio) => {
       // console.log(updatedBio);
       const response = await api.patchBio(id, updatedBio);
       console.log(response);
-      dispatch({ type: PATCH_BIO_SUCCESS, payload: response.data });
+      await dispatch({ type: PATCH_BIO_SUCCESS, payload: response.data });
     } catch (error) {
       // console.error("patchBio  (Action):");
       // Handle the error here

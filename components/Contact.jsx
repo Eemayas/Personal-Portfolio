@@ -136,15 +136,15 @@ const SocialMediaForm = ({ adminState, setId, form, setForm, id }) => {
   const dispatch = useDispatch();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
 
     if (id != "0") {
-      dispatch(patchSocialMedia(id, form));
+      await dispatch(patchSocialMedia(id, form));
     } else {
-      dispatch(postSocialMedia(form));
+      await dispatch(postSocialMedia(form));
     }
     setId("0");
     setForm({

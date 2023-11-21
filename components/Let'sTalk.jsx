@@ -225,15 +225,15 @@ const ContactForm = ({ adminState, setId, setForm, id, form }) => {
 
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
 
     if (id != "0") {
-      dispatch(patchContact(id, form));
+      await  dispatch(patchContact(id, form));
     } else {
-      dispatch(postContact(form));
+      await   dispatch(postContact(form));
     }
     setId("0");
     setForm({

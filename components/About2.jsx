@@ -132,14 +132,14 @@ const About2Form = ({ setId, id, form, setForm, adminState }) => {
   const [loading, setLoading] = useState(false);
   const formRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
     if (id != "0") {
-      dispatch(patchBioCard(id, form));
+      await   dispatch(patchBioCard(id, form));
     } else {
-      dispatch(postBioCard(form));
+      await  dispatch(postBioCard(form));
     }
     setId("0");
     setForm({
