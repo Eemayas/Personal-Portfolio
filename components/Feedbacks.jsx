@@ -257,6 +257,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
                   Selected Image:
                 </span>
                 <Image
+                  loading="lazy"
                   width={160}
                   height={160}
                   src={form.image}

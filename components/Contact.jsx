@@ -216,6 +216,7 @@ const SocialMediaForm = ({ adminState, setId, form, setForm, id }) => {
                   height={240}
                   src={form.logo}
                   alt="Selected"
+                  loading="lazy"
                   // className="max-w-full mt-2 rounded-sm"
                   className="max-w-full mt-2 rounded-[40px] border-4 border-red-500"
                 />

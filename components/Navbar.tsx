@@ -22,6 +22,7 @@ const Navbar = () => {
           }}
         >
           <Image
+            loading="lazy"
             alt="logo"
             className="rounded-full"
             src={"/assets/logo-no-background.webp"}

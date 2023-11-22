@@ -91,9 +91,9 @@ const ProfileAvatars = () => {
         <Image
           src={ProfilePicPath}
           alt=".."
-          width={"1020"}
-          height={"1020"}
-          // loading="lazy"
+          width={"150"}
+          height={"150"}
+          loading="eager"
           className=" shadow-slate-500 shadow-md w-60 h-60 aspect-square rounded-2xl bg-center bg-cover duration-500 object-cover"
         />
       </div>

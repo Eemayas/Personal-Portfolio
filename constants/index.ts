@@ -110,11 +110,11 @@ export const technologies = [
   },
   {
     name: "MongoDB",
-    icon: "/assets/skills/SQL.webp",
+    icon: "/assets/skills/MongoDB.webp",
   },
   {
     name: "My SQL",
-    icon: "/assets/skills/MongoDB.webp",
+    icon: "/assets/skills/SQL.webp",
   },
   {
     name: "Python",

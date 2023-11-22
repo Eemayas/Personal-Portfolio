@@ -21,7 +21,7 @@ const About = () => {
       </motion.div>
       <div className="md:flex-row flex flex-col-reverse justify-around">
         <motion.p
-          className="md:w-[50%] mt-4 w-[100%] text-justify text-secondary text-[17px]  leading-[30px]"
+          className="md:w-[50%] mt-4 w-[100%] text-justify text-[#ffffff] text-[17px]  leading-[30px]"
           variants={fadeIn("", "", 0.1, 1)}
         >
           {!bios.length ? Bio : bios[0].bio}
@@ -121,6 +121,7 @@ const Form = ({ formI }) => {
                 Selected Image:
               </span>
               <Image
+                loading="lazy"
                 width={240}
                 height={240}
                 src={form.selectedImage}

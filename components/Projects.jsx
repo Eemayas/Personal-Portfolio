@@ -178,14 +178,14 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
   const dispatch = useDispatch();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
     if (id != "0") {
-      await   dispatch(patchProject(id, form));
+      await dispatch(patchProject(id, form));
     } else {
-      await  dispatch(postProject(form));
+      await dispatch(postProject(form));
     }
     setId("0");
     setForm({
@@ -301,6 +301,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                   Selected Image:
                 </span>
                 <Image
+                  loading="lazy"
                   width={160}
                   height={160}
                   src={form.image}

@@ -137,9 +137,9 @@ const About2Form = ({ setId, id, form, setForm, adminState }) => {
     console.log(form);
     e.preventDefault();
     if (id != "0") {
-      await   dispatch(patchBioCard(id, form));
+      await dispatch(patchBioCard(id, form));
     } else {
-      await  dispatch(postBioCard(form));
+      await dispatch(postBioCard(form));
     }
     setId("0");
     setForm({
@@ -199,6 +199,7 @@ const About2Form = ({ setId, id, form, setForm, adminState }) => {
                 <Image
                   width={240}
                   height={240}
+                  loading="lazy"
                   src={form.selectedImage}
                   alt="Selected"
                   className="w-40 h-40 mt-2 rounded-[40px] border-4 border-red-500"

@@ -122,14 +122,14 @@ const TechForm = ({ adminState, setId, id, form, setForm }) => {
   const dispatch = useDispatch();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
     if (id != "0") {
-      await   dispatch(patchBioSkill(id, form));
+      await dispatch(patchBioSkill(id, form));
     } else {
-      await  dispatch(postBioSkill(form));
+      await dispatch(postBioSkill(form));
     }
     setId("0");
     setForm({
@@ -187,6 +187,7 @@ const TechForm = ({ adminState, setId, id, form, setForm }) => {
                   Selected Image:
                 </span>
                 <Image
+                  loading="lazy"
                   width={160}
                   height={160}
                   src={form.selectedImage}
