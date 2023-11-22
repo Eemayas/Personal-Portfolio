@@ -58,14 +58,18 @@ const SplashScreen = ({ finishedLoading }) => {
           cursor={false}
         />
       </span>
-      <span className="font-medium lg:text-[10px] sm:text-[16px] xs:text-[10px] text-[6px] text-[#915eff] text-center">
+      <span className="font-medium lg:text-[20px] sm:text-[21px] xs:text-[15px] text-[11px] text-[#915eff] text-center">
+        (
         <TypeAnimation
-          sequence={["(Eemayas)", 1000]}
+          sequence={["Eemayas", 1000]}
           wrapper="span"
           cursor={false}
         />
+        )
       </span>
-      <span className="font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] text-[#915eff] text-center">
+      <span
+        className={`lg:text-[60px] sm:text-[40px] xs:text-[30px] text-[20px] text-[#915eff] text-center `}
+      >
         <TypeAnimation
           sequence={["Computer Engineer", 1000]}
           wrapper="span"

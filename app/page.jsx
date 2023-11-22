@@ -33,15 +33,20 @@ export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: IS_ADMIN, payload: false });
-    dispatch(fetchBio());
-    dispatch(fetchBioCard());
-    dispatch(fetchBioSkill());
-    dispatch(fetchProject());
-    dispatch(fetchContact());
-    dispatch(fetchSocialMedia());
-    dispatch(fetchTestimonial());
-    dispatch(fetchExperience());
+    const fetchData = async () => {
+      await dispatch({ type: IS_ADMIN, payload: false });
+      await dispatch(fetchProject());
+      await dispatch(fetchBio());
+      await dispatch(fetchBioCard());
+      await dispatch(fetchBioSkill());
+      await dispatch(fetchContact());
+      await dispatch(fetchSocialMedia());
+      await dispatch(fetchTestimonial());
+      await dispatch(fetchExperience());
+    };
+
+    // Call the async function
+    fetchData();
   }, [dispatch]);
   const pathname = usePathname();
   const isHome = pathname === "/";
