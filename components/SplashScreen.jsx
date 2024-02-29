@@ -40,14 +40,14 @@ const SplashScreen = ({ finishedLoading }) => {
 
   return (
     <div className="flex flex-col w-screen h-screen items-center justify-center">
-      <Avatar
+      sdvsdv
+      {/* <Avatar
         style={{ height: "120px", width: "120px", marginBottom: "125px" }}
         className=" border-4 border-[#915eff] "
         id="logo"
         src={ProfilePic2Path}
         alt={"profile Pic"}
       />
-
       <span
         className={`lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] text-[#915eff] text-center `}
       >
@@ -74,7 +74,7 @@ const SplashScreen = ({ finishedLoading }) => {
           wrapper="span"
           cursor={false}
         />
-      </span>
+      </span> */}
     </div>
   );
 };
