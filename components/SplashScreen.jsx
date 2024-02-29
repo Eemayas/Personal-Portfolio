@@ -7,35 +7,35 @@ import { TypeAnimation } from "react-type-animation";
 import { Avatar } from "@nextui-org/react";
 import { styles } from "@/app/style";
 const SplashScreen = ({ finishedLoading }) => {
-  const [isMounted, setIsMounted] = useState(false);
+  // const [isMounted, setIsMounted] = useState(false);
 
-  const animate = () => {
-    const loader = anime.timeline({
-      complete: () => finishedLoading(),
-    });
-    loader
-      .add({
-        targets: "#logo",
-        delay: 0,
-        scale: 1,
-        duration: 300,
-        easing: "cubicBezier(.5, .05, .1, .3)",
-      })
+  // const animate = () => {
+  //   const loader = anime.timeline({
+  //     complete: () => finishedLoading(),
+  //   });
+  //   loader
+  //     .add({
+  //       targets: "#logo",
+  //       delay: 0,
+  //       scale: 1,
+  //       duration: 300,
+  //       easing: "cubicBezier(.5, .05, .1, .3)",
+  //     })
 
-      .add({
-        targets: "#logo",
-        delay: 0,
-        scale: 2,
-        duration: 300,
-        easing: "spring(1, 80, 10, 0)",
-        // easing: "easeInOutSine",
-      });
-  };
+  //     .add({
+  //       targets: "#logo",
+  //       delay: 0,
+  //       scale: 2,
+  //       duration: 300,
+  //       easing: "spring(1, 80, 10, 0)",
+  //       // easing: "easeInOutSine",
+  //     });
+  // };
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 15);
-    animate();
-    return () => clearTimeout(timeout);
+    // const timeout = setTimeout(() => setIsMounted(true), 15);
+    // animate();
+    // return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -45,7 +45,6 @@ const SplashScreen = ({ finishedLoading }) => {
         className=" border-4 border-[#915eff] "
         id="logo"
         src={ProfilePic2Path}
-        //   src={"/assets/logo-no-background.webp"}
         alt={"profile Pic"}
       />
 

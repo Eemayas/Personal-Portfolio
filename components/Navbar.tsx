@@ -5,6 +5,7 @@ import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { CloseIcons, MenuIcons } from "./Icons";
+import "../app/style.css";
 const Navbar = () => {
   const [actice, setActice] = useState("");
   const [toggle, setToogle] = useState(false);

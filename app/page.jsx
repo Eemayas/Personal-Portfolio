@@ -3,7 +3,7 @@ import NavBar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import About2 from "@/components/About2";
-// import Experience from "@/components/Experience";
+import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Feedbacks from "@/components/Feedbacks";
@@ -23,11 +23,8 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-
 import SplashScreen from "@/components/SplashScreen";
 import { usePathname } from "next/navigation";
-
-require("dotenv").config();
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -56,9 +53,12 @@ export default function Home() {
       return;
     }
   }, []);
-  return isLoading && isHome ? (
-    <SplashScreen finishedLoading={() => setIsLoading(false)} />
-  ) : (
+  return (
+    // isLoading && isHome ? (
+    //   <div>dfsd</div>
+    // ) :
+    // (
+    // <SplashScreen finishedLoading={() => setIsLoading(false)} />
     <div className="relative z-0 ">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
         <NavBar />

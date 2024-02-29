@@ -14,11 +14,11 @@ import {
 import { DeleteIcons, EditIcons } from "./Icons";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
-
+import "../app/style.css";
 const tagColorList = [
   "green-text-gradient",
   "pink-text-gradient",
-  "blue-text-gradient",
+  "orange-text-gradient",
 ];
 
 const Projects = () => {
@@ -97,7 +97,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-5 rounded-2xl w-[300px] sm:w-[360px]"
       >
         <div className="relative w-full h-[230px]">
           <Image
@@ -114,7 +114,10 @@ const ProjectCard = ({
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img
+              <Image
+                width={"20"}
+                height={"20"}
+                loading="lazy"
                 src={"/assets/contacts/Github.webp"}
                 alt="source code"
                 className="w-1/2 h-1/2 object-contain"

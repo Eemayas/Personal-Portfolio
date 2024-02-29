@@ -6,7 +6,6 @@ import { TypeAnimation } from "react-type-animation";
 import { ProfilePicPath, contacts } from "@/constants";
 import { fadeIn } from "@/lib/utils/motion";
 import Image from "next/image";
-// import { Image } from "@nextui-org/react";
 
 const Hero = () => {
   return (
