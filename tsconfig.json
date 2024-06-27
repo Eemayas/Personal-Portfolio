@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -18,10 +18,17 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*": ["components/*"],
+      "@/data/*": ["data/*"],
+      "@/layouts/*": ["layouts/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
+    
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/utils/motion.js", "app/page.jsx", "lib/api/apis.js", "lib/action/bioAction.jsx", "components/About.jsx", "components/Hero.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/utils/motion.js", "app/page.jsx", "lib/api/apis.js", "lib/action/bioAction.jsx", "components/About.jsx", "components/Hero.jsx", "contentlayer.config.ts", "app/store.ts",
+  ".contentlayer/generated",],
   "exclude": ["node_modules"]
 }

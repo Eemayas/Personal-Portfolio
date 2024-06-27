@@ -3,12 +3,13 @@ import NavBar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import About2 from "@/components/About2";
-import Experience from "@/components/Experience";
+// import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Feedbacks from "@/components/Feedbacks";
 import LetSTalk from "@/components/Let'sTalk";
 import Contact from "@/components/Contact";
+import Blogs from "@/components/Blogs";
 import {
   fetchSocialMedia,
   fetchBio,
@@ -23,8 +24,8 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import SplashScreen from "@/components/SplashScreen";
-import { usePathname } from "next/navigation";
+// import SplashScreen from "@/components/SplashScreen";
+// import { usePathname } from "next/navigation";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -45,20 +46,18 @@ export default function Home() {
     // Call the async function
     fetchData();
   }, [dispatch]);
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [isLoading, setIsLoading] = useState(isHome);
-  useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-  }, []);
+  // const pathname = usePathname();
+  // const isHome = pathname === "/";
+  // const [isLoading, setIsLoading] = useState(isHome);
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     return;
+  //   }
+  // }, []);
   return (
     // isLoading && isHome ? (
-    //   <div>dfsd</div>
-    // ) :
-    // (
-    // <SplashScreen finishedLoading={() => setIsLoading(false)} />
+    //   <SplashScreen finishedLoading={() => setIsLoading(false)} />
+    // ) : (
     <div className="relative z-0 ">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
         <NavBar />
@@ -68,7 +67,7 @@ export default function Home() {
       <About2 />
       <Skills />
       <Projects />
-      {/* <Experience /> */}
+      <Blogs />
       <Feedbacks />
       <div className="relative z-0 ">
         <LetSTalk />

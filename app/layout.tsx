@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { Providers } from "./providers";
+import "css/tailwind.css";
+import { Providers, ThemeProviders } from "./providers";
 
 export const metadata: Metadata = {
   title: "Prashant | Protfoilo",
@@ -14,10 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-primary">
-        <Providers>
-          <main>{children}</main>
-        </Providers>
+      {/* <body className="bg-background-light"> */}
+      <body className="bg-background-light text-black antialiased dark:bg-background-dark dark:text-white">
+        <ThemeProviders>
+          <Providers>
+            <main>{children}</main>
+          </Providers>
+        </ThemeProviders>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 const { nextui } = require("@nextui-org/react");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -7,8 +8,13 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./data/**/*.mdx",
+    "./layouts/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/pliny/**/*.js",
+
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
     extend: {
       animation: {
@@ -42,9 +48,27 @@ const config: Config = {
           },
         },
       },
+      screens: {
+        xs: "450px",
+        sm: "640px",
+        md: "900px",
+        lg: "1024px",
+      },
       colors: {
+        background: {
+          light: "#F0F3FE",
+          dark: "#12212B",
+        },
+        text: {
+          dark: "#FFFFFF",
+          light: "#000000",
+        },
         primary: "#303139",
         // secondary: "#CCCCD5",
+        secondarys: {
+          light: "#000000",
+          dark: "#ffffff",
+        },
         secondary: "#ffffff",
         tertiary: "#1b2432",
         "black-100": "#03191E",
@@ -54,18 +78,66 @@ const config: Config = {
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",
       },
-      screens: {
-        xs: "450px",
-        sm: "640px",
-        md: "900px",
-        lg: "1024px",
+      fontSize: {
+        base: "1rem",
+        h1: "2.125rem",
+        h2: "1.875rem",
+        h3: "1.5rem",
       },
+      lineHeight: {
+        11: "2.75rem",
+        12: "3rem",
+        13: "3.25rem",
+        14: "3.5rem",
+      },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme("colors.primary.500"),
+              "&:hover": {
+                color: `${theme("colors.primary.600")}`,
+              },
+              code: { color: theme("colors.primary.400") },
+            },
+            "h1,h2": {
+              fontWeight: "700",
+              letterSpacing: theme("letterSpacing.tight"),
+            },
+            h3: {
+              fontWeight: "600",
+            },
+            code: {
+              color: theme("colors.indigo.500"),
+            },
+          },
+        },
+        invert: {
+          css: {
+            a: {
+              color: theme("colors.primary.500"),
+              "&:hover": {
+                color: `${theme("colors.primary.400")}`,
+              },
+              code: { color: theme("colors.primary.400") },
+            },
+            "h1,h2,h3,h4,h5,h6": {
+              color: theme("colors.gray.100"),
+            },
+          },
+        },
+      }),
     },
   },
+
   backgroundImage: {
     "hero-pattern": "url('/assets/herobg.webp')",
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui(),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+  ],
 };
 export default config;

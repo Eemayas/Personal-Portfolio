@@ -14,7 +14,7 @@ import {
 import { DeleteIcons, EditIcons } from "./Icons";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
-import "../app/style.css";
+import "css/tailwind.css";
 const tagColorList = [
   "green-text-gradient",
   "pink-text-gradient",

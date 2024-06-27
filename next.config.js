@@ -1,5 +1,19 @@
 /** @type {import('next').NextConfig} */
+const { withContentlayer } = require("next-contentlayer2");
 const nextConfig = {
+  images: {
+    domains: ["images.unsplash.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+    ],
+  },
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  eslint: {
+    dirs: ["app", "components", "layouts", "scripts"],
+  },
   async headers() {
     return [
       {
@@ -21,6 +35,14 @@ const nextConfig = {
       },
     ];
   },
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
+
+    return config
+  },
 };
 
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);

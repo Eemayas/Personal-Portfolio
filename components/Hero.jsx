@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/lib/hoc";
@@ -11,7 +12,7 @@ const Hero = () => {
   return (
     <section className=" mt-20 md:mt-10 mx-auto">
       <div
-        className={` bg-white bg-opacity-10 backdrop-blur-lg rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row  p-6 md:p-20  gap-5 items-center border-transparent animate-circle-rotate`}
+        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row  p-6 md:p-20  gap-5 items-center border-transparent animate-circle-rotate bg-white`}
       >
         <div className="m-0 w-[60%]">
           <div
@@ -32,7 +33,7 @@ const Hero = () => {
                   />
                 </span>
               </h1>
-              <p className={`${styles.heroSubText} mt-2 text-white-100 `}>
+              <p className={`${styles.heroSubText} mt-2 `}>
                 <TypeAnimation
                   sequence={[
                     "Flutter Developer..",
@@ -66,7 +67,7 @@ const Hero = () => {
       </div>
       <div className="mt-2 w-full flex justify-center items-center">
         <a href="#about" aria-label="Scroll to About Section">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+          <div className="w-[35px] h-[64px] rounded-3xl border-4 dark:border-secondarys-dark border-secondarys-light flex justify-center items-start p-2">
             <motion.div
               animate={{ y: [0, 24, 0] }}
               transition={{
@@ -74,7 +75,7 @@ const Hero = () => {
                 repeat: Infinity,
                 reportType: "loop",
               }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
+              className="w-3 h-3 rounded-full dark:bg-secondarys-dark bg-secondarys-light mb-1"
             />
           </div>
         </a>

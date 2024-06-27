@@ -1,0 +1,132 @@
+---
+title: "Time Complexity of Algorithms"
+date: "2024-06-27"
+tags:
+  - Algorithms
+  - Time Complexity
+  - Computational Efficiency
+  - Computer Science
+summary: "This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size."
+authors: ["default", "sparrowhawk"]
+---
+
+# Complexity
+
+# Different Data Structure
+
+Sure, here is a consolidated table that includes the best case, worst case, and average case time complexities for various operations on different data structures:
+
+| Data Structure             | Operation     | Best Case | Worst Case | Average Case |
+| -------------------------- | ------------- | --------- | ---------- | ------------ |
+| **Array**                  | **Access**    | O(1)      | O(1)       | O(1)         |
+|                            | **Search**    | O(1)      | O(N)       | O(N)         |
+|                            | **Insertion** | O(1)      | O(N)       | O(N)         |
+|                            | **Deletion**  | O(1)      | O(N)       | O(N)         |
+| **Stack**                  | **Access**    | O(1)      | O(N)       | O(N)         |
+|                            | **Search**    | O(1)      | O(N)       | O(N)         |
+|                            | **Insertion** | O(1)      | O(1)       | O(1)         |
+|                            | **Deletion**  | O(1)      | O(1)       | O(1)         |
+| **Queue**                  | **Access**    | O(1)      | O(N)       | O(N)         |
+|                            | **Search**    | O(1)      | O(N)       | O(N)         |
+|                            | **Insertion** | O(1)      | O(1)       | O(1)         |
+|                            | **Deletion**  | O(1)      | O(1)       | O(1)         |
+| **Singly Linked List**     | **Access**    | O(1)      | O(N)       | O(N)         |
+|                            | **Search**    | O(1)      | O(N)       | O(N)         |
+|                            | **Insertion** | O(1)      | O(N)       | O(1)         |
+|                            | **Deletion**  | O(1)      | O(N)       | O(1)         |
+| **Doubly Linked List**     | **Access**    | O(1)      | O(N)       | O(N)         |
+|                            | **Search**    | O(1)      | O(N)       | O(N)         |
+|                            | **Insertion** | O(1)      | O(1)       | O(1)         |
+|                            | **Deletion**  | O(1)      | O(1)       | O(1)         |
+| **Hash Table**             | **Access**    | O(1)      | O(N)       | O(1)         |
+|                            | **Search**    | O(1)      | O(N)       | O(1)         |
+|                            | **Insertion** | O(1)      | O(N)       | O(1)         |
+|                            | **Deletion**  | O(1)      | O(N)       | O(1)         |
+| **Binary **Search** Tree** | **Access**    | O(log N)  | O(N)       | O(log N)     |
+|                            | **Search**    | O(log N)  | O(N)       | O(log N)     |
+|                            | **Insertion** | O(log N)  | O(N)       | O(log N)     |
+|                            | **Deletion**  | O(log N)  | O(N)       | O(log N)     |
+| **AVL Tree**               | **Access**    | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Search**    | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Insertion** | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Deletion**  | O(log N)  | O(log N)   | O(log N)     |
+| **B Tree**                 | **Access**    | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Search**    | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Insertion** | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Deletion**  | O(log N)  | O(log N)   | O(log N)     |
+| **Red Black Tree**         | **Access**    | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Search**    | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Insertion** | O(log N)  | O(log N)   | O(log N)     |
+|                            | **Deletion**  | O(log N)  | O(log N)   | O(log N)     |
+
+# Comparison Sort
+
+Sure! Here is a table summarizing the time complexities (best case, average case, and worst case) of various algorithms:
+
+| Algorithm                  | Best Case Time Complexity | Average Case Time Complexity | Worst Case Time Complexity |
+| -------------------------- | ------------------------- | ---------------------------- | -------------------------- |
+| **Selection Sort**         | \(O(n<sup>2</sup>)\)      | \(O(n<sup>2</sup>)\)         | \(O(n<sup>2</sup>)\)       |
+| **Insertion Sort**         | \(O(n)\)                  | \(O(n<sup>2</sup>)\)         | \(O(n<sup>2</sup>)\)       |
+| **Merge Sort**             | \(O(n log n)\)            | \(O(n log n)\)               | \(O(n log n)\)             |
+| **Merge in Merge Sort**    | \(O(n)\)                  | \(O(n)\)                     | \(O(n)\)                   |
+| **Quick Sort**             | \(O(n log n)\)            | \(O(n log n)\)               | \(O(n<sup>2</sup>)\)       |
+| **Partition (Quick Sort)** | \(O(n)\)                  | \(O(n)\)                     | \(O(n)\)                   |
+| **Heap Sort**              | \(O(n log n)\)            | \(O(n log n)\)               | \(O(n log n)\)             |
+| **Build Max Heap**         | \(O(n)\)                  | \(O(n)\)                     | \(O(n)\)                   |
+| **Heapify**                | \(O(log n)\)              | \(O(log n)\)                 | \(O(log n)\)               |
+
+# Greedy algorithms
+
+| Algorithm                        | Best Case Time Complexity          | Average Case Time Complexity              | Worst Case Time Complexity                |
+| -------------------------------- | ---------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| **BFS in Graph**                 | \(O(V + E)\)                       | \(O(V + E)\)                              | \(O(V + E)\)                              |
+| **DFS in Graph**                 | \(O(V + E)\)                       | \(O(V + E)\)                              | \(O(V + E)\)                              |
+| **N-Queen Problem**              | \(O(N!)\)                          | \(O(N!)\)                                 | \(O(N!)\)                                 |
+| **Kruskal’s Algorithm**          | \(O(E log E)\)                     | \(O(E log E)\)                            | \(O(E log E)\)                            |
+| **Prim’s Algorithm**             | \(O(E log V)\) (using binary heap) | \(O(E + V log V)\) (using Fibonacci heap) | \(O(E + V log V)\) (using Fibonacci heap) |
+| **Dijkstra's Algorithm**         | \(O((E + V) log V)\) (for sparse ) | \(O(E + V<sup>2</sup>)\)                  | \(O(E + V<sup>2</sup>)\)                  |
+| **0/1 Knapsack**                 | \(O(2<sup>n</sup>)\)               | \(O(2<sup>n</sup>)\)                      | \(O(2<sup>n</sup>)\)                      |
+| **Fractional Knapsack (greedy)** | \(O(n log n)\)                     | \(O(n log n)\)                            | \(O(n log n)\)                            |
+| **Ford-Fulkerson**               | \(O(E f)\)                         | \(O(E f)\)                                | \(O(E f)\)                                |
+
+Here, \(n\) typically denotes the number of elements or size of the input, \(V\) denotes the number of vertices in a graph, \(E\) denotes the number of edges in a graph and \(f\) is the maximum flow value.
+
+# Sorting in linear time
+
+Sure! Here are the time complexities for Counting Sort, Radix Sort, and Bucket Sort:
+
+| Algorithm         | Best Case Time Complexity | Average Case Time Complexity | Worst Case Time Complexity |
+| ----------------- | ------------------------- | ---------------------------- | -------------------------- |
+| **Counting Sort** | \(O(n + k)\)              | \(O(n + k)\)                 | \(O(n + k)\)               |
+| **Radix Sort**    | \(O(nd)\)                 | \(O(nd)\)                    | \(O(nd)\)                  |
+| **Bucket Sort**   | \(O(n + k)\)              | \(O(n + k)\)                 | \(O(n^2)\)                 |
+
+## Explanation:
+
+1. **Counting Sort**:
+
+   - **Best/Average/Worst Case**: \(O(n + k)\), where \(n\) is the number of elements and \(k\) is the range of the input.
+
+2. **Radix Sort**:
+
+   - **Best/Average/Worst Case**: \(O(nd)\), where \(n\) is the number of elements and \(d\) is the number of digits in the largest number. Radix Sort typically uses Counting Sort as a subroutine, hence the complexity depends on the number of digits.
+
+3. **Bucket Sort**:
+   - **Best/Average Case**: \(O(n + k)\), where \(n\) is the number of elements and \(k\) is the number of buckets.
+   - **Worst Case**: \(O(n^2)\), which occurs when all elements are placed in a single bucket, leading to a suboptimal performance that is equivalent to using a basic sorting algorithm like insertion sort within that bucket.
+
+These complexities assume that the auxiliary sorting within the buckets (for Bucket Sort) or the intermediate sorting for digits (for Radix Sort) is efficiently handled, typically by algorithms with linearithmic or better time complexity.
+
+# Dynamic Programming
+
+The time complexity for finding the Longest Common Subsequence (LCS) using dynamic programming is as follows:
+
+| Algorithm                            | Best Case Time Complexity | Average Case Time Complexity | Worst Case Time Complexity |
+| ------------------------------------ | ------------------------- | ---------------------------- | -------------------------- |
+| **Longest Common Subsequence (LCS)** | \(O(m . n)\)              | \(O(m . n)\)                 | \(O(m . n)\)               |
+
+### Explanation:
+
+- **Best Case, Average Case, and Worst Case**: \(O(m . n)\), where \(m\) and \(n\) are the lengths of the two input sequences.
+
+The dynamic programming approach to solve the LCS problem involves constructing a 2D table (of size \(m \times n\)) where each cell \((i, j)\) contains the length of the LCS of the substrings up to the \(i\)-th character of the first sequence and the \(j\)-th character of the second sequence. Filling out this table involves iterating over both sequences, leading to a time complexity of \(O(m \cdot n)\).
