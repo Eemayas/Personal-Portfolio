@@ -13,10 +13,6 @@ import {
 } from "@/lib/action/contactAction";
 import { DeleteIcons, EditIcons } from "./Icons";
 
-// import { EmailIcon } from "../assets";
-// import { FaMapMarkedAlt,FaPhoneSquare } from "react-icons/fa/index.esm.js";
-// import { RiMailSendLine } from "react-icons/ri/index.esm.js";
-
 const LetsTalk = () => {
   const [form, setForm] = useState({
     title: "",
@@ -225,15 +221,15 @@ const ContactForm = ({ adminState, setId, setForm, id, form }) => {
 
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     console.log(form);
     e.preventDefault();
 
     if (id != "0") {
-      await  dispatch(patchContact(id, form));
+      await dispatch(patchContact(id, form));
     } else {
-      await   dispatch(postContact(form));
+      await dispatch(postContact(form));
     }
     setId("0");
     setForm({

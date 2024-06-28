@@ -52,7 +52,7 @@ const Navbar = () => {
                   } hover:text-[#915eff] text-[18px] font-medium cursor-pointer`}
                   onClick={() => setActice(Links.title)}
                 >
-                  <a href={`#${Links.id}`}>{Links.title}</a>
+                  <a href={`/${Links.id}`}>{Links.title}</a>
                 </li>
               );
             })}

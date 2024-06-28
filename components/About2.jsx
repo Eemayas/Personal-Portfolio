@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";

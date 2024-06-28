@@ -4,16 +4,16 @@ export const navLinks = [
     title: "About",
   },
   {
-    id: "blogs",
+    id: "blog",
     title: "Blogs",
   },
   {
-    id: "project",
+    id: "projects",
     title: "Projects",
   },
   {
-    id: "contact",
-    title: "Contact",
+    id: "contacts",
+    title: "Contacts",
   },
 ];
 
@@ -225,122 +225,32 @@ export const technologies = [
 //   },
 // ];
 
-// const projects = [
-// {
-//   name: "Car Race",
-//   description: "Terminal base Car race game",
-//   tags: [
-//     {
-//       name: "C++",
-//       color: "blue-text-gradient",
-//     },
-//   ],
-//   image: CommingSoon,
-//   source_code_link: "https://github.com/Eemayas/2nd-sem-Final-Project.git",
-//   imageList: [
-//     {
-//       url: CarRaceGameGameOver,
-//       title: "Game Over",
-//     },
-//     {
-//       url: CarRaceGameNameEntry,
-//       title: "Name Entry",
-//     },
-//     {
-//       url: CarRaceGameMenu,
-//       title: "Game Menu",
-//     },
-//     {
-//       url: CarRaceGameInstruction,
-//       title: "Instruction",
-//     },
-//     {
-//       url: CarRaceGameLeaderBoard,
-//       title: "LeaderBoard",
-//     },
-//     {
-//       url: CarRaceGameLevelSelection,
-//       title: "Level Selection",
-//     },
-//     {
-//       url: CarRaceGameGammingPage,
-//       title: " Gamming Page",
-//     },
-//   ],
-// },
-// {
-//   name: "Meal Up",
-//   description: "Recipe App",
-//   tags: [
-//     {
-//       name: "Flutter",
-//       color: "blue-text-gradient",
-//     },
-//     {
-//       name: "Firebase",
-//       color: "green-text-gradient",
-//     },
-//     {
-//       name: "Dart",
-//       color: "pink-text-gradient",
-//     },
-//   ],
-//   image: CommingSoon,
-//   source_code_link: "https://github.com/",
-//   imageList: [
-//     {
-//       url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-//       title: "1",
-//     },
-//     {
-//       url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
-//       title: "2",
-//     },
-//     {
-//       url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
-//       title: "3",
-//     },
-//   ],
-// },
-// {
-//   name: "ProjectHub",
-//   description: "Project Management website",
-//   tags: [
-//     {
-//       name: "MongoDB",
-//       color: "green-text-gradient",
-//     },
-//     {
-//       name: "ExpressJS",
-//       color: "pink-text-gradient",
-//     },
-//     {
-//       name: "React",
-//       color: "blue-text-gradient",
-//     },
-//     {
-//       name: "Node",
-//       color: "green-text-gradient",
-//     },
-//   ],
-//   image: CommingSoon,
-//   source_code_link: "https://github.com/",
-//   imageList: [
-//     {
-//       url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-//       title: "1",
-//     },
-//     {
-//       url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
-//       title: "2",
-//     },
-//     {
-//       url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
-//       title: "3",
-//     },
-//   ],
-// },
-// ];
+export const projects = [
+  {
+    name: "Car Race",
+    description: "Terminal base Car race game",
+    tags: ["C++"],
+    image:
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    source_code_link: "https://github.com/Eemayas/2nd-sem-Final-Project.git",
+  },
+  {
+    name: "Meal Up",
+    description: "Recipe App",
+    tags: ["Flutter", "Firebase", "Dart"],
+    image:
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    source_code_link: "https://github.com/Eemayas/4th-sem-projects",
+  },
+  {
+    name: "ProjectHub",
+    description: "Project Management website",
+    tags: ["MongoDB", "ExpressJS", "React", "Node"],
+    image:
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    source_code_link: "https://github.com/",
+  },
+];
 //
 // export {
 //   services,

@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import FileBase from "react-file-base64";

@@ -46,21 +46,10 @@ export default function Home() {
     // Call the async function
     fetchData();
   }, [dispatch]);
-  // const pathname = usePathname();
-  // const isHome = pathname === "/";
-  // const [isLoading, setIsLoading] = useState(isHome);
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     return;
-  //   }
-  // }, []);
   return (
-    // isLoading && isHome ? (
-    //   <SplashScreen finishedLoading={() => setIsLoading(false)} />
-    // ) : (
     <div className="relative z-0 ">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-        <NavBar />
+        {/* <NavBar /> */}
         <Hero />
       </div>
       <About />

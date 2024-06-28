@@ -6,6 +6,7 @@ import { SectionWrapper } from "@/lib/hoc";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
 import { styles } from "@/app/style";
 import { motion } from "framer-motion";
+import { projects } from "@/constants";
 import {
   deleteProject,
   patchProject,
@@ -50,7 +51,7 @@ const Projects = () => {
       </div>
       {projectss.length ? (
         <div className=" mt-20 flex flex-wrap justify-center gap-7">
-          {projectss.map((project, index) => (
+          {projectss.slice(0, 3).map((project, index) => (
             <ProjectCard
               adminState={adminState}
               key={`project-${index}`}
@@ -62,7 +63,18 @@ const Projects = () => {
           ))}
         </div>
       ) : (
-        <h1></h1>
+        <div className=" mt-20 flex flex-wrap justify-center gap-7">
+          {projects.map((project, index) => (
+            <ProjectCard
+              adminState={adminState}
+              key={`project-${index}`}
+              setForm={setForm}
+              setId={setId}
+              index={index}
+              {...project}
+            />
+          ))}
+        </div>
       )}
       <ProjectForm
         adminState={adminState}

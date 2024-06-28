@@ -1,16 +1,16 @@
 [
   {
-    "name": "Tails Azimuth",
+    "name": "Prashant Manandhar",
     "avatar": "/static/images/avatar.png",
-    "occupation": "Professor of Atmospheric Science",
-    "company": "Stanford University",
-    "email": "address@yoursite.com",
-    "twitter": "https://twitter.com/Twitter",
-    "linkedin": "https://www.linkedin.com",
-    "github": "https://github.com",
+    "occupation": "Student at Kathmandu University",
+    "company": "Kathmandu University",
+    "email": "prashantmanandhar2002@gmail.com",
+    "twitter": "https://x.com/PrashantManand8",
+    "linkedin": "https://www.linkedin.com/in/prashant-manandhar-461917246/",
+    "github": "https://github.com/Eemayas",
     "body": {
-      "raw": "\nTails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.\n\nHe leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.\n",
-      "code": "var Component=(()=>{var d=Object.create;var n=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),x=(e,t)=>{for(var s in t)n(e,s,{get:t[s],enumerable:!0})},o=(e,t,s,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of h(t))!g.call(e,a)&&a!==s&&n(e,a,{get:()=>t[a],enumerable:!(r=p(t,a))||r.enumerable});return e};var v=(e,t,s)=>(s=e!=null?d(f(e)):{},o(t||!e||!e.__esModule?n(s,\"default\",{value:e,enumerable:!0}):s,e)),b=e=>o(n({},\"__esModule\",{value:!0}),e);var l=w((q,c)=>{c.exports=_jsx_runtime});var _={};x(_,{default:()=>m,frontmatter:()=>y});var i=v(l()),y={name:\"Tails Azimuth\",avatar:\"/static/images/avatar.png\",occupation:\"Professor of Atmospheric Science\",company:\"Stanford University\",email:\"address@yoursite.com\",twitter:\"https://twitter.com/Twitter\",linkedin:\"https://www.linkedin.com\",github:\"https://github.com\"};function u(e){let t={p:\"p\",...e.components};return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(t.p,{children:\"Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.\"}),(0,i.jsx)(t.p,{children:\"He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.\"}),(0,i.jsx)(t.p,{children:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.\"})]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,i.jsx)(t,{...e,children:(0,i.jsx)(u,{...e})}):u(e)}return b(_);})();\n;return Component;"
+      "raw": "",
+      "code": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var f=(t,a)=>()=>(a||t((a={exports:{}}).exports,a),a.exports),w=(t,a)=>{for(var n in a)i(t,n,{get:a[n],enumerable:!0})},o=(t,a,n,m)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let e of x(a))!l.call(t,e)&&e!==n&&i(t,e,{get:()=>a[e],enumerable:!(m=p(a,e))||m.enumerable});return t};var y=(t,a,n)=>(n=t!=null?d(g(t)):{},o(a||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),M=t=>o(i({},\"__esModule\",{value:!0}),t);var c=f((b,s)=>{s.exports=_jsx_runtime});var v={};w(v,{default:()=>u,frontmatter:()=>_});var r=y(c()),_={name:\"Prashant Manandhar\",avatar:\"/static/images/avatar.png\",occupation:\"Student at Kathmandu University\",company:\"Kathmandu University\",email:\"prashantmanandhar2002@gmail.com\",twitter:\"https://x.com/PrashantManand8\",linkedin:\"https://www.linkedin.com/in/prashant-manandhar-461917246/\",github:\"https://github.com/Eemayas\"};function h(t){return(0,r.jsx)(r.Fragment,{})}function u(t={}){let{wrapper:a}=t.components||{};return a?(0,r.jsx)(a,{...t,children:(0,r.jsx)(h,{...t})}):h(t)}return M(v);})();\n;return Component;"
     },
     "_id": "authors/default.mdx",
     "_raw": {
@@ -22,10 +22,10 @@
     },
     "type": "Authors",
     "readingTime": {
-      "text": "1 min read",
-      "minutes": 0.45,
-      "time": 27000,
-      "words": 90
+      "text": "0 min read",
+      "minutes": 0,
+      "time": 0,
+      "words": 0
     },
     "slug": "default",
     "path": "authors/default",

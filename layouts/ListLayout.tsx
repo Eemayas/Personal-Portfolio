@@ -1,20 +1,21 @@
 "use client";
-
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "@/lib/utils/motion";
+import { styles } from "@/app/style";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { formatDate } from "pliny/utils/formatDate.js";
 import { CoreContent } from "pliny/utils/contentlayer.js";
 import type { Blog } from "contentlayer/generated";
 import Link from "@/components/Link";
-import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
 import BlogListDisplayCard from "@/components/BlogListDisplayCard";
-
+import tagData from "app/tag-data.json";
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
 }
 interface ListLayoutProps {
+  tags?: any[];
   posts: CoreContent<Blog>[];
   title: string;
   initialDisplayPosts?: CoreContent<Blog>[];
@@ -76,26 +77,49 @@ export default function ListLayout({
   title,
   initialDisplayPosts = [],
   pagination,
+  tags = [],
 }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState("");
-  const filteredBlogPosts = posts.filter((post) => {
+  const [selectedTags, setSelectedTags] = useState(tags);
+
+  // Filter posts by search value
+  const filteredBySearchValue = posts.filter((post) => {
     const searchContent = post.title + post.summary + post.tags?.join(" ");
     return searchContent.toLowerCase().includes(searchValue.toLowerCase());
   });
 
-  // If initialDisplayPosts exist, display it if no searchValue is specified
+  // Filter posts by selected tags, ensuring all tags match
+  const filteredBlogPosts = filteredBySearchValue.filter((post) => {
+    if (selectedTags.length === 0) return true;
+    console.log(post.tags);
+    console.log(selectedTags);
+    return selectedTags.every((tag) => post.tags.includes(tag));
+  });
+
+  // Display initial posts if no search value, no selected tags, and initialDisplayPosts exist
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue
+    initialDisplayPosts.length > 0 && !searchValue && selectedTags.length === 0
       ? initialDisplayPosts
       : filteredBlogPosts;
+
+  const tagCounts = tagData as Record<string, number>;
+  const tagKeys = Object.keys(tagCounts);
+  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
+
+  const handleTagClick = (tag) => {
+    if (selectedTags.includes(tag)) {
+      setSelectedTags(
+        selectedTags.filter((selectedTag) => selectedTag !== tag)
+      );
+    } else {
+      setSelectedTags([...selectedTags, tag]);
+    }
+  };
 
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
-          </h1>
           <div className="relative max-w-lg">
             <label>
               <span className="sr-only">Search articles</span>
@@ -104,7 +128,7 @@ export default function ListLayout({
                 type="text"
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search articles"
-                className="block w-full rounded-md border border-gray-300 bg-tertiary bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+                className="block w-full rounded-md border border-gray-200 bg-tertiary px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-100"
               />
             </label>
             <svg
@@ -122,6 +146,23 @@ export default function ListLayout({
               />
             </svg>
           </div>
+          {sortedTags && (
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              {sortedTags.map((tag, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleTagClick(tag)}
+                  className={`rounded-3xl p-4 text-white border-1 dark:border-gray-500  border-gray-200 uppercase ${
+                    selectedTags.includes(tag)
+                      ? "bg-purple-500"
+                      : "bg-tertiary dark:bg-gray-800"
+                  } cursor-pointer`}
+                >
+                  {tag} {` (${tagCounts[tag]})`}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!filteredBlogPosts.length && "No posts found."}
