@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>address@yoursite.com (Tails Azimuth)</managingEditor>
       <webMaster>address@yoursite.com (Tails Azimuth)</webMaster>
-      <lastBuildDate>Thu, 27 Jun 2024 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 28 Jun 2024 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/4.sorting-algorithmss</guid>
+    <title>Sorting Algorithms</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/4.sorting-algorithmss</link>
+    <description>This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size.</description>
+    <pubDate>Fri, 28 Jun 2024 00:00:00 GMT</pubDate>
+    <author>address@yoursite.com (Tails Azimuth)</author>
+    <category>algorithms</category><category>sorting</category><category>computer-science</category>
+  </item>
+
   <item>
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/3.Time-complexity</guid>
     <title>Time Complexity of Algorithms</title>
@@ -18,16 +28,6 @@
     <pubDate>Thu, 27 Jun 2024 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Tails Azimuth)</author>
     <category>algorithms</category><category>time-complexity</category><category>computational-efficiency</category><category>computer-science</category>
-  </item>
-
-  <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/4.sorting-algorithmss</guid>
-    <title>Sorting Algorithms</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/4.sorting-algorithmss</link>
-    <description>This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size.</description>
-    <pubDate>Thu, 27 Jun 2024 00:00:00 GMT</pubDate>
-    <author>address@yoursite.com (Tails Azimuth)</author>
-    <category>algorithms</category><category>sorting</category><category>computer-science</category>
   </item>
 
   <item>
