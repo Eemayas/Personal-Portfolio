@@ -93,7 +93,7 @@ const Navbar = () => {
                                     : "text-text-light dark:text-text-dark"
                                 } hover:text-[#915eff]`}
                               >
-                                <a href={`#${Links.id}`}>{Links.title}</a>
+                                <a href={`/${Links.id}`}>{Links.title}</a>
                               </button>
                             </Menu.Item>
                           </RadioGroup.Option>

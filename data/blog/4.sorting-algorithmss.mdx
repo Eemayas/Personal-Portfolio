@@ -134,7 +134,6 @@ def heapify(A, i, length):
 def build_max_heap(A):
     for i in range(len(A)//2, -1, -1):
         heapify(A, i, len(A))
-        i = i-1
 
 def heap_sort(A):
     build_max_heap(A)
@@ -145,6 +144,7 @@ def heap_sort(A):
 
 # heap_sort(A)
 ```
+
 # Sorting Algorithms in Linear time
 ## Counting Sort
 ```python
@@ -218,7 +218,432 @@ def bucket_sort(A):
 # bucket_sort(A)
 ```
 
+# BruteForce Algorithms
+## Sequential Search
+```python
+def sequential_search(A, key):
+    n = len(A)
+    if n == 0:
+        return -1
+    i = 0
+    while i < n and A[i] != key:
+        i = i+1
+    if (i == n):
+        return -1
+    return i
 
+# A = [89, 74, 97, 37, 86, 84, 53, 46, 78, 56, 80, 54, 41, 65, 54,
+#          94, 94, 27, 76, 75, 74, 80, 93, 63, 16, 44, 35, 19, 2, 83]
+# print(sequential_search(A,874))
+```
+
+## String matching
+```python
+def string_matching(string1: str, string2):
+    str1_length = len(string1)
+    str2_length = len(string2)
+    for i in range(0, str1_length-str2_length+1):
+        j = 0
+        while j < str2_length and string1[j+i] == string2[j]:
+            j = j+1
+        if j == str2_length:
+            return i
+    return -1
+
+# print(string_matching("Prashant", "ras"))
+```
+
+# Greedy Algorithms
+## Activity Selection
+```python
+def activity_selection_recursion(s, f, k, n, selected):
+    if n == 0:
+        return []
+    selected.append((s[k], f[k]))
+    m = k+1
+    while m < n and f[k] > s[m]:
+        m = m+1
+    if m < n:
+        activity_selection_recursion(s, f, m, n, selected)
+    return selected
+
+def activity_selection_iterative(s, f, n):
+    if n == 0:
+        return []
+    i = 0
+    selected = []
+    selected.append((s[0], f[0]))
+    while i < n:
+        if s[i] > selected[-1][1]:
+            selected.append((s[i], f[i]))
+        i = i+1
+    return selected
+
+# selected = []
+# activity_selection_recursion(s, f, 0, len(s), selected)
+# activity_selection_iterative(s, f, len(s))
+```
+
+# Dynamic Algorithms
+## Longest Common Subsequence
+```python
+def LCS_memorization(P, S, m, n, memo):
+    if m == len(P) or n == len(S):
+        return 0
+
+    if memo[m][n] != 0:
+        return memo[m][n]
+
+    if P[m] == S[n]:
+        memo[m][n] = 1+LCS_memorization(P, S, m+1, n+1, memo)
+        return memo[m][n]
+    else:
+        memo[m][n] = max([LCS_memorization(P, S, m, n+1, memo), LCS_memorization(P, S, m+1, n, memo)])
+        return memo[m][n]
+
+def lcs_tabulation(X, Y):
+    m = len(X)+1
+    n = len(Y)+1
+
+    table = [[0 for _ in range(n)] for _ in range(m)]
+    for i in range(1, m):
+        for j in range(1, n):
+            if X[i-1] == Y[j-1]:
+                table[i][j] = table[i-1][j-1]+1
+            else:
+                table[i][j] = max([table[i][j-1], table[i-1][j]])
+    print("Tabulation")
+    print("=========================\n")
+    for i in range(len(table)):
+        print(table[i])
+    return table[m-1][n-1]
+
+# X = "stratosphere"
+# Y = "atmosphere"
+# memo = [[0 for _ in range(len(Y)+1)]for _ in range(len(X)+1)]
+# print(LCS_memorization(X, Y, 0, 0, memo))
+# print(lcs_tabulation(X, Y))
+```
+
+## Matrix Chain multiplication
+```python
+def matrix_multiplication_tabulation(p):
+    matrix_no = len(p)-1
+    m = [[0 for _ in range(matrix_no)] for _ in range(matrix_no)]
+    s = [[0 for _ in range(matrix_no)] for _ in range(matrix_no)]
+
+    for l in range(2, matrix_no+1):
+        for i in range(1, matrix_no-l+2):
+            j = l+i-1
+            m[i-1][j-1] = float("inf")
+            for k in range(i, j):
+                q = m[i-1][k-1]+m[k][j-1]+p[i-1]*p[k]*p[j]
+                if m[i-1][j-1] > q:
+                    m[i-1][j-1] = q
+                    s[i-1][j-1] = k
+    return m, s
+
+
+def matrix_multiplication_memo(p):
+    n = len(p) - 1
+    m = [[0 for _ in range(n)] for _ in range(n)]
+    s = [[0 for _ in range(n)] for _ in range(n)]
+
+    def lookup_chain(m, p, i, j):
+        if i == j:
+            return 0
+        if m[i][j] != 0:
+            return m[i][j]
+        m[i][j] = float("inf")
+        for k in range(i, j):
+            q = lookup_chain(m, p, i, k)+lookup_chain(m,
+                                                      p, k + 1, j)+p[i]*p[k+1]*p[j+1]
+            if m[i][j] > q:
+                m[i][j] = q
+                s[i][j] = k+1
+        return m[i][j]
+    lookup_chain(m, p, 0, n-1)
+    return m, s
+
+def matrix_multiplication_tabulation(s, i, j):
+    if (i == j):
+        print(f"A{i+1}", end="")
+    else:
+        print("(", end="")
+        display_mutliplication(s, i, s[i][j]-1)
+        display_mutliplication(s, s[i][j], j)
+        print(")", end="")
+
+# arr = [5, 4, 6, 2, 7]
+# m, s = matrix_multiplication(arr)
+# display_mutliplication(s, 0, len(arr)-2)
+```
+
+# KnapSack Algorithms
+## KnapSack 01
+### BruteForce
+```python
+def knapsack_01_brute_force(weight, values, capacity):
+    n = len(weight)
+    binary_sequence = []
+    weight_sequence = []
+    total_weight_sequence = []
+    total_profit_sequence = []
+    accepted_weight = []
+    accepted_profit = []
+    for i in range(pow(2, n)):
+        current_binary_sequence = []
+        current_weight_sequence = []
+        current_weight = 0
+        current_profit = 0
+        temp = i
+        index = 0
+        for j in range(n):
+            bin = temp % 2
+            current_binary_sequence.append(bin)
+            if bin == 1:
+                current_weight_sequence.append(weight[index])
+                current_weight += weight[index]
+                current_profit += values[index]
+            index = index+1
+            temp = temp//2
+        binary_sequence.append(current_binary_sequence)
+        weight_sequence.append(current_weight_sequence)
+        total_weight_sequence.append(current_weight)
+        total_profit_sequence.append(current_profit)
+        # print(
+        #     f"{i}==> {binary_sequence[i]}==>{weight_sequence[i]}==>{total_weight_sequence[i]}==>{total_profit_sequence[i]}")
+
+        for i in range(len(total_weight_sequence)):
+            if (total_weight_sequence[i] <= capacity):
+                accepted_weight.append(total_weight_sequence[i])
+                accepted_profit.append(total_profit_sequence[i])
+    optimal_index = total_profit_sequence.index(max(accepted_profit))
+    return {"max_value": total_profit_sequence[optimal_index],
+            "weight_sequence": weight_sequence[optimal_index],
+            "binary_sequence": binary_sequence[optimal_index],
+            }
+```
+### Dynamic
+```python
+def knapsack_01_dynamic(weights, values, capacity):
+    n = len(weights)
+
+    dp = [[0 for _ in range(capacity+1)] for _ in range(n+1)]
+
+    for i in range(1, n+1):
+        for w in range(1, capacity+1):
+            if (weights[i-1] <= w):
+                dp[i][w] = max(dp[i-1][w], dp[i-1][w-weights[i-1]]+values[i-1])
+            else:
+                dp[i][w] = dp[i-1][w]
+
+    # for i in range(len(dp)):
+    #     print(dp[i])
+
+    maxs = dp[n][capacity]
+    binary_seq = []
+    weight_seq = []
+
+    w = capacity
+    for i in range(n, 0, -1):
+        if (dp[i-1][w] != dp[i][w]):
+            binary_seq.append(1)
+            weight_seq.append(weights[i-1])
+            w -= weights[i-1]
+        else:
+            binary_seq.append(0)
+
+    binary_seq.reverse()
+    weight_seq.reverse()
+
+    return {
+        "max_value": maxs,
+        "weight_sequence": weight_seq,
+        "binary_sequence": binary_seq
+    }
+```
+
+## KnapSack Fraction 
+### BruteForce
+```python
+def knapsack_fractional_brute_force(weight, values, capacity):
+    n = len(weight)
+    binary_sequence = []
+    weight_sequence = []
+    total_weight_sequence = []
+    total_profit_sequence = []
+    accepted_weight = []
+    accepted_profit = []
+    for i in range(pow(2, n)):
+        current_binary_sequence = []
+        current_weight_sequence = []
+        current_weight = 0
+        current_profit = 0
+        temp = i
+        index = 0
+        for j in range(n):
+            bin = temp % 2
+            current_binary_sequence.append(bin)
+            if bin == 1:
+                current_weight_sequence.append(weight[index])
+                current_weight += weight[index]
+                current_profit += values[index]
+            index = index+1
+            temp = temp//2
+
+        if current_weight < capacity:
+            for j in range(n):
+                if current_binary_sequence[j] == 0 and current_weight < capacity:
+                    remaining_capacity = capacity-current_weight
+                    if remaining_capacity >= weight[j]:
+                        current_binary_sequence[j] = 1
+                        current_weight_sequence.append(weight[j])
+                        current_weight += weight[j]
+                        current_profit += values[j]
+                    else:
+                        ratio = remaining_capacity/weight[j]
+                        current_binary_sequence[j] = 1*ratio
+                        current_weight += weight[j]*ratio
+                        current_profit += values[j]*ratio
+
+        binary_sequence.append(current_binary_sequence)
+        weight_sequence.append(current_weight_sequence)
+        total_weight_sequence.append(current_weight)
+        total_profit_sequence.append(current_profit)
+        # print(
+        #     f"{i}==> {binary_sequence[i]}==>{weight_sequence[i]}==>{total_weight_sequence[i]}==>{total_profit_sequence[i]}")
+
+        for i in range(len(total_weight_sequence)):
+            if (total_weight_sequence[i] <= capacity):
+                accepted_weight.append(total_weight_sequence[i])
+                accepted_profit.append(total_profit_sequence[i])
+    optimal_index = total_profit_sequence.index(max(accepted_profit))
+    return {"max_value": total_profit_sequence[optimal_index],
+            "weight_sequence": weight_sequence[optimal_index],
+            "binary_sequence": binary_sequence[optimal_index],
+            }
+```
+### Greedy
+```python
+def knapsack_fractional_greedy(weights, values, capacity):
+    n = len(weights)
+    item = []
+    for i in range(len(weights)):
+        item.append([weights[i], values[i], values[i]/weights[i], i])
+    item.sort(key=lambda x: x[2], reverse=True)
+    total_weight = 0
+    total_profit = 0
+    binary_sequence = [0 for _ in range(n)]
+    weight_sequence = []
+    for weight, value, density, index in item:
+        if (total_weight+weight) <= capacity:
+            total_weight += weight
+            total_profit += value
+            binary_sequence[index] = 1
+            weight_sequence.append(weight)
+        else:
+            ratio = (capacity-total_weight)/weight
+            total_weight += weight*ratio
+            total_profit += value*ratio
+            binary_sequence[index] = 1*ratio
+
+    return {"max_value": total_profit,
+            "weight_sequence": weight_sequence,
+            "binary_sequence": binary_sequence,
+            }
+
+```
+
+# BackTracking
+## NQueens
+```python
+def is_safe(board, x, y, n):
+    for i in range(n):
+        if board[i][y] == 1:
+            return False
+
+    row = x
+    col = y
+    while row >= 0 and col >= 0:
+        if board[row][col] == 1:
+            return False
+        row -= 1
+        col -= 1
+
+    row = x
+    col = y
+    while row >= 0 and col < n:
+        if board[row][col] == 1:
+            return False
+        row -= 1
+        col += 1
+
+    return True
+
+
+def check_n_queen(board, row, n):
+    if row == n:
+        return True
+
+    for col in range(n):
+        if is_safe(board, row, col, n):
+            board[row][col] = 1
+            if (check_n_queen(board, row+1, n)):
+                return True
+            board[row][col] = 0
+    return False
+
+
+def n_queen(n):
+    board = [[0 for _ in range(n)] for _ in range(n)]
+    solution_found = check_n_queen(board, 0, n)
+    return solution_found, board
+
+# n_queen(8)
+```
+
+# Primal Test
+## Fermat Primal Test
+```python
+def fermat_primal_test(n):
+    for _ in range(5):
+        a = random.randint(2, n-2)
+        if pow(a, n-1) % n == 1:
+            return True
+
+# fermat_primal_test(13)
+```
+## Miller Rabin Primal Test
+```python
+def miller_rabin_test(n):
+    if n == 2 and n == 3:
+        return True
+    if n % 2 == 0 or n <= 1:
+        return False
+
+    check = n-1
+    s = 0
+    d = 0
+    while check % 2 != 1:
+        s += 1
+        check = check/2
+    d = (n-1)//(2**s)
+
+    a = random.randint(2, n-2)
+    x = pow(a, d, n)
+    if x == 1 or x == n-1:
+        return True
+    for i in range(s):
+        x = pow(x, 2, n)
+        if x == n-1:
+            break
+        else:
+            return False
+    return True
+
+# miller_rabin_test(13)
+```
 
 # Test Case
 ## Test Case for Above sorting Algorithms

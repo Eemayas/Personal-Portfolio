@@ -186,7 +186,7 @@ const TableOfContents = ({ tableOfContents }) => {
           >
             <a
               href={item.url}
-              className="font-medium text-primary-500 underline hover:text-primary-600 dark:hover:text-primary-400 text-[18px]"
+              className=" text-primary-500 underline hover:text-primary-600 dark:hover:text-primary-400 text-[14px]"
               aria-label={` ${item.value}`}
             >
               {item.value}

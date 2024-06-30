@@ -21,7 +21,7 @@ export default function RootLayout({
         <ThemeProviders>
           <Providers>
             <NavBar />
-            <main className={` max-w-7xl mx-auto  pt-24`}>{children}</main>
+            <main className={` max-w-7xl mx-auto pt-24`}>{children}</main>
           </Providers>
         </ThemeProviders>
       </body>
