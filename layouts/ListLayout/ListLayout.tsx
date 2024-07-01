@@ -1,16 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "@/lib/utils/motion";
-import { styles } from "@/app/style";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { CoreContent } from "pliny/utils/contentlayer.js";
 import type { Blog } from "contentlayer/generated";
 import Link from "@/components/Link";
 import siteMetadata from "@/data/siteMetadata";
-import BlogListDisplayCard from "@/components/BlogListDisplayCard";
+import BlogListDisplayCard from "./components/BlogListDisplayCard";
 import tagData from "app/tag-data.json";
-import Footer from "@/components/Footer";
 interface PaginationProps {
   totalPages: number;
   currentPage: number;

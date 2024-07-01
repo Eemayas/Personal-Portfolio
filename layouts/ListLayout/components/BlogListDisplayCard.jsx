@@ -1,6 +1,6 @@
 import siteMetadata from "@/data/siteMetadata";
 import Link from "next/link";
-import Tag from "./Tag";
+import Tag from "@/components/Tag";
 import { formatDate } from "pliny/utils/formatDate";
 import Image from "next/image";
 const randomImgUrl = [

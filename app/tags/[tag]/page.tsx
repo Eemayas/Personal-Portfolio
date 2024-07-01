@@ -55,6 +55,7 @@ export default function TagPage({ params }: { params: { tag: string } }) {
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
       title="All Posts"
+      isHomePage={false}
     />
   );
 }

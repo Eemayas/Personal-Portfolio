@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { SectionWrapper } from "@/lib/hoc";
@@ -23,6 +23,7 @@ const tagColorList = [
 ];
 
 const Projects = () => {
+  const [isHomePage, setIsHomePage] = useState(true);
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -35,6 +36,13 @@ const Projects = () => {
   const projectss = useSelector((state) => state.ProjectReducer);
   const adminState = useSelector((state) => state.AdminReducer);
   const projectDescription = `Below are a few selected projects that demonstrate my skills and experience, showcasing real-world examples of my work. Each project is accompanied by a brief description, as well as links to code repositories and live demos. These projects serve as tangible evidence of my ability to tackle intricate challenges, adapt to various technologies, and efficiently handle project management`;
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isHome = !window.location.href.includes("project");
+      setIsHomePage(isHome);
+    }
+  }, []);
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -51,16 +59,18 @@ const Projects = () => {
       </div>
       {projectss.length ? (
         <div className=" mt-20 flex flex-wrap justify-center gap-7">
-          {projectss.slice(0, 3).map((project, index) => (
-            <ProjectCard
-              adminState={adminState}
-              key={`project-${index}`}
-              setForm={setForm}
-              setId={setId}
-              index={index}
-              {...project}
-            />
-          ))}
+          {(isHomePage ? projectss.slice(0, projectPerPage) : projectss).map(
+            (project, index) => (
+              <ProjectCard
+                adminState={adminState}
+                key={`project-${index}`}
+                setForm={setForm}
+                setId={setId}
+                index={index}
+                {...project}
+              />
+            )
+          )}
         </div>
       ) : (
         <div className=" mt-20 flex flex-wrap justify-center gap-7">

@@ -2,13 +2,8 @@ import TOCInline from "pliny/ui/TOCInline.js";
 import Pre from "pliny/ui/Pre.js";
 import BlogNewsletterForm from "pliny/ui/BlogNewsletterForm.js";
 import type { MDXComponents } from "mdx/types";
-import NextImage, { ImageProps } from "next/image";
-
-import Link from "next/link";
-import type { LinkProps } from "next/link";
-import { AnchorHTMLAttributes } from "react";
-
-export const Image = ({ ...rest }: ImageProps) => <NextImage {...rest} />;
+import Image from "next/image";
+import CustomLink from "./Link";
 
 export const TableWrapper = ({ children }) => {
   return (
@@ -18,24 +13,6 @@ export const TableWrapper = ({ children }) => {
       </table>
     </div>
   );
-};
-
-export const CustomLink = ({
-  href,
-  ...rest
-}: LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>) => {
-  const isInternalLink = href && href.startsWith("/");
-  const isAnchorLink = href && href.startsWith("#");
-
-  if (isInternalLink) {
-    return <Link href={href} {...rest} />;
-  }
-
-  if (isAnchorLink) {
-    return <a href={href} {...rest} />;
-  }
-
-  return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />;
 };
 
 export const components: MDXComponents = {

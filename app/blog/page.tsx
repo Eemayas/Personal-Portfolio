@@ -28,7 +28,7 @@ function BlogPage() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const isHome = !window.location.href.includes("blogs");
+      const isHome = !window.location.href.includes("blog");
       setIsHomePage(isHome);
       !isHome ? setPOSTS_PER_PAGE(5) : "";
     }

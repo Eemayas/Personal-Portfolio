@@ -1,13 +1,13 @@
 "use client";
 import { ReactNode } from "react";
-import Image from "@/components/Image";
 import { CoreContent } from "pliny/utils/contentlayer.js";
 import type { Authors, Blog } from "contentlayer/generated";
-import PageTitle from "@/components/PageTitle";
+import Link from "@/components/Link";
+import PageTitle from "./components/PageTitle";
 import SectionContainer from "@/components/SectionContainer";
 import ScrollTopAndComment from "@/components/ScrollTopAndComment";
 import Tag from "@/components/Tag";
-import Link from "next/link";
+import Image from "next/image";
 
 interface LayoutProps {
   content: CoreContent<Blog>;
@@ -54,7 +54,7 @@ export default function BlogPageLayout({
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
             <div className="scrollbar-hide top-0 z-50 grid-rows-[auto_1fr] overflow-y-auto pt-10 xl:sticky xl:max-h-screen">
               <TableOfContents tableOfContents={toc} />
-              <div className=" hidden flex-col xl:flex">
+              <div className="hidden flex-col xl:flex">
                 <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
                   <dt className="sr-only">Authors</dt>
                   <dd>
@@ -126,6 +126,7 @@ export default function BlogPageLayout({
               </div>
             </div>
           </div>
+
           <footer>
             <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
               <div className="pt-4 xl:pt-8">
