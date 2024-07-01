@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const About = () => {
   const bios = useSelector((state) => state.BioReducer);
-  console.log(bios);
+  // console.log(bios);
   return (
     <>
       <motion.div variants={textVariant()}>

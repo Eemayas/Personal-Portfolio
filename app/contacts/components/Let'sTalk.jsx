@@ -129,7 +129,7 @@ const LetsTalk = () => {
           </div>
         </motion.div>
 
-        {contacts ? (
+        {contacts.length ? (
           <ContactInfo
             adminState={adminState}
             contacts={contacts}
@@ -157,7 +157,6 @@ const LetsTalk = () => {
 };
 
 const ContactInfo = ({ adminState, contacts, setForm, setId }) => {
-  // console.log(contacts.length);
   return contacts.length ? (
     <motion.div
       variants={slideIn("right", "tween", 0.2, 1)}

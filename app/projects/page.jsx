@@ -57,22 +57,27 @@ const Projects = () => {
           {projectDescription}
         </motion.p>
       </div>
-      {projectss.length ? (
-        <div className=" mt-20 flex flex-wrap justify-center gap-7">
-          {(isHomePage ? projectss.slice(0, projectPerPage) : projectss).map(
-            (project, index) => (
-              <ProjectCard
-                adminState={adminState}
-                key={`project-${index}`}
-                setForm={setForm}
-                setId={setId}
-                index={index}
-                {...project}
-              />
-            )
-          )}
-        </div>
-      ) : (
+      {/* {projectss.length ? ( */}
+      <div className=" mt-20 flex flex-wrap justify-center gap-7">
+        {(isHomePage
+          ? projectss.length
+            ? projectss.slice(0, 3)
+            : projects.slice(0, 3)
+          : projectss.length
+          ? projectss
+          : projects
+        ).map((project, index) => (
+          <ProjectCard
+            adminState={adminState}
+            key={`project-${index}`}
+            setForm={setForm}
+            setId={setId}
+            index={index}
+            {...project}
+          />
+        ))}
+      </div>
+      {/* ) : (
         <div className=" mt-20 flex flex-wrap justify-center gap-7">
           {projects.map((project, index) => (
             <ProjectCard
@@ -85,7 +90,7 @@ const Projects = () => {
             />
           ))}
         </div>
-      )}
+      )} */}
       <ProjectForm
         adminState={adminState}
         setId={setId}
