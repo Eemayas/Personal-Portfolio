@@ -24,11 +24,12 @@
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
+      "@/app/*": ["app/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
     
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/utils/motion.js", "app/page.jsx", "lib/api/apis.js", "lib/action/bioAction.jsx", "components/About.jsx", "components/Hero.jsx", "contentlayer.config.ts", "app/store.ts",
-  ".contentlayer/generated", "app/contacts/page.jsx",],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/utils/motion.js", "app/page.jsx", "lib/api/apis.js", "lib/action/bioAction.jsx", "app/about/components/About.jsx", "components/Hero.jsx", "contentlayer.config.ts", "app/store.ts",
+  ".contentlayer/generated", "app/contacts/page.jsx", "app/projects/page.jsx",],
   "exclude": ["node_modules"]
 }

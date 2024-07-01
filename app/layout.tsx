@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "css/tailwind.css";
 import { Providers, ThemeProviders } from "./providers";
-import { styles } from "./style";
 import NavBar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Prashant | Protfoilo",
@@ -22,6 +22,7 @@ export default function RootLayout({
           <Providers>
             <NavBar />
             <main className={` max-w-7xl mx-auto pt-24`}>{children}</main>
+            <Footer />
           </Providers>
         </ThemeProviders>
       </body>

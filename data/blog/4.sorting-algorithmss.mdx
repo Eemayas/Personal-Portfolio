@@ -1,9 +1,9 @@
 ---
-title: "Sorting Algorithms"
-date: "2024-06-28"
+title: "DSA Algorithms"
+date: "2024-06-29"
 tags:
   - algorithms
-  - sorting
+  - dsa
   - computer-science
 summary: "This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size."
 authors: ["default"]
@@ -343,7 +343,6 @@ def matrix_multiplication_tabulation(p):
                     s[i-1][j-1] = k
     return m, s
 
-
 def matrix_multiplication_memo(p):
     n = len(p) - 1
     m = [[0 for _ in range(n)] for _ in range(n)]
@@ -365,7 +364,7 @@ def matrix_multiplication_memo(p):
     lookup_chain(m, p, 0, n-1)
     return m, s
 
-def matrix_multiplication_tabulation(s, i, j):
+def display_mutliplication(s, i, j):
     if (i == j):
         print(f"A{i+1}", end="")
     else:
@@ -375,7 +374,8 @@ def matrix_multiplication_tabulation(s, i, j):
         print(")", end="")
 
 # arr = [5, 4, 6, 2, 7]
-# m, s = matrix_multiplication(arr)
+# m, s = matrix_multiplication_tabulation(arr)
+# m, s = matrix_multiplication_memo(arr)
 # display_mutliplication(s, 0, len(arr)-2)
 ```
 
@@ -643,256 +643,4 @@ def miller_rabin_test(n):
     return True
 
 # miller_rabin_test(13)
-```
-
-# Test Case
-## Test Case for Above sorting Algorithms
-```python
-import unittest
-from meger_sort import merge_sort
-from quick_sort import quick_sort
-from selection_sort import selection_sort
-from insertion_sort import insertion_sort
-from heap_sort import heap_sort
-from bubble_sort import bubble_sort
-
-
-class TestSort(unittest.TestCase):
-    """
-    A class containing test cases for insertion sort and selection sort algorithms.
-    """
-
-    # Test data for insertion sort and selection sort
-    data_negative = {"input": [-2, 45, 0, 11, -9, 88, -97, -202, 747],
-                     "output": [-202, -97, -9, -2, 0, 11, 45, 88, 747]}
-
-    data_positive = {"input": [12, 11, 13, 5, 6],
-                     "output": [5, 6, 11, 12, 13]}
-
-    data_descending = {"input": [9, 8, 7, 6, 5, 4, 3, 2, 1],
-                       "output": [1, 2, 3, 4, 5, 6, 7, 8, 9]}
-
-    data_ascending = {"input": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                      "output": [1, 2, 3, 4, 5, 6, 7, 8, 9]}
-
-    data_duplicates = {"input": [4, 2, 2, 3, 4, 1, 1, 5, 5, 6, 7, 3, 7, 8, 8, 9, 6, 9],
-                       "output": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]}
-
-    data_single = {"input": [45],
-                   "output": [45]}
-
-    data_empty = {"input": [],
-                  "output": []}
-
-    def test_sort_negative(self):
-        """Test sort with negative numbers."""
-        self.assertEqual(merge_sort(
-            self.data_negative["input"], 0, len(self.data_negative["input"]) - 1), self.data_negative["output"])
-        self.assertEqual(quick_sort(
-            self.data_negative["input"], 0, len(self.data_negative["input"]) - 1), self.data_negative["output"])
-        self.assertEqual(selection_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-        self.assertEqual(insertion_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-        self.assertEqual(heap_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-        self.assertEqual(bubble_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-
-    def test_sort_positive(self):
-        """Test sort with positive numbers."""
-        self.assertEqual(merge_sort(
-            self.data_positive["input"], 0, len(self.data_positive["input"]) - 1), self.data_positive["output"])
-        self.assertEqual(quick_sort(
-            self.data_positive["input"], 0, len(self.data_positive["input"]) - 1), self.data_positive["output"])
-        self.assertEqual(selection_sort(
-            self.data_positive["input"]), self.data_positive["output"])
-        self.assertEqual(insertion_sort(
-            self.data_positive["input"]), self.data_positive["output"])
-        self.assertEqual(heap_sort(
-            self.data_positive["input"]), self.data_positive["output"])
-        self.assertEqual(bubble_sort(
-            self.data_positive["input"]), self.data_positive["output"])
-
-    def test_sort_descending(self):
-        """Test sort with descending numbers."""
-        self.assertEqual(merge_sort(
-            self.data_descending["input"], 0, len(self.data_descending["input"]) - 1), self.data_descending["output"])
-        self.assertEqual(quick_sort(
-            self.data_descending["input"], 0, len(self.data_descending["input"]) - 1), self.data_descending["output"])
-        self.assertEqual(selection_sort(
-            self.data_descending["input"]), self.data_descending["output"])
-        self.assertEqual(insertion_sort(
-            self.data_descending["input"]), self.data_descending["output"])
-        self.assertEqual(heap_sort(
-            self.data_descending["input"]), self.data_descending["output"])
-        self.assertEqual(bubble_sort(
-            self.data_descending["input"]), self.data_descending["output"])
-
-    def test_sort_ascending(self):
-        """Test sort with ascending numbers."""
-        self.assertEqual(merge_sort(
-            self.data_ascending["input"], 0, len(self.data_ascending["input"]) - 1), self.data_ascending["output"])
-        self.assertEqual(quick_sort(
-            self.data_ascending["input"], 0, len(self.data_ascending["input"]) - 1), self.data_ascending["output"])
-        self.assertEqual(selection_sort(
-            self.data_ascending["input"]), self.data_ascending["output"])
-        self.assertEqual(insertion_sort(
-            self.data_ascending["input"]), self.data_ascending["output"])
-        self.assertEqual(heap_sort(
-            self.data_ascending["input"]), self.data_ascending["output"])
-        self.assertEqual(bubble_sort(
-            self.data_ascending["input"]), self.data_ascending["output"])
-
-    def test_sort_duplicate(self):
-        """Test sort with duplicate numbers."""
-        self.assertEqual(merge_sort(
-            self.data_duplicates["input"], 0, len(self.data_duplicates["input"]) - 1), self.data_duplicates["output"])
-        self.assertEqual(quick_sort(
-            self.data_duplicates["input"], 0, len(self.data_duplicates["input"]) - 1), self.data_duplicates["output"])
-        self.assertEqual(selection_sort(
-            self.data_duplicates["input"]), self.data_duplicates["output"])
-        self.assertEqual(insertion_sort(
-            self.data_duplicates["input"]), self.data_duplicates["output"])
-        self.assertEqual(heap_sort(
-            self.data_duplicates["input"]), self.data_duplicates["output"])
-        self.assertEqual(bubble_sort(
-            self.data_duplicates["input"]), self.data_duplicates["output"])
-
-    def test_sort_empty_list(self):
-        """Test sorting an empty list."""
-        self.assertEqual(merge_sort(
-            self.data_empty["input"], 0, len(self.data_empty["input"]) - 1), self.data_empty["output"])
-        self.assertEqual(quick_sort(
-            self.data_empty["input"], 0, len(self.data_empty["input"]) - 1), self.data_empty["output"])
-        self.assertEqual(selection_sort(
-            self.data_empty["input"]), self.data_empty["output"])
-        self.assertEqual(insertion_sort(
-            self.data_empty["input"]), self.data_empty["output"])
-        self.assertEqual(heap_sort(
-            self.data_empty["input"]), self.data_empty["output"])
-        self.assertEqual(bubble_sort(
-            self.data_empty["input"]), self.data_empty["output"])
-
-    def test_sort_single_element_list(self):
-        """Test sorting a list with a single element."""
-        self.assertEqual(merge_sort(
-            self.data_single["input"], 0, len(self.data_single["input"]) - 1), self.data_single["output"])
-        self.assertEqual(quick_sort(
-            self.data_single["input"], 0, len(self.data_single["input"]) - 1), self.data_single["output"])
-        self.assertEqual(selection_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-        self.assertEqual(insertion_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-        self.assertEqual(heap_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-        self.assertEqual(bubble_sort(
-            self.data_negative["input"]), self.data_negative["output"])
-
-
-if __name__ == "__main__":
-    unittest.main()
-```
-## Test Case for linear sorting Algorithms
-```python
-import unittest
-from counting_sort import counting_sort
-from radix_sort import radix_sort
-from bucket_sort import bucket_sort
-
-class TestCounting(unittest.TestCase):
-    def testCountingSort1(self):
-        A = [2, 5, 3, 0, 2, 3, 0, 3]
-        B = counting_sort(A)
-        self.assertEqual(B, [0, 0, 2, 2, 3, 3, 3, 5])
-
-    def testCountingSort2(self):
-        A = []
-        B = counting_sort(A)
-        self.assertEqual(B, [])
-
-    def testCountingSort3(self):
-        A = [1]
-        B = counting_sort(A)
-        self.assertEqual(B, [1])
-
-    def testCountingSort4(self):
-        A = [4, 2, 2, 8, 3, 3, 1]
-        B = counting_sort(A)
-        self.assertEqual(B, [1, 2, 2, 3, 3, 4, 8])
-
-    def testCountingSort5(self):
-        A = [1, 4, 1, 2, 7, 5, 2]
-        B = counting_sort(A)
-        self.assertEqual(B, [1, 1, 2, 2, 4, 5, 7])
-
-    def testCountingSort6(self):
-        A = [10, 20, 10, 30, 20, 10]
-        B = counting_sort(A)
-        self.assertEqual(B, [10, 10, 10, 20, 20, 30])
-
-    def testCountingSort7(self):
-        A = [5, 4, 3, 2, 1]
-        B = counting_sort(A)
-        self.assertEqual(B, [1, 2, 3, 4, 5])
-
-    def testCountingSort8(self):
-        A = [0, 0, 0, 0]
-        B = counting_sort(A)
-        self.assertEqual(B, [0, 0, 0, 0])
-
-    def testCountingSort9(self):
-        A = [100, 200, 300, 400, 500]
-        B = counting_sort(A)
-        self.assertEqual(B, [100, 200, 300, 400, 500])
-
-    def testCountingSort10(self):
-        A = [0, 1, 0, 1, 0, 1]
-        B = counting_sort(A)
-        self.assertEqual(B, [0, 0, 0, 1, 1, 1])
-
-    def testRadixSort1(self):
-        A = radix_sort([5151, 84894984, 949494, 949, 94])
-        self.assertEqual(A, [94, 949, 5151, 949494, 84894984])
-
-    def testRadixSort2(self):
-        A = radix_sort([170, 45, 75, 90, 802, 24, 2, 66])
-        self.assertEqual(A, [2, 24, 45, 66, 75, 90, 170, 802])
-
-    def testRadixSort3(self):
-        A = radix_sort([5, 3, 1, 4, 2])
-        self.assertEqual(A, [1, 2, 3, 4, 5])
-
-    def testRadixSort4(self):
-        A = radix_sort([987654, 123456, 234567, 345678, 456789])
-        self.assertEqual(A, [123456, 234567, 345678, 456789, 987654])
-    
-    def testBucketSort1(self):
-        A = [0.100, 0.8, 0.9, .07, 0.6, 0.4, 0.6, 0.8, 0.4, 0.231, 0.884, 0.54]
-        B = bucket_sort(A)
-        self.assertEqual(B,[0.07, 0.1, 0.231, 0.4, 0.4, 0.54, 0.6, 0.6, 0.8, 0.8, 0.884, 0.9])
-        
-    def testBucketSort2(self):
-        A = [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
-        B = bucket_sort(A)
-        self.assertEqual(B, [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-    
-    def testBucketSort3(self):
-        A = [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95]
-        B = bucket_sort(A)
-        self.assertEqual(B, [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95])
-    
-    def testBucketSort4(self):
-        A = [0.123, 0.456, 0.789, 0.321, 0.654, 0.987, 0.111, 0.999]
-        B = bucket_sort(A)
-        self.assertEqual(B, [0.111, 0.123, 0.321, 0.456, 0.654, 0.789, 0.987, 0.999])
-    
-    def testBucketSort5(self):
-        A = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
-        B = bucket_sort(A)
-        self.assertEqual(B, [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5])
-
-
-if __name__ == "__main__":
-    unittest.main()
 ```

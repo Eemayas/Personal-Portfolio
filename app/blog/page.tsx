@@ -7,11 +7,13 @@ import { fadeIn, textVariant } from "@/lib/utils/motion";
 import { styles } from "@/app/style";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/lib/hoc";
-const POSTS_PER_PAGE = 5;
+import { useEffect, useState } from "react";
 
 // export const metadata = genPageMetadata({ title: "Blog" });
 
 function BlogPage() {
+  const [isHomePage, setIsHomePage] = useState(true);
+  const [POSTS_PER_PAGE, setPOSTS_PER_PAGE] = useState(2);
   const posts = allCoreContent(sortPosts(allBlogs));
   const pageNumber = 1;
   const initialDisplayPosts = posts.slice(
@@ -23,6 +25,15 @@ function BlogPage() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   };
   const blogDescription = `Below are a few selected blog posts that demonstrate my skills and experience, showcasing real-world examples of my work. Each post is accompanied by a brief description and relevant links. These blogs serve as tangible evidence of my ability to tackle intricate challenges, adapt to various technologies, and efficiently handle project management.`;
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isHome = !window.location.href.includes("blogs");
+      setIsHomePage(isHome);
+      !isHome ? setPOSTS_PER_PAGE(5) : "";
+    }
+  }, []);
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -32,13 +43,14 @@ function BlogPage() {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] "
+          className="mt-3 text-[17px] max-w-3xl leading-[30px] "
         >
           {blogDescription}
         </motion.p>
       </div>
       <motion.div variants={fadeIn("", "", 0.1, 1)}>
         <ListLayout
+          isHomePage={isHomePage}
           posts={posts}
           initialDisplayPosts={initialDisplayPosts}
           pagination={pagination}

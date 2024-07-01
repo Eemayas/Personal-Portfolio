@@ -8,8 +8,8 @@
   "linkedin": "https://www.linkedin.com/in/prashant-manandhar-461917246/",
   "github": "https://github.com/Eemayas",
   "body": {
-    "raw": "",
-    "code": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var f=(t,a)=>()=>(a||t((a={exports:{}}).exports,a),a.exports),w=(t,a)=>{for(var n in a)i(t,n,{get:a[n],enumerable:!0})},o=(t,a,n,m)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let e of x(a))!l.call(t,e)&&e!==n&&i(t,e,{get:()=>a[e],enumerable:!(m=p(a,e))||m.enumerable});return t};var y=(t,a,n)=>(n=t!=null?d(g(t)):{},o(a||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),M=t=>o(i({},\"__esModule\",{value:!0}),t);var c=f((b,s)=>{s.exports=_jsx_runtime});var v={};w(v,{default:()=>u,frontmatter:()=>_});var r=y(c()),_={name:\"Prashant Manandhar\",avatar:\"/static/images/avatar.png\",occupation:\"Student at Kathmandu University\",company:\"Kathmandu University\",email:\"prashantmanandhar2002@gmail.com\",twitter:\"https://x.com/PrashantManand8\",linkedin:\"https://www.linkedin.com/in/prashant-manandhar-461917246/\",github:\"https://github.com/Eemayas\"};function h(t){return(0,r.jsx)(r.Fragment,{})}function u(t={}){let{wrapper:a}=t.components||{};return a?(0,r.jsx)(a,{...t,children:(0,r.jsx)(h,{...t})}):h(t)}return M(v);})();\n;return Component;"
+    "raw": "Hello there! I am a highly skilled computer engineering professional with expertise in various programming languages such as C, C++, Flutter, Dart, React, HTML, CSS, and JavaScript. I am a quick learner and always eager to take on new challenges that help me further expand my skillset. In my free time, I love to indulge in my hobbies of cycling and reading novels and comics. My passion for technology and innovation drives me to continuously learn and stay up-to-date with the latest trends in the industry. With my strong work ethic and exceptional problem-solving skills, I am confident in my ability to contribute to any project I am a part of. Thank you for taking the time to read my bio, and I look forward to potentially working with you\n",
+    "code": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),w=(t,n)=>{for(var a in n)o(t,a,{get:n[a],enumerable:!0})},s=(t,n,a,r)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let e of u(n))!g.call(t,e)&&e!==a&&o(t,e,{get:()=>n[e],enumerable:!(r=p(n,e))||r.enumerable});return t};var k=(t,n,a)=>(a=t!=null?d(y(t)):{},s(n||!t||!t.__esModule?o(a,\"default\",{value:t,enumerable:!0}):a,t)),v=t=>s(o({},\"__esModule\",{value:!0}),t);var l=f((M,m)=>{m.exports=_jsx_runtime});var b={};w(b,{default:()=>h,frontmatter:()=>x});var i=k(l()),x={name:\"Prashant Manandhar\",avatar:\"/static/images/avatar.png\",occupation:\"Student at Kathmandu University\",company:\"Kathmandu University\",email:\"prashantmanandhar2002@gmail.com\",twitter:\"https://x.com/PrashantManand8\",linkedin:\"https://www.linkedin.com/in/prashant-manandhar-461917246/\",github:\"https://github.com/Eemayas\"};function c(t){let n={p:\"p\",...t.components};return(0,i.jsx)(n.p,{children:\"Hello there! I am a highly skilled computer engineering professional with expertise in various programming languages such as C, C++, Flutter, Dart, React, HTML, CSS, and JavaScript. I am a quick learner and always eager to take on new challenges that help me further expand my skillset. In my free time, I love to indulge in my hobbies of cycling and reading novels and comics. My passion for technology and innovation drives me to continuously learn and stay up-to-date with the latest trends in the industry. With my strong work ethic and exceptional problem-solving skills, I am confident in my ability to contribute to any project I am a part of. Thank you for taking the time to read my bio, and I look forward to potentially working with you\"})}function h(t={}){let{wrapper:n}=t.components||{};return n?(0,i.jsx)(n,{...t,children:(0,i.jsx)(c,{...t})}):c(t)}return v(b);})();\n;return Component;"
   },
   "_id": "authors/default.mdx",
   "_raw": {
@@ -21,10 +21,10 @@
   },
   "type": "Authors",
   "readingTime": {
-    "text": "0 min read",
-    "minutes": 0,
-    "time": 0,
-    "words": 0
+    "text": "1 min read",
+    "minutes": 0.65,
+    "time": 39000,
+    "words": 130
   },
   "slug": "default",
   "path": "authors/default",

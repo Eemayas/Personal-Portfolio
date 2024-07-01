@@ -11,15 +11,13 @@ import {
 import { allBlogs, allAuthors } from "contentlayer/generated";
 import type { Authors, Blog } from "contentlayer/generated";
 
-import PostBanner from "@/layouts/PostBanner";
+import BlogPageLayout from "@/layouts/BlogPageLayout";
 import { Metadata } from "next";
 import siteMetadata from "@/data/siteMetadata";
 import { notFound } from "next/navigation";
 
-// const defaultLayout = 'PostSimple'
-const defaultLayout = "PostBanner";
 const layouts = {
-  PostBanner,
+  BlogPageLayout,
 };
 
 export async function generateMetadata({
@@ -107,7 +105,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     };
   });
 
-  const Layout = PostBanner;
+  const Layout = BlogPageLayout;
   return (
     <>
       <script

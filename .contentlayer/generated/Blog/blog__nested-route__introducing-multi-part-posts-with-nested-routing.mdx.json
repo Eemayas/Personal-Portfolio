@@ -33,22 +33,22 @@
   "toc": [
     {
       "value": "Nested Routes",
-      "url": "#nested-routes",
+      "url": "#nested-routes-1",
       "depth": 1
     },
     {
       "value": "How",
-      "url": "#how",
+      "url": "#how-1",
       "depth": 2
     },
     {
       "value": "Use Cases",
-      "url": "#use-cases",
+      "url": "#use-cases-1",
       "depth": 2
     },
     {
       "value": "Note",
-      "url": "#note",
+      "url": "#note-1",
       "depth": 2
     }
   ],
@@ -60,6 +60,6 @@
     "dateModified": "2021-05-02T00:00:00.000Z",
     "description": "The blog template supports posts in nested sub-folders. This can be used to group posts of similar content e.g. a multi-part course. This post is itself an example of a nested route!",
     "image": "/static/images/twitter-card.png",
-    "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing"
+    "url": "https://eemayas.vercel.app//blog/nested-route/introducing-multi-part-posts-with-nested-routing"
   }
 }

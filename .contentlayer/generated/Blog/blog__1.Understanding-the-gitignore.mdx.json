@@ -36,132 +36,132 @@
   "toc": [
     {
       "value": "Introduction to Git and Version Control",
-      "url": "#introduction-to-git-and-version-control-2",
+      "url": "#introduction-to-git-and-version-control-1",
       "depth": 1
     },
     {
       "value": "Benefits of Using .gitignore",
-      "url": "#benefits-of-using-gitignore-2",
+      "url": "#benefits-of-using-gitignore-1",
       "depth": 2
     },
     {
       "value": "Basic Syntax and Rules",
-      "url": "#basic-syntax-and-rules-2",
+      "url": "#basic-syntax-and-rules-1",
       "depth": 1
     },
     {
       "value": "Common Patterns",
-      "url": "#common-patterns-2",
+      "url": "#common-patterns-1",
       "depth": 2
     },
     {
       "value": "Ignoring Specific Files",
-      "url": "#ignoring-specific-files-2",
+      "url": "#ignoring-specific-files-1",
       "depth": 2
     },
     {
       "value": "Ignoring Folders",
-      "url": "#ignoring-folders-2",
+      "url": "#ignoring-folders-1",
       "depth": 2
     },
     {
       "value": "Ignoring Patterns",
-      "url": "#ignoring-patterns-2",
+      "url": "#ignoring-patterns-1",
       "depth": 2
     },
     {
       "value": "Ignoring Files and Folders Except Specific Ones",
-      "url": "#ignoring-files-and-folders-except-specific-ones-2",
+      "url": "#ignoring-files-and-folders-except-specific-ones-1",
       "depth": 2
     },
     {
       "value": "Ignoring Hidden Files and Directories",
-      "url": "#ignoring-hidden-files-and-directories-2",
+      "url": "#ignoring-hidden-files-and-directories-1",
       "depth": 2
     },
     {
       "value": "Ignoring Files in Specific Paths",
-      "url": "#ignoring-files-in-specific-paths-2",
+      "url": "#ignoring-files-in-specific-paths-1",
       "depth": 2
     },
     {
       "value": "Ignoring with Specific Depth",
-      "url": "#ignoring-with-specific-depth-2",
+      "url": "#ignoring-with-specific-depth-1",
       "depth": 2
     },
     {
       "value": "Practical Examples",
-      "url": "#practical-examples-4",
+      "url": "#practical-examples-2",
       "depth": 2
     },
     {
       "value": "Using Escape Characters",
-      "url": "#using-escape-characters-2",
+      "url": "#using-escape-characters-1",
       "depth": 2
     },
     {
       "value": "Using Quotes",
-      "url": "#using-quotes-2",
+      "url": "#using-quotes-1",
       "depth": 2
     },
     {
       "value": "Practical Examples",
-      "url": "#practical-examples-5",
+      "url": "#practical-examples-3",
       "depth": 2
     },
     {
       "value": "Complex Examples",
-      "url": "#complex-examples-2",
+      "url": "#complex-examples-1",
       "depth": 2
     },
     {
       "value": "Depth-Specific Examples",
-      "url": "#depth-specific-examples-2",
+      "url": "#depth-specific-examples-1",
       "depth": 2
     },
     {
       "value": "Creating and Managing a .gitignore File",
-      "url": "#creating-and-managing-a-gitignore-file-2",
+      "url": "#creating-and-managing-a-gitignore-file-1",
       "depth": 1
     },
     {
       "value": "Creating a .gitignore File",
-      "url": "#creating-a-gitignore-file-2",
+      "url": "#creating-a-gitignore-file-1",
       "depth": 2
     },
     {
       "value": "Managing the .gitignore File",
-      "url": "#managing-the-gitignore-file-2",
+      "url": "#managing-the-gitignore-file-1",
       "depth": 2
     },
     {
       "value": "Best Practices",
-      "url": "#best-practices-2",
+      "url": "#best-practices-1",
       "depth": 2
     },
     {
       "value": "Common Use Cases and Examples",
-      "url": "#common-use-cases-and-examples-2",
+      "url": "#common-use-cases-and-examples-1",
       "depth": 1
     },
     {
       "value": "Ignoring Build Artifacts",
-      "url": "#ignoring-build-artifacts-2",
+      "url": "#ignoring-build-artifacts-1",
       "depth": 1
     },
     {
       "value": "Ignoring Temporary Files",
-      "url": "#ignoring-temporary-files-2",
+      "url": "#ignoring-temporary-files-1",
       "depth": 2
     },
     {
       "value": "Ignoring Sensitive Information",
-      "url": "#ignoring-sensitive-information-2",
+      "url": "#ignoring-sensitive-information-1",
       "depth": 2
     },
     {
       "value": "Specific Examples for Different Languages and Frameworks",
-      "url": "#specific-examples-for-different-languages-and-frameworks-2",
+      "url": "#specific-examples-for-different-languages-and-frameworks-1",
       "depth": 2
     }
   ],
@@ -173,6 +173,6 @@
     "dateModified": "2024-06-24T00:00:00.000Z",
     "description": "A comprehensive guide to understanding and using the .gitignore file in Git, including syntax, common patterns, and best practices.",
     "image": "/static/images/gitignore.png",
-    "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/1.Understanding-the-gitignore"
+    "url": "https://eemayas.vercel.app//blog/1.Understanding-the-gitignore"
   }
 }

@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 const { nextui } = require("@nextui-org/react");
-const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -11,10 +10,8 @@ const config: Config = {
     "./data/**/*.mdx",
     "./layouts/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/pliny/**/*.js",
-
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-
   theme: {
     extend: {
       animation: {
@@ -71,12 +68,15 @@ const config: Config = {
         },
         secondary: "#ffffff",
         tertiary: "#1b2432",
+        tertiarylight: "#ffffff",
         "black-100": "#03191E",
         "black-200": "#525174",
         "white-100": "#f3f3f3",
       },
       boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
+        card: "20px 20px 20px rgba(0, 0, 0, 0.35)",
+        "card-dark": "10px 10px 20px rgba(202, 202, 202, 0.25)",
+        "card-two": "0px 35px 120px -15px #211e35",
       },
       fontSize: {
         base: "1rem",
@@ -127,6 +127,12 @@ const config: Config = {
           },
         },
       }),
+    },
+  },
+
+  variants: {
+    extend: {
+      boxShadow: ["dark"], // Enable dark mode variants for box shadow
     },
   },
 
