@@ -4,7 +4,7 @@ import { styles } from "@/app/style";
 import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { CloseIcons, MenuIcons } from "./Icons";
+import { CloseIcons, MenuIcons } from "@/components/social-icons/icons";
 import "css/tailwind.css";
 import ThemeSwitch from "./ThemeSwitch";
 import { Menu, RadioGroup, Transition } from "@headlessui/react";
@@ -84,7 +84,10 @@ const Navbar = () => {
                     <div className="p-1">
                       {navLinks.map((Links) => {
                         return (
-                          <RadioGroup.Option value={Links.title}>
+                          <RadioGroup.Option
+                            value={Links.title}
+                            key={Links.title}
+                          >
                             <Menu.Item>
                               <button
                                 className={`group flex w-full items-center rounded-md px-2 py-2  ${

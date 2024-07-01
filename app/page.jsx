@@ -1,15 +1,14 @@
 "use client";
-import NavBar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import About2 from "@/components/About2";
+import About from "@/app/about/components/About";
+import About2 from "@/app/about/components/About2";
 // import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
+import Skills from "@/app/about/components/Skills";
+import Projects from "@/app/projects/page";
 import Feedbacks from "@/components/Feedbacks";
-import LetSTalk from "@/components/Let'sTalk";
-import Contact from "@/components/Contact";
-import Blogs from "@/components/Blogs";
+import LetSTalk from "@/app/contacts/components/Let'sTalk";
+import Contact from "@/app/contacts/components/Contact";
+import Blogs from "@/app/blog/page";
 import {
   fetchSocialMedia,
   fetchBio,
@@ -24,8 +23,6 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-// import SplashScreen from "@/components/SplashScreen";
-// import { usePathname } from "next/navigation";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -119,19 +116,19 @@ const Popup = () => {
                       setAdminPin(e.target.value);
                     }}
                     placeholder="PIN"
-                    className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                    className="dark:bg-tertiary bg-tertiarylight  py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                     required
                   />
                 </label>
                 <div className="flex flex-row gap-4">
                   <button
                     type="submit"
-                    className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+                    className="dark:bg-tertiary bg-tertiarylight  py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
                   >
                     {loading ? "Sending..." : "Send"}
                   </button>
                   <button
-                    className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+                    className="dark:bg-tertiary bg-tertiarylight  py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
                     onClick={() => setShowPopup(!showPopup)}
                   >
                     Cancel

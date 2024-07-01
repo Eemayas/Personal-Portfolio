@@ -3,13 +3,11 @@ import { ReactNode } from "react";
 import Image from "@/components/Image";
 import { CoreContent } from "pliny/utils/contentlayer.js";
 import type { Authors, Blog } from "contentlayer/generated";
-import Comments from "@/components/Comments";
-import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
 import SectionContainer from "@/components/SectionContainer";
-import siteMetadata from "@/data/siteMetadata";
 import ScrollTopAndComment from "@/components/ScrollTopAndComment";
 import Tag from "@/components/Tag";
+import Link from "next/link";
 
 interface LayoutProps {
   content: CoreContent<Blog>;
@@ -19,7 +17,7 @@ interface LayoutProps {
   prev?: { path: string; title: string };
 }
 
-export default function PostMinimal({
+export default function BlogPageLayout({
   content,
   authorDetails,
   next,
@@ -126,20 +124,12 @@ export default function PostMinimal({
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">
                 {children}
               </div>
-              {siteMetadata.comments && (
-                <div
-                  className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
-                  id="comment"
-                >
-                  <Comments slug={slug} />
-                </div>
-              )}
             </div>
           </div>
           <footer>
             <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
-              {next && next.path && (
-                <div className="pt-4 xl:pt-8">
+              <div className="pt-4 xl:pt-8">
+                {next && next.path ? (
                   <Link
                     href={`/${next.path}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -147,10 +137,14 @@ export default function PostMinimal({
                   >
                     &larr; {next.title}
                   </Link>
-                </div>
-              )}{" "}
-              {prev && prev.path && (
-                <div className="pt-4 xl:pt-8">
+                ) : (
+                  <p className="text-primary-500 " aria-label={`No Next post:`}>
+                    No more lastest post
+                  </p>
+                )}{" "}
+              </div>
+              <div className="pt-4 xl:pt-8">
+                {prev && prev.path ? (
                   <Link
                     href={`/${prev.path}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -158,8 +152,12 @@ export default function PostMinimal({
                   >
                     {prev.title} &rarr;
                   </Link>
-                </div>
-              )}
+                ) : (
+                  <p className="text-primary-500 " aria-label={`No Next post:`}>
+                    No more previous post
+                  </p>
+                )}
+              </div>
             </div>
           </footer>
         </div>
@@ -186,7 +184,7 @@ const TableOfContents = ({ tableOfContents }) => {
           >
             <a
               href={item.url}
-              className=" text-primary-500 underline hover:text-primary-600 dark:hover:text-primary-400 text-[14px]"
+              className=" text-primary-500 underline hover:text-primary-600 dark:hover:text-primary-400 text-[1rem]"
               aria-label={` ${item.value}`}
             >
               {item.value}

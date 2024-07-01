@@ -11,7 +11,8 @@ import {
   patchContact,
   postContact,
 } from "@/lib/action/contactAction";
-import { DeleteIcons, EditIcons } from "./Icons";
+import { personalDetails } from "@/constants";
+import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 
 const LetsTalk = () => {
   const [form, setForm] = useState({
@@ -65,72 +66,84 @@ const LetsTalk = () => {
   return (
     <>
       <div
-        className={`xl:mt-12 flex md:flex-row flex-col gap-10 overflow-hidden`}
+        className={`xl:mt-6  flex md:flex-row flex-col gap-10 overflow-hidden`}
       >
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+          className="flex-[0.75]  green-pink-gradient p-[2px] rounded-2xl mb-10"
         >
-          <p className={styles.sectionSubText}>Get in touch</p>
-          <h2 className={styles.sectionHeadText}>Let's Talk.</h2>
+          <div className="p-[30px] rounded-[14px] dark:bg-background-dark bg-background-light shadow-card dark:shadow-card-dark">
+            <p className={styles.sectionSubText}>Get in touch</p>
+            <h2 className={styles.sectionHeadText}>Let's Talk.</h2>
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8"
-          >
-            <label className="flex flex-col">
-              <span className="text-white font-medium mb-4">Your Name</span>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="What's your good name?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-                required
-              />
-            </label>
-            <label className="flex flex-col">
-              <span className="text-white font-medium mb-4">Your email</span>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="What's your email address?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-                required
-              />
-            </label>
-            <label className="flex flex-col">
-              <span className="text-white font-medium mb-4">Your Message</span>
-              <textarea
-                rows={7}
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="What you want to say?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-                required
-              />
-            </label>
-
-            <button
-              aria-label="BTN"
-              type="submit"
-              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="mt-12 flex flex-col gap-8"
             >
-              {loading ? "Sending..." : "Send"}
-            </button>
-          </form>
+              <label className="flex flex-col">
+                <span className="font-medium mb-4">Your Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="What's your good name?"
+                  className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
+                  required
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="font-medium mb-4">Your email</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="What's your email address?"
+                  className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
+                  required
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="font-medium mb-4">Your Message</span>
+                <textarea
+                  rows={7}
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="What you want to say?"
+                  className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
+                  required
+                />
+              </label>
+
+              <button
+                aria-label="BTN"
+                type="submit"
+                className="dark:bg-tertiary bg-tertiarylight py-3 px-8 rounded-xl outline-none w-fit font-bold shadow-md shadow-primary"
+              >
+                {loading ? "Sending..." : "Send"}
+              </button>
+            </form>
+          </div>
         </motion.div>
-        <ContactInfo
-          adminState={adminState}
-          contacts={contacts}
-          setForm={setForm}
-          setId={setId}
-        />
+
+        {contacts ? (
+          <ContactInfo
+            adminState={adminState}
+            contacts={contacts}
+            setForm={setForm}
+            setId={setId}
+          />
+        ) : (
+          <ContactInfo
+            adminState={adminState}
+            contacts={personalDetails}
+            setForm={setForm}
+            setId={setId}
+          />
+        )}
       </div>
       <ContactForm
         adminState={adminState}
@@ -179,11 +192,12 @@ const ContactCard = ({
   const dispatch = useDispatch();
   return (
     <div className="flex flex-row items-center gap-3 ">
-      <div className="md:w-96 mb-6 flex items-center flex-col justify-evenly w-full bg-black-100 p-5 rounded-2xl min-h-[200px] sm:w-[360px]">
-        {/* {icon} */}
-        <h3 className="m-0 text-white">{title}</h3>
-        <hr className="mt-2 mb-2 w-full bg-white" />
-        <div className="small text-white">{detail}</div>
+      <div className="green-pink-gradient mb-6 p-[2px] rounded-2xl shadow-card dark:shadow-card-dark">
+        <div className="dark:bg-background-dark bg-background-light md:w-96  flex items-center flex-col justify-evenly w-full p-5 min-h-[200px] sm:w-[360px] rounded-[14px] ">
+          <h3 className="m-0">{title}</h3>
+          <hr className="mt-2 mb-2 w-full h-[2px] dark:bg-white bg-black" />
+          <div className="small">{detail}</div>
+        </div>
       </div>
       <div
         className="flex  flex-col justify-normal  xs:justify-end"
@@ -198,7 +212,7 @@ const ContactCard = ({
               detail: detail,
             });
           }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
           <EditIcons />
         </button>
@@ -207,7 +221,7 @@ const ContactCard = ({
           onClick={() => {
             dispatch(deleteContact(_id));
           }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
           <DeleteIcons />
         </button>
@@ -262,7 +276,7 @@ const ContactForm = ({ adminState, setId, setForm, id, form }) => {
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 placeholder="Phone  Number/Email Address"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -274,7 +288,7 @@ const ContactForm = ({ adminState, setId, setForm, id, form }) => {
                 value={form.detail}
                 onChange={(e) => setForm({ ...form, detail: e.target.value })}
                 placeholder="..."
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -282,7 +296,7 @@ const ContactForm = ({ adminState, setId, setForm, id, form }) => {
             <button
               aria-label="BTN"
               type="submit"
-              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+              className="dark:bg-tertiary bg-tertiarylight py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >
               {loading ? "Sending..." : "Send"}
             </button>

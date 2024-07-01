@@ -1,6 +1,6 @@
 "use client";
-import LetSTalk from "@/components/Let'sTalk";
-import Contact from "@/components/Contact";
+import LetSTalk from "./components/Let'sTalk";
+import Contact from "./components/Contact";
 
 import { fetchContact, fetchSocialMedia } from "@/lib/action/index";
 

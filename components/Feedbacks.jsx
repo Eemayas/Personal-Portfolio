@@ -12,7 +12,7 @@ import {
   patchTestimonial,
   postTestimonial,
 } from "@/lib/action/testinomialAction";
-import { DeleteIcons, EditIcons } from "./Icons";
+import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import Image from "next/image";
 
 const Feedbacks = () => {
@@ -31,7 +31,7 @@ const Feedbacks = () => {
     <>
       <div className="mt-12 bg-black-100 pb-5 rounded-[20px] ">
         <div
-          className={`${styles.padding} bg-tertiary  rounded-2xl min-h-[300px]`}
+          className={`${styles.padding} dark:bg-tertiary bg-tertiarylight  rounded-2xl min-h-[300px]`}
         >
           <motion.div variants={textVariant()}>
             <p className={styles.sectionSubText}>What others say</p>
@@ -130,7 +130,7 @@ const FeedBackCard = ({
               company: company,
             });
           }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
           <EditIcons />
         </button>
@@ -139,7 +139,7 @@ const FeedBackCard = ({
           onClick={() => {
             dispatch(deleteTestimonial(_id));
           }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
           <DeleteIcons />
         </button>
@@ -195,7 +195,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Person's Names"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -209,7 +209,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
                   setForm({ ...form, testimonial: e.target.value })
                 }
                 placeholder="What you want to say?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -223,7 +223,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
                   setForm({ ...form, designation: e.target.value })
                 }
                 placeholder="CTO ,CEO"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -235,7 +235,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 placeholder="Tesla,Apple"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -243,7 +243,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
               <span className="text-white font-medium mb-4">
                 Select an Image
               </span>
-              <div className="cursor-pointer bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium hover:bg-blue-600 transition duration-300">
+              <div className="cursor-pointer dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium hover:bg-blue-600 transition duration-300">
                 <FileBase
                   type="file"
                   multiple={false}
@@ -270,7 +270,7 @@ const TestinomialForm = ({ adminState, setId, form, setForm, id }) => {
             <button
               aria-label="BTN"
               type="submit"
-              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+              className="dark:bg-tertiary bg-tertiarylight py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >
               {loading ? "Sending..." : "Send"}
             </button>

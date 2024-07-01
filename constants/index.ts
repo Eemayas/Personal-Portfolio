@@ -60,6 +60,20 @@ export const bioCardServices = [
     icon: "/assets/bioCard/flutter.webp",
   },
 ];
+export const personalDetails = [
+  {
+    title: "Phone Number",
+    detail: "+977 9860440088",
+  },
+  {
+    title: "Email Address",
+    detail: "prashantmanandhar2002@gmail.com",
+  },
+  {
+    title: "Address",
+    detail: "Banepa 7, Kavre Nepal",
+  },
+];
 
 export const technologies = [
   {
@@ -108,10 +122,10 @@ export const technologies = [
     name: "Node JS",
     icon: "/assets/skills/Node.webp",
   },
-  {
-    name: "Three JS",
-    icon: "/assets/skills/ThreeJS.webp",
-  },
+  // {
+  //   name: "Three JS",
+  //   icon: "/assets/skills/ThreeJS.webp",
+  // },
   {
     name: "MongoDB",
     icon: "/assets/skills/MongoDB.webp",

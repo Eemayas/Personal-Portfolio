@@ -12,7 +12,7 @@ import {
   patchProject,
   postProject,
 } from "@/lib/action/projectAction";
-import { DeleteIcons, EditIcons } from "./Icons";
+import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
 import "css/tailwind.css";
@@ -44,7 +44,7 @@ const Projects = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] "
+          className="mt-3 text-[17px] max-w-3xl leading-[30px] "
         >
           {projectDescription}
         </motion.p>
@@ -109,49 +109,49 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl w-[300px] sm:w-[360px]"
+        className="green-pink-gradient p-[2px] rounded-2xl w-[300px] sm:w-[360px]  shadow-card dark:shadow-card-dark"
       >
-        <div className="relative w-full h-[230px]">
-          <Image
-            width={240}
-            height={240}
-            loading="lazy"
-            src={image}
-            alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
-          />
+        <div className="dark:bg-tertiary bg-tertiarylight  p-[18px] rounded-[14px]">
+          <div className="relative w-full h-[230px]">
+            <Image
+              width={240}
+              height={240}
+              loading="lazy"
+              src={image}
+              alt="project_image"
+              className="w-full h-full object-cover rounded-2xl"
+            />
 
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <Image
-                width={"20"}
-                height={"20"}
-                loading="lazy"
-                src={"/assets/contacts/Github.webp"}
-                alt="source code"
-                className="w-1/2 h-1/2 object-contain"
-              />
+            <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+              <div
+                onClick={() => window.open(source_code_link, "_blank")}
+                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              >
+                <Image
+                  width={"20"}
+                  height={"20"}
+                  loading="lazy"
+                  src={"/assets/contacts/Github.webp"}
+                  alt="source code"
+                  className="w-1/2 h-1/2 object-contain"
+                />
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <p
-              key={`${name}-${tag}`}
-              className={`text-[14px] ${tagColorList[index % 3]}`}
-            >
-              #{tag}
-            </p>
-          ))}
+          <div className="mt-5">
+            <h3 className=" font-bold text-[24px]">{name}</h3>
+            <p className="mt-2  text-[14px]">{description}</p>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <p
+                key={`${name}-${tag}`}
+                className={`text-[14px] ${tagColorList[index % 3]}`}
+              >
+                #{tag}
+              </p>
+            ))}
+          </div>
         </div>
       </Tilt>
       <div
@@ -171,7 +171,7 @@ const ProjectCard = ({
               websitelinks: websitelinks,
             });
           }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
           <EditIcons />
         </button>
@@ -180,7 +180,7 @@ const ProjectCard = ({
           onClick={() => {
             dispatch(deleteProject(_id));
           }}
-          className="bg-tertiary flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
+          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
         >
           <DeleteIcons />
         </button>
@@ -236,7 +236,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Projects Names"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -252,7 +252,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                   setForm({ ...form, description: e.target.value })
                 }
                 placeholder="What you want to say?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -266,7 +266,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                   setForm({ ...form, tags: e.target.value.split(",") })
                 }
                 placeholder="#flutter,#MongoDB"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -280,7 +280,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                   setForm({ ...form, source_code_link: e.target.value })
                 }
                 placeholder="https://github.com/"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
                 required
               />
             </label>
@@ -294,14 +294,14 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
                   setForm({ ...form, websitelinks: e.target.value })
                 }
                 placeholder="https://www.manandharprashant.com.np/"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+                className="dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
             </label>
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">
                 Select an Image
               </span>
-              <div className="cursor-pointer bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium hover:bg-blue-600 transition duration-300">
+              <div className="cursor-pointer dark:bg-tertiary bg-tertiarylight py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium hover:bg-blue-600 transition duration-300">
                 <FileBase
                   type="file"
                   multiple={false}
@@ -328,7 +328,7 @@ const ProjectForm = ({ adminState, setId, form, setForm, id }) => {
             <button
               aria-label="BTN"
               type="submit"
-              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+              className="dark:bg-tertiary bg-tertiarylight py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >
               {loading ? "Sending..." : "Send"}
             </button>

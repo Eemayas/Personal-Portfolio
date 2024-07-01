@@ -17,9 +17,9 @@ const BlogListDisplayCard = ({ slug, date, title, tags, summary, images }) => {
   const index = Math.floor(Math.random() * 1000) % randomImgUrl.length;
   images = images ? images[0] : randomImgUrl[index];
   return (
-    <div className="green-pink-gradient my-5 w-full rounded-[30px] p-[1px] ">
-      <div className="space-y-2 rounded-[30px] bg-tertiary p-6 hover:bg-gray-200 dark:hover:bg-gray-900 ">
-        <div className="flex flex-col items-center space-x-4 md:flex-row">
+    <div className="green-pink-gradient my-8 w-full rounded-[30px] p-[2px] shadow-card dark:shadow-card-dark">
+      <div className="space-y-2 rounded-[28px] dark:bg-tertiary bg-tertiarylight p-6 hover:bg-gray-200 dark:hover:bg-gray-900 ">
+        <div className="flex flex-col items-center space-x-4 md:flex-row divide-gray-500 md:divide-x-1 divide-y-1 md:divide-y-0">
           <div className="h-64 w-64 rounded-3xl object-fill shadow-lg">
             <Image
               width={200}

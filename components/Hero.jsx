@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/lib/hoc";
@@ -109,11 +109,11 @@ const ProfileAvatars = () => {
 const ContactCard = ({ index, name, links, logo }) => {
   return (
     <motion.div
-      className=" w-[50px] green-pink-gradient p-[1.5px] rounded-[10px] shadow-card "
+      className=" w-[50px] green-pink-gradient p-[1.5px] rounded-[10px] "
       variants={fadeIn("right", "spring", 0.25 * index, 0.55)}
     >
       <div
-        className="bg-tertiary rounded-[10px] "
+        className="dark:bg-tertiary bg-tertiarylight rounded-[10px] "
         onClick={() => window.open(links, "_blank")}
       >
         <Image

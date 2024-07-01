@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Menu, RadioGroup, Transition } from "@headlessui/react";
-import { Monitor, Moon, Sun } from "./Icons";
+import { Monitor, Moon, Sun } from "@/components/social-icons/icons";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
