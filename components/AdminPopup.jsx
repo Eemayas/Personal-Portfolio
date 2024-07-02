@@ -17,7 +17,7 @@ const AdminPopup = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      dispatch({ type: IS_ADMIN, payload: true });
+      dispatch({ type: IS_ADMIN, payload: false });
     };
 
     // Call the async function
