@@ -1,27 +1,28 @@
 "use client";
 import LetSTalk from "./components/Let'sTalk";
-import Contact from "./components/Contact";
+
 import { fetchContact, fetchSocialMedia } from "@/lib/action/index";
+
 import { useDispatch } from "react-redux";
-import { useCallback, useState } from "react";
-import IntersectionObserverComponent from "@/components/IntersectionObserverComponent";
+import { useEffect } from "react";
+import Contact from "./Contact/Contact";
 const ContactPage = () => {
   const dispatch = useDispatch();
-  const [hasFetched, setHasFetched] = useState(false);
-  const fetchData = useCallback(async () => {
-    if (!hasFetched) {
+
+  useEffect(() => {
+    const fetchData = async () => {
       await dispatch(fetchContact());
       await dispatch(fetchSocialMedia());
-      setHasFetched(true);
-    }
-  }, [dispatch, hasFetched]);
+    };
+
+    // Call the async function
+    fetchData();
+  }, [dispatch]);
   return (
-    <IntersectionObserverComponent onIntersect={fetchData}>
-      <div className="relative z-0 ">
-        <LetSTalk />
-        <Contact />
-      </div>
-    </IntersectionObserverComponent>
+    <div className="relative z-0 ">
+      <LetSTalk />
+      <Contact />
+    </div>
   );
 };
 

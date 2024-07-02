@@ -1,7 +1,7 @@
 "use client";
 import { IS_ADMIN } from "@/lib/action/index";
 import { useDispatch, useSelector } from "react-redux";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const AdminPopup = () => {
   const bios = useSelector((state) => state.BioReducer);
@@ -14,6 +14,15 @@ const AdminPopup = () => {
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: IS_ADMIN, payload: true });
+    };
+
+    // Call the async function
+    fetchData();
+  }, [dispatch]);
 
   const handleSubmit = (e) => {
     setLoading(true);
