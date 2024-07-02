@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn, textVariant } from "@/lib/utils/motion";
 
@@ -12,10 +12,14 @@ import {
   patchTestimonial,
   postTestimonial,
 } from "@/lib/action/testinomialAction";
+import { fetchTestimonial } from "@/lib/action/index";
 import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import Image from "next/image";
+import IntersectionObserverComponent from "./IntersectionObserverComponent";
 
 const Feedbacks = () => {
+  const dispatch = useDispatch();
+  const [hasFetched, setHasFetched] = useState(false);
   const [form, setForm] = useState({
     name: "",
     testimonial: "",
@@ -26,9 +30,14 @@ const Feedbacks = () => {
   const [id, setId] = useState("0");
   const testimonials = useSelector((state) => state.TestimonialReducer);
   const adminState = useSelector((state) => state.AdminReducer);
-  // console.log(testimonials);
+  const fetchData = useCallback(async () => {
+    if (!hasFetched) {
+      await dispatch(fetchTestimonial());
+      setHasFetched(true);
+    }
+  }, [dispatch, hasFetched]);
   return testimonials.length ? (
-    <>
+    <IntersectionObserverComponent onIntersect={fetchData}>
       <div className="mt-12 bg-black-100 pb-5 rounded-[20px] ">
         <div
           className={`${styles.padding} dark:bg-tertiary bg-tertiarylight  rounded-2xl min-h-[300px]`}
@@ -61,11 +70,12 @@ const Feedbacks = () => {
         setForm={setForm}
         id={id}
       />{" "}
-    </>
+    </IntersectionObserverComponent>
   ) : (
     <h1></h1>
   );
 };
+
 const FeedBackCard = ({
   index,
   adminState,

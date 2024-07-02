@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { SectionWrapper } from "@/lib/hoc";
@@ -12,10 +12,13 @@ import {
   patchProject,
   postProject,
 } from "@/lib/action/projectAction";
+import { fetchProject } from "@/lib/action/index";
 import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
 import "css/tailwind.css";
+import { Action } from "@reduxjs/toolkit";
+import IntersectionObserverComponent from "@/components/IntersectionObserverComponent";
 const tagColorList = [
   "green-text-gradient",
   "pink-text-gradient",
@@ -23,6 +26,8 @@ const tagColorList = [
 ];
 
 const Projects = () => {
+  const dispatch = useDispatch();
+  const [hasFetched, setHasFetched] = useState(false);
   const [isHomePage, setIsHomePage] = useState(true);
   const [form, setForm] = useState({
     name: "",
@@ -43,8 +48,15 @@ const Projects = () => {
       setIsHomePage(isHome);
     }
   }, []);
+
+  const fetchData = useCallback(async () => {
+    if (!hasFetched) {
+      await dispatch(fetchProject());
+      setHasFetched(true);
+    }
+  }, [dispatch, hasFetched]);
   return (
-    <>
+    <IntersectionObserverComponent onIntersect={fetchData}>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
@@ -77,20 +89,6 @@ const Projects = () => {
           />
         ))}
       </div>
-      {/* ) : (
-        <div className=" mt-20 flex flex-wrap justify-center gap-7">
-          {projects.map((project, index) => (
-            <ProjectCard
-              adminState={adminState}
-              key={`project-${index}`}
-              setForm={setForm}
-              setId={setId}
-              index={index}
-              {...project}
-            />
-          ))}
-        </div>
-      )} */}
       <ProjectForm
         adminState={adminState}
         setId={setId}
@@ -98,7 +96,7 @@ const Projects = () => {
         setForm={setForm}
         id={id}
       />
-    </>
+    </IntersectionObserverComponent>
   );
 };
 

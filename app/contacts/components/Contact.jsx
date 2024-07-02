@@ -35,29 +35,21 @@ const Contact = () => {
             </motion.div>
           </div>{" "}
           <div className="flex flex-row flex-wrap justify-center gap-10 pb-10">
-            {socialMedias.length
-              ? socialMedias.map((socialMedia, index) => (
-                  <ContactCard
-                    adminState={adminState}
-                    setForm={setForm}
-                    setId={setId}
-                    index={index}
-                    key={`socialMedia-${index}`}
-                    name={socialMedia.name}
-                    links={socialMedia.links}
-                    logo={socialMedia.logo}
-                    _id={socialMedia._id}
-                  />
-                ))
-              : contacts.map((contact, index) => (
-                  <ContactCard
-                    index={index}
-                    key={`contacts-${index}`}
-                    name={contact.name}
-                    links={contact.links}
-                    logo={contact.logo}
-                  />
-                ))}
+            {(socialMedias.length ? socialMedias : contacts).map(
+              (socialMedia, index) => (
+                <ContactCard
+                  adminState={adminState}
+                  setForm={setForm}
+                  setId={setId}
+                  index={index}
+                  key={`socialMedia-${index}`}
+                  name={socialMedia.name}
+                  links={socialMedia.links}
+                  logo={socialMedia.logo}
+                  _id={socialMedia._id}
+                />
+              )
+            )}
           </div>
         </div>
       </div>
@@ -84,8 +76,9 @@ const ContactCard = ({
 }) => {
   const dispatch = useDispatch();
   return (
-    <Tilt className="xs:w-[110px] w-[110px] ">
-      <motion.div variants={fadeIn("right", "spring", 0.25 * index, 0.55)}>
+    <motion.div variants={textVariant()}>
+      <Tilt className="xs:w-[110px] w-[110px] ">
+        {/* <motion.div variants={fadeIn("right", "spring", 0.25 * index, 0.55)}> */}
         <div className="w-full green-pink-gradient p-[2px] rounded-[30px] shadow-card dark:shadow-card-dark ">
           <div
             className="dark:bg-tertiary bg-tertiarylight rounded-[28px] "
@@ -129,8 +122,8 @@ const ContactCard = ({
             <DeleteIcons />
           </button>
         </div>
-      </motion.div>
-    </Tilt>
+      </Tilt>
+    </motion.div>
   );
 };
 

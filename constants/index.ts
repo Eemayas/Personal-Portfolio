@@ -48,7 +48,7 @@ export const contacts = [
   },
 ];
 
-export const Bio = `"Hello there! I am a highly skilled computer engineering professional with expertise in various programming languages such as C, C++, Flutter, Dart, React, HTML, CSS, and JavaScript. I am a quick learner and always eager to take on new challenges that help me further expand my skillset. In my free time, I love to indulge in my hobbies of cycling and reading novels and comics. My passion for technology and innovation drives me to continuously learn and stay up-to-date with the latest trends in the industry. With my strong work ethic and exceptional problem-solving skills, I am confident in my ability to contribute to any project I am a part of. Thank you for taking the time to read my bio, and I look forward to potentially working with you!"`;
+export const Bio = `"Hello there! I am a highly skilled computer engineering professional with expertise in various programming languages such as C, C++, Flutter, Dart, React, HTML, CSS, and JavaScript. I am a quick learner and always eager to take on new challenges that help me further expand my skillset. In my free time, I love to indulge in my hobbies of cycling and reading novels and comics. My passion for technology and innovation drives me to continuously learn and stay up-to-date with the latest trends in the industry. With my strong work ethic and exceptional problem-solving skills, I am confident in my ability to contribute to any project I am a part of. Thank you for taking the time to read my bio, and I look forward to potentially working with you! efewwwwwwwwwwwwwwww"`;
 
 export const bioCardServices = [
   {
@@ -60,6 +60,7 @@ export const bioCardServices = [
     icon: "/assets/bioCard/flutter.webp",
   },
 ];
+
 export const personalDetails = [
   {
     title: "Phone Number",
@@ -242,27 +243,24 @@ export const technologies = [
 export const projects = [
   {
     name: "Car Race",
-    description: "Terminal base Car race game",
+    description: "Terminal based Car race game",
     tags: ["C++"],
-    image:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    image: "/assets/projects/Car_race_game.webp",
     source_code_link: "https://github.com/Eemayas/2nd-sem-Final-Project.git",
   },
   {
     name: "Meal Up",
     description: "Recipe App",
     tags: ["Flutter", "Firebase", "Dart"],
-    image:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-    source_code_link: "https://github.com/Eemayas/4th-sem-projects",
+    image: "/assets/projects/Meal_up.webp",
+    source_code_link: "https://github.com/Eemayas/3rd_Sem-Project-Final-Codes",
   },
   {
     name: "ProjectHub",
-    description: "Project Management website",
+    description: "Project Management Website",
     tags: ["MongoDB", "ExpressJS", "React", "Node"],
-    image:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-    source_code_link: "https://github.com/",
+    image: "/assets/projects/Project_Hub.webp",
+    source_code_link: "https://github.com/Eemayas/4th-sem-projects",
   },
 ];
 //
