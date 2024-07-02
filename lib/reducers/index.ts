@@ -8,6 +8,24 @@ import SocialMediaReducer from "./socialMediaReducer";
 import TestimonialReducer from "./testimonialReducer";
 import ExperiencesReducer from "./experiencesReducer";
 import AdminReducer from "./adminReducer";
+import socialMediaReducer from "@/app/contacts/Contact/slices/socialMediaSlice";
+import contactReducer from "@/app/contacts/letsTalk/slices/contactSlice";
+
+// TODO: For the type of reducer
+// export interface RootState {
+//   BioReducer: BioState;
+//   ExperiencesReducer: ExperiencesState;
+//   BioCardReducer: BioCardState;
+//   BioSkillReducer: BioSkillState;
+//   ProjectReducer: ProjectState;
+//   ContactReducer: ContactState;
+//   SocialMediaReducer: SocialMediaState;
+//   TestimonialReducer: TestimonialState;
+//   AdminReducer: AdminState;
+//   socialMediaReducers: ContactSocialMediaState;
+//   contactReducer: LetsTalkContactState;
+// }
+
 export default combineReducers({
   BioReducer,
   ExperiencesReducer,
@@ -18,4 +36,6 @@ export default combineReducers({
   SocialMediaReducer,
   TestimonialReducer,
   AdminReducer,
+  socialMediaReducers: socialMediaReducer,
+  contactReducer,
 });

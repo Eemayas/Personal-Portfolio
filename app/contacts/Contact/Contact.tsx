@@ -7,16 +7,26 @@ import { styles } from "@/app/style";
 import { textVariant } from "@/lib/utils/motion";
 import { contacts } from "@/constants";
 import SocialMediaForm from "./components/SocialMediaForm";
-import ContactCard from "./components/ContactCard";
+import ContactCard from "./components/SocialMediaContactCard";
+import { RootState } from "@/app/store";
 const Contact = () => {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<{
+    name: string;
+    logo: string;
+    links: string;
+  }>({
     name: "",
     logo: "",
     links: "",
   });
   const [id, setId] = useState("0");
-  const socialMedias = useSelector((state) => state.SocialMediaReducer);
-  const adminState = useSelector((state) => state.AdminReducer);
+  const {
+    data: socialMedias,
+    loading: socialMediasLoading,
+    error: socialMediasError,
+  } = useSelector((state: RootState) => state.socialMediaReducers);
+
+  const adminState = useSelector((state: RootState) => state.AdminReducer);
   return (
     <>
       <div className=" green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark">
@@ -34,7 +44,6 @@ const Contact = () => {
                   adminState={adminState}
                   setForm={setForm}
                   setId={setId}
-                  index={index}
                   key={`socialMedia-${index}`}
                   name={socialMedia.name}
                   links={socialMedia.links}

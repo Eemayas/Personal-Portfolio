@@ -5,25 +5,22 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { textVariant } from "@/lib/utils/motion";
 import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
-import { deleteSocialMedia } from "@/lib/action/socialMediaAction";
-import { Action } from "@reduxjs/toolkit";
+import { deleteSocialMedia } from "../slices/socialMediaSlice";
+import store from "@/app/store";
+import { TSocialMediaContact } from "../types";
 
-interface ContactCardProps {
+interface SocialMediaContactCardProps {
   adminState: boolean;
-  index: number;
   name: string;
   links: string;
   logo: string;
   _id: string;
-  setForm: React.Dispatch<
-    React.SetStateAction<{ name: string; logo: string; links: string }>
-  >;
+  setForm: React.Dispatch<React.SetStateAction<TSocialMediaContact>>;
   setId: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({
+const SocialMediaContactCard: React.FC<SocialMediaContactCardProps> = ({
   adminState,
-  index,
   name,
   links,
   logo,
@@ -31,8 +28,6 @@ const ContactCard: React.FC<ContactCardProps> = ({
   setForm,
   setId,
 }) => {
-  const dispatch = useDispatch();
-
   return (
     <motion.div variants={textVariant()}>
       <Tilt className="xs:w-[110px] w-[110px]">
@@ -68,9 +63,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
             </button>
             <button
               aria-label="Delete"
-              onClick={() =>
-                dispatch(deleteSocialMedia(_id) as unknown as Action)
-              }
+              onClick={() => store.dispatch(deleteSocialMedia(_id))}
               className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
             >
               <DeleteIcons />
@@ -82,4 +75,4 @@ const ContactCard: React.FC<ContactCardProps> = ({
   );
 };
 
-export default ContactCard;
+export default SocialMediaContactCard;

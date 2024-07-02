@@ -27,7 +27,7 @@ export const contacts = [
     links: "https://www.facebook.com/prashant.manandhar.88/",
   },
   {
-    name: "Github",
+    name: "Githubss",
     logo: "/assets/contacts/Github.webp",
     links: "https://github.com/Eemayas",
   },

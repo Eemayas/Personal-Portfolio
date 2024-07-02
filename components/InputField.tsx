@@ -104,7 +104,8 @@ const InputField: React.FC<InputFieldProps> = ({
         onChange={onChange}
         placeholder={placeholder}
         aria-label={placeholder}
-        className="block w-full border border-gray-200 dark:bg-tertiary bg-tertiarylight px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:text-gray-100py-4  rounded-lg outline-none  font-medium"
+        className="block w-full border border-gray-200 dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg  border-none font-medium ark:bg-tertiary text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:text-gray-100 outline-none "
+        // className=""
         required={required}
       />
     </label>
