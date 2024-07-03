@@ -15,15 +15,6 @@ const AdminPopup = () => {
     setShowPopup(!showPopup);
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     dispatch({ type: IS_ADMIN, payload: true });
-  //   };
-
-  //   // Call the async function
-  //   fetchData();
-  // }, [dispatch]);
-
   const handleSubmit = (e) => {
     setLoading(true);
     console.log(adminPin);

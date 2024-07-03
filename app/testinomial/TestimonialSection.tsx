@@ -25,7 +25,6 @@ const TestimonialSection: React.FC = () => {
   const { testimonials } = useSelector(
     (state: RootState) => state.testimonialReducer
   );
-  console.log({ testimonials });
   const adminState = useSelector((state: RootState) => state.AdminReducer);
 
   const fetchData = useCallback(async () => {

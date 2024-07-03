@@ -1,12 +1,11 @@
 import Hero from "@/components/Hero";
-// import Experience from "@/components/Experience";
 import Projects from "@/app/projects/page";
-import Feedbacks from "@/components/Feedbacks";
 import Blogs from "@/app/blog/page";
 import AboutPage from "./about/page";
 import ContactPage from "./contacts/page";
 import AdminPopup from "@/components/AdminPopup";
 import TestimonialSection from "./testinomial";
+import ExperienceSection from "./experiences/ExperiencesSection";
 
 export default function Home() {
   return (
@@ -17,6 +16,7 @@ export default function Home() {
       <AboutPage />
       <Projects />
       <Blogs />
+      <ExperienceSection />
       <TestimonialSection />
       <ContactPage />
       <AdminPopup />

@@ -8,7 +8,6 @@ export interface TestimonialState {
   error: string | null;
 }
 // Async thunks
-
 export const fetchTestimonial = createAsyncThunk(
   "testimonials/fetch",
   async (_, { rejectWithValue }) => {
