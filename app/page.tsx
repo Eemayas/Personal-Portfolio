@@ -6,6 +6,7 @@ import Blogs from "@/app/blog/page";
 import AboutPage from "./about/page";
 import ContactPage from "./contacts/page";
 import AdminPopup from "@/components/AdminPopup";
+import TestimonialSection from "./testinomial";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <AboutPage />
       <Projects />
       <Blogs />
-      <Feedbacks />
+      <TestimonialSection />
       <ContactPage />
       <AdminPopup />
     </div>

@@ -110,18 +110,6 @@ const LetsTalk: React.FC = () => {
                 placeholder="What's your email address?"
                 required
               />
-              {/* <label className="flex flex-col">
-                <span className="font-medium mb-4">Your email</span>
-                <input
-                  type="email"
-                  name="from_email"
-                  value={letsTalkForm.from_email.toString()}
-                  onChange={handleletsTalkFormetsTalkFormFormChange}
-                  placeholder="What's your email address?"
-                  className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
-                  required
-                />
-              </label> */}
               <label className="flex flex-col">
                 <span className="font-medium mb-4">Your Message</span>
                 <textarea

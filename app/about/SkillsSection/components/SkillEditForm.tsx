@@ -1,15 +1,12 @@
 import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
-import FileBase from "react-file-base64";
-import Image from "next/image";
 import store from "@/app/store";
 import { patchBioSkill, postBioSkill } from "../slices/skillSlice";
 import { TBioSkill } from "../types";
 import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
 
-interface TechFormProps {
+interface SkillEditFormProps {
   adminState: boolean;
   setId: React.Dispatch<React.SetStateAction<string>>;
   id: string;
@@ -17,7 +14,7 @@ interface TechFormProps {
   setForm: React.Dispatch<React.SetStateAction<TBioSkill>>;
 }
 
-const SkillEditForm: React.FC<TechFormProps> = ({
+const SkillEditForm: React.FC<SkillEditFormProps> = ({
   adminState,
   setId,
   id,

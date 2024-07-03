@@ -1,3 +1,5 @@
+import { Project } from "@/app/projects/types";
+
 export const navLinks = [
   {
     id: "about",
@@ -240,9 +242,9 @@ export const technologies = [
 //   },
 // ];
 
-export const projects = [
+export const projects: Project[] = [
   {
-    name: "Car Race",
+    name: "Car Racess",
     description: "Terminal based Car race game",
     tags: ["C++"],
     image: "/assets/projects/Car_race_game.webp",
@@ -262,6 +264,13 @@ export const projects = [
     image: "/assets/projects/Project_Hub.webp",
     source_code_link: "https://github.com/Eemayas/4th-sem-projects",
   },
+  // {
+  //   name: "Remind Wallet",
+  //   description: "Project Management Website",
+  //   tags: ["MongoDB", "ExpressJS", "React", "Node"],
+  //   image: "/assets/projects/Project_Hub.webp",
+  //   source_code_link: "https://github.com/Eemayas/4th-sem-projects",
+  // },
 ];
 //
 // export {
