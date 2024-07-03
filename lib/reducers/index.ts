@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import BioReducer from "./bioReducer";
-import BioCardReducer from "./bioCardReducer";
-import BioSkillReducer from "./bioSkillReducer";
+// import BioReducer from "./bioReducer";
+// import BioCardReducer from "./bioCardReducer";
+// import BioSkillReducer from "./bioSkillReducer";
 import ProjectReducer from "./projectReducer";
 import ContactReducer from "./contactReducer";
 import SocialMediaReducer from "./socialMediaReducer";
@@ -10,6 +10,9 @@ import ExperiencesReducer from "./experiencesReducer";
 import AdminReducer from "./adminReducer";
 import socialMediaReducer from "@/app/contacts/Contact/slices/socialMediaSlice";
 import contactReducer from "@/app/contacts/letsTalk/slices/contactSlice";
+import bioReducer from "@/app/about/About/slices/bioSlice";
+import serviceReducer from "@/app/about/ServiceSection/slices/serviceCardSlice";
+import skillreducer from "@/app/about/SkillsSection/slices/skillSlice";
 
 // TODO: For the type of reducer
 // export interface RootState {
@@ -27,10 +30,10 @@ import contactReducer from "@/app/contacts/letsTalk/slices/contactSlice";
 // }
 
 export default combineReducers({
-  BioReducer,
+  // BioReducer,
   ExperiencesReducer,
-  BioCardReducer,
-  BioSkillReducer,
+  // BioCardReducer,
+  // BioSkillReducer,
   ProjectReducer,
   ContactReducer,
   SocialMediaReducer,
@@ -38,4 +41,7 @@ export default combineReducers({
   AdminReducer,
   socialMediaReducers: socialMediaReducer,
   contactReducer,
+  bioReducer,
+  serviceReducer,
+  skillreducer,
 });

@@ -101,19 +101,16 @@ const LetsTalk: React.FC = () => {
                 placeholder="What's your good name?"
                 required
               />
-              <label className="flex flex-col">
-                <span className="font-medium mb-4">Your Name</span>
-                <input
-                  type="text"
-                  name="from_name"
-                  value={letsTalkForm.from_name.toString()}
-                  onChange={handleletsTalkFormetsTalkFormFormChange}
-                  placeholder="What's your good name?"
-                  className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
-                  required
-                />
-              </label>
-              <label className="flex flex-col">
+              <InputField
+                label="Your email"
+                type="email"
+                name="from_email"
+                value={letsTalkForm.from_email.toString()}
+                onChange={handleletsTalkFormetsTalkFormFormChange}
+                placeholder="What's your email address?"
+                required
+              />
+              {/* <label className="flex flex-col">
                 <span className="font-medium mb-4">Your email</span>
                 <input
                   type="email"
@@ -124,7 +121,7 @@ const LetsTalk: React.FC = () => {
                   className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
                   required
                 />
-              </label>
+              </label> */}
               <label className="flex flex-col">
                 <span className="font-medium mb-4">Your Message</span>
                 <textarea
