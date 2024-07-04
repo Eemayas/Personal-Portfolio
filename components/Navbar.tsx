@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="sm:hidden flex flex-1 justify-end items-center">
             <Menu as="div" className="relative inline-block text-left">
               <div onClick={() => setToogle(true)}>
-                <Menu.Button>
+                <Menu.Button aria-label="Small Screen navbar">
                   {!toggle ? <MenuIcons /> : <CloseIcons />}
                 </Menu.Button>
               </div>

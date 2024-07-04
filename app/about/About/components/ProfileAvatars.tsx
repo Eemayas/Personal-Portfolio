@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Avatar } from "@nextui-org/react";
 import { textVariant } from "@/lib/utils/motion";
+import Image from "next/image";
 
 interface ProfileAvatarsProps {
   imgsrc: string;
@@ -16,9 +17,11 @@ const ProfileAvatars: React.FC<ProfileAvatarsProps> = ({ imgsrc }) => {
       className="w-full h-60 flex justify-center items-center md:h-80 md:w-80"
     >
       <div className="w-60 relative flex justify-center items-center md:w-full h-full">
-        <Avatar
+        <Image
+          width={200}
+          height={200}
           style={{ height: "80%", width: "80%" }}
-          className="border-4 border-transparent animate-circle-rotate"
+          className="border-4 border-transparent animate-circle-rotate rounded-full"
           src={imgsrc}
           alt={"profile Pic"}
         />
