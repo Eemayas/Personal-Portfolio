@@ -4,13 +4,13 @@ import * as api from "@/lib/api/apis";
 import { Contact } from "../types";
 
 // Define the initial state type
-interface ContactState {
+export interface TContactState {
   contacts: Contact[];
   loading: boolean;
   error: string | null;
 }
 
-const initialState: ContactState = {
+const initialState: TContactState = {
   contacts: [],
   loading: false,
   error: null,

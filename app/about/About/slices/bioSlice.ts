@@ -3,13 +3,13 @@ import * as api from "@/lib/api/apis";
 import { Bio } from "../types";
 import { AxiosError } from "axios";
 
-interface BioState {
+export interface TBioState {
   bios: Bio[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
 
-const initialState: BioState = {
+const initialState: TBioState = {
   bios: [],
   status: "idle",
   error: null,

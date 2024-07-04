@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import * as api from "@/lib/api/apis";
 import { Project } from "../types";
 import { AxiosError } from "axios";
-export interface ProjectState {
+
+export interface TProjectState {
   projects: Project[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
@@ -105,7 +106,7 @@ export const deleteProject = createAsyncThunk(
 );
 
 // Initial state
-const initialState: ProjectState = {
+const initialState: TProjectState = {
   projects: [],
   status: "idle",
   error: null,

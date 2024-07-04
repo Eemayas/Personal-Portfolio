@@ -1,18 +1,18 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { SectionWrapper } from "@/lib/hoc";
-import { styles } from "@/app/style";
 import { TypeAnimation } from "react-type-animation";
-import { ProfilePicPath, contacts } from "@/constants";
-import { fadeIn } from "@/lib/utils/motion";
-import Image from "next/image";
+import { SectionWrapper } from "../../lib/hoc";
+import { styles } from "@/app/style";
+import { contacts } from "@/constants";
+import ContactCard from "./components/ContactCard";
+import ProfileAvatars from "./components/ProfileAvatars";
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
-    <section className=" mt-20 md:mt-10 mx-auto">
+    <section className="mt-20 md:mt-10 mx-auto">
       <div
-        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row  p-6 md:p-20  gap-5 items-center border-transparent animate-circle-rotate bg-white`}
+        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row p-6 md:p-20 gap-5 items-center border-transparent animate-circle-rotate bg-white`}
       >
         <div className="m-0 w-[60%]">
           <div
@@ -53,7 +53,6 @@ const Hero = () => {
           <div className="pt-9 flex flex-row flex-wrap justify-center gap-5 md:gap-10">
             {contacts.map((contact, index) => (
               <ContactCard
-                index={index}
                 key={`contacts-${index}`}
                 name={contact.name}
                 links={contact.links}
@@ -82,53 +81,6 @@ const Hero = () => {
         </a>
       </div>
     </section>
-  );
-};
-
-const ProfileAvatars = () => {
-  return (
-    <div className="w-full h-60  flex justify-center items-center md:h-80 md:w-80">
-      <div className="w-60 relative flex justify-center items-center md:w-full h-full">
-        <Image
-          src={ProfilePicPath}
-          alt=".."
-          width={"150"}
-          height={"150"}
-          loading="eager"
-          className=" shadow-slate-500 shadow-md w-60 h-60 aspect-square rounded-2xl bg-center bg-cover duration-500 object-cover"
-        />
-      </div>
-    </div>
-  );
-};
-// type ContactCardProps = {
-//   index: number;
-//   name: string;
-//   links: string;
-//   logo: string;
-// };
-const ContactCard = ({ index, name, links, logo }) => {
-  return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      className=" w-[50px] green-pink-gradient p-[1.5px] rounded-[10px] "
-      variants={fadeIn("right", "spring", 0.25 * index, 0.55)}
-    >
-      <div
-        className="dark:bg-tertiary bg-tertiarylight rounded-[10px] "
-        onClick={() => window.open(links, "_blank")}
-      >
-        <Image
-          src={logo}
-          alt={name}
-          width={"50"}
-          height={"50"}
-          loading="lazy"
-          className="w-full h-full object-contain"
-        ></Image>
-      </div>
-    </motion.div>
   );
 };
 

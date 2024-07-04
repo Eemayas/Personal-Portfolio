@@ -3,13 +3,13 @@ import * as api from "@/lib/api/apis";
 import { AxiosError } from "axios";
 import { TServiceCard } from "../types";
 
-interface BioCardState {
+export interface TServiceState {
   bioCards: TServiceCard[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
 
-const initialState: BioCardState = {
+const initialState: TServiceState = {
   bioCards: [],
   status: "idle",
   error: null,

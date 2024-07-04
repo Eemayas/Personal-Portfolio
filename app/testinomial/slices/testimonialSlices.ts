@@ -2,7 +2,8 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import * as api from "@/lib/api/apis";
 import { AxiosError } from "axios";
 import { TTestimonial } from "../types";
-export interface TestimonialState {
+
+export interface TTestimonialState {
   testimonials: TTestimonial[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
@@ -107,7 +108,7 @@ export const deleteTestimonial = createAsyncThunk(
 );
 
 // Initial state
-const initialState: TestimonialState = {
+const initialState: TTestimonialState = {
   testimonials: [],
   status: "idle",
   error: null,

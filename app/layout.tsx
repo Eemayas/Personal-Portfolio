@@ -3,6 +3,7 @@ import "css/tailwind.css";
 import { Providers, ThemeProviders } from "./providers";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AdminPopup from "@/components/AdminPopUp";
 
 export const metadata: Metadata = {
   title: "Prashant | Protfoilo",
@@ -16,13 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <body className="bg-background-light"> */}
       <body className="bg-background-light text-black antialiased dark:bg-background-dark dark:text-white min-h-screen">
         <ThemeProviders>
           <Providers>
             <NavBar />
             <main className={` max-w-7xl mx-auto pt-24`}>{children}</main>
             <Footer />
+            <AdminPopup />
           </Providers>
         </ThemeProviders>
       </body>

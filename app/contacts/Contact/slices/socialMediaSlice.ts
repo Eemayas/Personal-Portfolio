@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import * as api from "@/lib/api/apis";
 
-interface SocialMediaState {
+export interface TSocialMediaState {
   socialMedias: any[];
   loading: boolean;
   error: string | null;
 }
 
-const initialState: SocialMediaState = {
+const initialState: TSocialMediaState = {
   socialMedias: [],
   loading: false,
   error: null,

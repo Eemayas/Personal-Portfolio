@@ -1,11 +1,10 @@
-import Hero from "@/components/Hero";
 import Projects from "@/app/projects/page";
 import Blogs from "@/app/blog/page";
 import AboutPage from "./about/page";
 import ContactPage from "./contacts/page";
-import AdminPopup from "@/components/AdminPopUp";
 import TestimonialSection from "./testinomial";
 import ExperienceSection from "./experiences/ExperiencesSection";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
       <ExperienceSection />
       <TestimonialSection />
       <ContactPage />
-      <AdminPopup />
     </div>
   );
 }

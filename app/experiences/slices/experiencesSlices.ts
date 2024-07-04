@@ -2,7 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import * as api from "@/lib/api/apis";
 import { AxiosError } from "axios";
 import { TExperience } from "../types";
-export interface ExperienceState {
+export interface TExperienceState {
   experiences: TExperience[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
@@ -104,7 +104,7 @@ export const deleteExperiences = createAsyncThunk(
 );
 
 // Initial state
-const initialState: ExperienceState = {
+const initialState: TExperienceState = {
   experiences: [],
   status: "idle",
   error: null,
