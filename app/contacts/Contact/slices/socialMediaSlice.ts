@@ -2,13 +2,13 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import * as api from "@/lib/api/apis";
 
 interface SocialMediaState {
-  data: any[];
+  socialMedias: any[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: SocialMediaState = {
-  data: [],
+  socialMedias: [],
   loading: false,
   error: null,
 };
@@ -131,7 +131,7 @@ const socialMediaSlice = createSlice({
         fetchSocialMedia.fulfilled,
         (state, action: PayloadAction<any[]>) => {
           state.loading = false;
-          state.data = action.payload;
+          state.socialMedias = action.payload;
         }
       )
       .addCase(
@@ -144,13 +144,13 @@ const socialMediaSlice = createSlice({
       .addCase(
         postSocialMedia.fulfilled,
         (state, action: PayloadAction<any>) => {
-          state.data.push(action.payload);
+          state.socialMedias.push(action.payload);
         }
       )
       .addCase(
         patchSocialMedia.fulfilled,
         (state, action: PayloadAction<any>) => {
-          state.data = state.data.map((social) =>
+          state.socialMedias = state.socialMedias.map((social) =>
             social._id === action.payload._id ? action.payload : social
           );
         }
@@ -158,7 +158,7 @@ const socialMediaSlice = createSlice({
       .addCase(
         deleteSocialMedia.fulfilled,
         (state, action: PayloadAction<string>) => {
-          state.data = state.data.filter(
+          state.socialMedias = state.socialMedias.filter(
             (social) => social._id !== action.payload
           );
         }

@@ -81,7 +81,7 @@ interface InputFieldProps {
   label: string;
   type: string;
   name: string;
-  value: string;
+  value: string | string[];
   placeholder: string;
   required?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;

@@ -15,7 +15,7 @@ interface FormProps {
 const AboutEditForm: React.FC<FormProps> = ({ formI }) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
   const [form, setForm] = useState<Bio>({
     bio: "",
     selectedImage: "",
@@ -47,6 +47,8 @@ const AboutEditForm: React.FC<FormProps> = ({ formI }) => {
     adminState && (
       <div className=" flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
         <motion.div
+          initial="hidden"
+          animate="show"
           variants={slideIn("left", "tween", 0.2, 1)}
           className="my-12 flex-[0.75] green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark "
         >

@@ -10,6 +10,8 @@ interface ProfileAvatarsProps {
 const ProfileAvatars: React.FC<ProfileAvatarsProps> = ({ imgsrc }) => {
   return (
     <motion.div
+      initial="hidden"
+      animate="show"
       variants={textVariant()}
       className="w-full h-60 flex justify-center items-center md:h-80 md:w-80"
     >

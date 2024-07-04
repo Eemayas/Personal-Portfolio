@@ -25,7 +25,7 @@ const TestimonialSection: React.FC = () => {
   const { testimonials } = useSelector(
     (state: RootState) => state.testimonialReducer
   );
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
 
   const fetchData = useCallback(async () => {
     if (!hasFetched) {
@@ -41,7 +41,11 @@ const TestimonialSection: React.FC = () => {
         <div className="mt-12 green-pink-gradient p-[2px] rounded-[20px]">
           <div className="dark:bg-background-dark bg-background-light rounded-[18px] pb-5">
             <div className={`${styles.padding} rounded-2xl min-h-[300px]`}>
-              <motion.div variants={textVariant()}>
+              <motion.div
+                initial="hidden"
+                animate="show"
+                variants={textVariant()}
+              >
                 <p className={styles.sectionSubText}>What others say</p>
                 <h2 className={styles.sectionHeadText}>Testimonials.</h2>
               </motion.div>
@@ -50,6 +54,8 @@ const TestimonialSection: React.FC = () => {
               className={`${styles.paddingX} -mt-28 pd-14 flex flex-wrap gap-7`}
             >
               <motion.div
+                initial="hidden"
+                animate="show"
                 variants={textVariant()}
                 className="mt-20 flex flex-wrap justify-center gap-7"
               >

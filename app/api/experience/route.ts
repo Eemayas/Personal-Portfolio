@@ -28,14 +28,14 @@ export async function POST(request: Request) {
     await connectToDB();
 
     const body = await request.json();
-    const { title, company_name, icon, iconBg, date, points } = body;
+    const { title, company_name, iconSrc, iconBg, date, points } = body;
 
     // //Checking if the data are empty
-    if (!title || !company_name || !icon || !iconBg || !date || !points) {
+    if (!title || !company_name || !iconSrc || !iconBg || !date || !points) {
       return new NextResponse(
         JSON.stringify({
           message:
-            "Missing title or company_name or icon or iconBg or date or points ",
+            "Missing title or company_name or iconSrc or iconBg or date or points ",
         }),
         {
           status: 400,
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     const newExperience = new ExperienceModel({
       title,
       company_name,
-      icon,
+      iconSrc,
       iconBg,
       date,
       points,
@@ -84,13 +84,13 @@ export async function PATCH(request: Request) {
     const url = new URL(request.url);
     const id = url.searchParams.get("id");
     const body = await request.json();
-    const { title, company_name, icon, iconBg, date, points } = body;
+    const { title, company_name, iconSrc, iconBg, date, points } = body;
     // //Checking if the data are empty
-    if (!title || !company_name || !icon || !iconBg || !date || !points) {
+    if (!title || !company_name || !iconSrc || !iconBg || !date || !points) {
       return new NextResponse(
         JSON.stringify({
           message:
-            "Missing title or company_name or icon or iconBg or date or points ",
+            "Missing title or company_name or iconSrc or iconBg or date or points ",
         }),
         {
           status: 400,
@@ -110,7 +110,7 @@ export async function PATCH(request: Request) {
     const updatedExperience = {
       title,
       company_name,
-      icon,
+      iconSrc,
       iconBg,
       date,
       points,

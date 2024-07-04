@@ -29,7 +29,7 @@ const SocialMediaContactCard: React.FC<SocialMediaContactCardProps> = ({
   setId,
 }) => {
   return (
-    <motion.div variants={textVariant()}>
+    <motion.div initial="hidden" animate="show" variants={textVariant()}>
       <Tilt className="xs:w-[110px] w-[110px]">
         <div className="w-full green-pink-gradient p-[2px] rounded-[30px] shadow-card dark:shadow-card-dark">
           <div

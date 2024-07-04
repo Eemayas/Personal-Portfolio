@@ -12,7 +12,7 @@ const SkillSection: React.FC = () => {
   const [form, setForm] = useState<TBioSkill>({ title: "", selectedImage: "" });
   const [id, setId] = useState("0");
   const { bioSkills } = useSelector((state: RootState) => state.skillreducer);
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
 
   return (
     <>

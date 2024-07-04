@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
   });
   const [id, setId] = useState<string>("0");
   const { projects } = useSelector((state: RootState) => state.projectReducer);
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
 
   const projectDescription = `Below are a few selected projects that demonstrate my skills and experience, showcasing real-world examples of my work. Each project is accompanied by a brief description, as well as links to code repositories and live demos. These projects serve as tangible evidence of my ability to tackle intricate challenges, adapt to various technologies, and efficiently handle project management`;
 
@@ -59,7 +59,7 @@ const Projects: React.FC = () => {
 
   return (
     <IntersectionObserverComponent onIntersect={fetchData}>
-      <motion.div variants={textVariant()}>
+      <motion.div initial="hidden" animate="show" variants={textVariant()}>
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
@@ -72,6 +72,8 @@ const Projects: React.FC = () => {
         </motion.p>
       </div>
       <motion.div
+        initial="hidden"
+        animate="show"
         variants={textVariant()}
         className="mt-20 flex flex-wrap justify-center gap-7"
       >

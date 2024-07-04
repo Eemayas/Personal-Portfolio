@@ -69,6 +69,7 @@ const Hero = () => {
         <a href="#about" aria-label="Scroll to About Section">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 dark:border-secondarys-dark border-secondarys-light flex justify-center items-start p-2">
             <motion.div
+              initial="hidden"
               animate={{ y: [0, 24, 0] }}
               transition={{
                 duration: 1.5,
@@ -109,6 +110,8 @@ const ProfileAvatars = () => {
 const ContactCard = ({ index, name, links, logo }) => {
   return (
     <motion.div
+      initial="hidden"
+      animate="show"
       className=" w-[50px] green-pink-gradient p-[1.5px] rounded-[10px] "
       variants={fadeIn("right", "spring", 0.25 * index, 0.55)}
     >

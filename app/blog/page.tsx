@@ -36,7 +36,7 @@ function BlogPage() {
 
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div initial="hidden" animate="show" variants={textVariant()}>
         <p className={styles.sectionSubText}>Latest updates</p>
         <h2 className={styles.sectionHeadText}>Blogs</h2>
       </motion.div>
@@ -48,7 +48,11 @@ function BlogPage() {
           {blogDescription}
         </motion.p>
       </div>
-      <motion.div variants={fadeIn("", "", 0.1, 1)}>
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={fadeIn("", "", 0.1, 1)}
+      >
         <ListLayout
           isHomePage={isHomePage}
           posts={posts}

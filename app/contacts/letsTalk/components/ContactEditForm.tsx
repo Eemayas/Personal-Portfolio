@@ -46,6 +46,8 @@ const ContactEditForm: React.FC<ContactFormProps> = ({
   return adminState ? (
     <div className="mt-12 flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
       <motion.div
+        initial="hidden"
+        animate="show"
         variants={slideIn("left", "tween", 0.2, 1)}
         className="my-12 flex-[0.75] bg-black-100 green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark "
       >

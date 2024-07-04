@@ -16,7 +16,7 @@ const ServiceCardSection: React.FC = () => {
     selectedImage: "",
   });
   const [id, setId] = useState<string>("0");
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
   const { bioCards } = useSelector((state: RootState) => state.serviceReducer);
 
   return (

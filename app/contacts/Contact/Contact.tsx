@@ -20,19 +20,21 @@ const Contact = () => {
     links: "",
   });
   const [id, setId] = useState("0");
-  const {
-    data: socialMedias,
-    loading: socialMediasLoading,
-    error: socialMediasError,
-  } = useSelector((state: RootState) => state.socialMediaReducers);
+  const { socialMedias } = useSelector(
+    (state: RootState) => state.socialMediaReducer
+  );
 
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
   return (
     <>
       <div className=" green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark">
         <div className="dark:bg-background-dark bg-background-light rounded-[14px]">
           <div className="p-8">
-            <motion.div variants={textVariant()}>
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={textVariant()}
+            >
               <p className={styles.sectionSubText}>Get In Touch.</p>
               <h2 className={styles.sectionHeadText}>Contacts</h2>
             </motion.div>

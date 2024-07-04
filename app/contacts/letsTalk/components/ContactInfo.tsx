@@ -19,6 +19,8 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
 }) => {
   return contacts.length ? (
     <motion.div
+      initial="hidden"
+      animate="show"
       variants={slideIn("right", "tween", 0.2, 1)}
       className="xs:flex-1 xs:mt-5 flex-col flex gap-5 xs:flex-wrap align-middle h-auto"
     >

@@ -3,7 +3,7 @@ import Projects from "@/app/projects/page";
 import Blogs from "@/app/blog/page";
 import AboutPage from "./about/page";
 import ContactPage from "./contacts/page";
-import AdminPopup from "@/components/AdminPopup";
+import AdminPopup from "@/components/AdminPopUp";
 import TestimonialSection from "./testinomial";
 import ExperienceSection from "./experiences/ExperiencesSection";
 

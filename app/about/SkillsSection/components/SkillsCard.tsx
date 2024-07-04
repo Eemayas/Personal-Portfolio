@@ -29,7 +29,7 @@ const SkillsCard: React.FC<SkillsCardProps> = ({
 }) => {
   return (
     <Tilt className="xs:w-[120px] w-[120px]">
-      <motion.div variants={textVariant()}>
+      <motion.div initial="hidden" animate="show" variants={textVariant()}>
         <div className="w-full green-pink-gradient p-[2px] rounded-[30px] shadow-card dark:shadow-card-dark">
           <div className="dark:bg-tertiary bg-tertiarylight rounded-[28px]">
             <Image

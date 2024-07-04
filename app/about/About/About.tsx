@@ -12,10 +12,9 @@ import { SectionWrapper } from "@/lib/hoc";
 
 const About: React.FC = () => {
   const { bios } = useSelector((state: RootState) => state.bioReducer);
-
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div initial="hidden" animate="show" variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>

@@ -37,7 +37,7 @@ const LetsTalk: React.FC = () => {
     loading: contactLoading,
     error,
   } = useSelector((state: RootState) => state.contactReducer);
-  const adminState = useSelector((state: RootState) => state.AdminReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -81,6 +81,8 @@ const LetsTalk: React.FC = () => {
         className={`xl:mt-6 flex md:flex-row flex-col gap-10 overflow-hidden`}
       >
         <motion.div
+          initial="hidden"
+          animate="show"
           variants={slideIn("left", "tween", 0.2, 1)}
           className="flex-[0.75] green-pink-gradient p-[2px] rounded-2xl mb-10"
         >

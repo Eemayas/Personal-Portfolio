@@ -54,3 +54,9 @@ export const deleteTestimonial = (id) =>
   axios.delete(`${url}/testimonial?id=${id}`);
 
 export const fetchExperience = () => axios.get(`${url}/experience`);
+export const postExperience = (newExperience) =>
+  axios.post(`${url}/experience`, newExperience);
+export const patchExperience = (id, updatedExperience) =>
+  axios.patch(`${url}/experience?id=${id}`, updatedExperience);
+export const deleteExperience = (id) =>
+  axios.delete(`${url}/experience?id=${id}`);

@@ -2,8 +2,16 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Menu, RadioGroup, Transition } from "@headlessui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuItems,
+  Radio,
+  RadioGroup,
+  Transition,
+} from "@headlessui/react";
 import { Monitor, Moon, Sun } from "@/components/social-icons/icons";
+import { MenuItem } from "@nextui-org/react";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
@@ -16,9 +24,9 @@ const ThemeSwitch = () => {
     <div className="mr-5">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button>
+          <MenuButton aria-label="Theme Changer">
             {resolvedTheme === "dark" ? <Moon /> : <Sun />}
-          </Menu.Button>
+          </MenuButton>
         </div>
         <Transition
           as={Fragment}
@@ -29,42 +37,42 @@ const ThemeSwitch = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800">
+          <MenuItems className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800">
             <RadioGroup value={theme} onChange={setTheme}>
               <div className="p-1">
                 <RadioGroup.Option value="light">
-                  <Menu.Item>
+                  <MenuItem>
                     <button className="group flex w-full items-center rounded-md px-2 py-2 text-sm">
                       <div className="mr-2">
                         <Sun />
                       </div>
                       Light
                     </button>
-                  </Menu.Item>
+                  </MenuItem>
                 </RadioGroup.Option>
-                <RadioGroup.Option value="dark">
-                  <Menu.Item>
+                <Radio value="dark">
+                  <MenuItem>
                     <button className="group flex w-full items-center rounded-md px-2 py-2 text-sm">
                       <div className="mr-2">
                         <Moon />
                       </div>
                       Dark
                     </button>
-                  </Menu.Item>
-                </RadioGroup.Option>
-                <RadioGroup.Option value="system">
-                  <Menu.Item>
+                  </MenuItem>
+                </Radio>
+                <Radio value="system">
+                  <MenuItem>
                     <button className="group flex w-full items-center rounded-md px-2 py-2 text-sm">
                       <div className="mr-2">
                         <Monitor />
                       </div>
                       System
                     </button>
-                  </Menu.Item>
-                </RadioGroup.Option>
+                  </MenuItem>
+                </Radio>
               </div>
             </RadioGroup>
-          </Menu.Items>
+          </MenuItems>
         </Transition>
       </Menu>
     </div>

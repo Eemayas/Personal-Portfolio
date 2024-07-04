@@ -173,15 +173,17 @@ export default function ListLayout({
           {displayPosts.map((post) => {
             const { slug, path, date, title, summary, tags, images } = post;
             return (
-              <BlogListDisplayCard
-                key={`BlogListCard-${title}`}
-                slug={slug}
-                date={date}
-                title={title}
-                tags={tags}
-                summary={summary}
-                images={images}
-              />
+              <li key={`BlogListCardList-${title}`}>
+                <BlogListDisplayCard
+                  key={`BlogListCard-${title}`}
+                  slug={slug}
+                  date={date}
+                  title={title}
+                  tags={tags}
+                  summary={summary}
+                  images={images}
+                />
+              </li>
             );
           })}
         </ul>

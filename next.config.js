@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const { withContentlayer } = require("next-contentlayer2");
 const nextConfig = {
+  env: {
+    MONGODB_URI: process.env.MONGODB_URI,
+    PASSWORD: process.env.PASSWORD,
+  },
   images: {
     domains: ["images.unsplash.com"],
     remotePatterns: [
@@ -38,10 +42,10 @@ const nextConfig = {
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
+      use: ["@svgr/webpack"],
+    });
 
-    return config
+    return config;
   },
 };
 
