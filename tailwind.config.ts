@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss";
-const { nextui } = require("@nextui-org/react");
+import { Config } from "tailwindcss";
+import { nextui } from "@nextui-org/react";
 
 const config: Config = {
   content: [
@@ -144,6 +144,14 @@ const config: Config = {
     nextui(),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
+    require("tailwindcss"),
+    require("autoprefixer"),
+    // PurgeCSS setup
+    process.env.NODE_ENV === "production" &&
+      require("@fullhuman/postcss-purgecss")({
+        content: ["./src/**/*.html", "./src/**/*.js"], // adjust as needed
+        defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+      }),
   ],
 };
 export default config;

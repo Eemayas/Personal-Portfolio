@@ -1,12 +1,12 @@
-"use client";
 import React from "react";
-import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import { SectionWrapper } from "../../lib/hoc";
 import { styles } from "@/app/style";
 import { contacts } from "@/constants";
 import ContactCard from "./components/ContactCard";
 import ProfileAvatars from "./components/ProfileAvatars";
+import TypeAnimationComp from "./components/TypeAnimationComp";
+import UpDownCircle from "./components/UpDownCircle";
+import { GetStaticProps } from "next";
 
 const Hero: React.FC = () => {
   return (
@@ -26,15 +26,14 @@ const Hero: React.FC = () => {
               <h1 className={`${styles.heroHeadText}`}>
                 Hi, I'm{" "}
                 <span className="text-[#915eff] ">
-                  <TypeAnimation
+                  <TypeAnimationComp
                     sequence={["Prashant Manandhar", 1000]}
-                    wrapper="span"
                     cursor={false}
                   />
                 </span>
               </h1>
               <p className={`${styles.heroSubText} mt-2 `}>
-                <TypeAnimation
+                <TypeAnimationComp
                   sequence={[
                     "Flutter Developer..",
                     1000,
@@ -45,7 +44,6 @@ const Hero: React.FC = () => {
                   ]}
                   cursor={true}
                   repeat={Infinity}
-                  wrapper="span"
                 />
               </p>
             </div>
@@ -67,16 +65,7 @@ const Hero: React.FC = () => {
       <div className="mt-2 w-full flex justify-center items-center">
         <a href="#about" aria-label="Scroll to About Section">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 dark:border-secondarys-dark border-secondarys-light flex justify-center items-start p-2">
-            <motion.div
-              initial="hidden"
-              animate={{ y: [0, 24, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                reportType: "loop",
-              }}
-              className="w-3 h-3 rounded-full dark:bg-secondarys-dark bg-secondarys-light mb-1"
-            />
+            <UpDownCircle />
           </div>
         </a>
       </div>

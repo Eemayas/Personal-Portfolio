@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
-import "css/tailwind.css";
+// import "css/tailwind.css";
 import { patchSocialMedia, postSocialMedia } from "../slices/socialMediaSlice";
 import store from "@/app/store";
 import { TSocialMediaContact } from "../types";

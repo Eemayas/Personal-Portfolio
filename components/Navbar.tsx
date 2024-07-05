@@ -5,7 +5,6 @@ import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { CloseIcons, MenuIcons } from "@/components/social-icons/icons";
-// import "css/tailwind.css";
 import ThemeSwitch from "./ThemeSwitch";
 import { Menu, RadioGroup, Transition } from "@headlessui/react";
 
@@ -26,12 +25,13 @@ const Navbar = () => {
           }}
         >
           <Image
-            loading="lazy"
             alt="logo"
             className="rounded-full border-black-100 border-1"
             src={"/assets/logo-no-background.webp"}
             width={50}
             height={50}
+            loading="eager"
+            priority
           />
           <p className=" text-[18px] font-bold cursor-pointer text-text-light dark:text-text-dark ">
             Prashant

@@ -43,6 +43,7 @@ export default function BlogPageLayout({
                   alt={title}
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
             </div>

@@ -6,11 +6,16 @@ const nextConfig = {
     PASSWORD: process.env.PASSWORD,
   },
   images: {
-    domains: ["images.unsplash.com"],
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**", // Allows all paths
+      },
+      {
+        protocol: "https",
         hostname: "picsum.photos",
+        pathname: "/**", // Allows all paths
       },
     ],
   },
