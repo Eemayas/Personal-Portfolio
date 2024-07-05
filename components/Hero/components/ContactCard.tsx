@@ -9,10 +9,11 @@ type ContactCardProps = {
   name: string;
   links: string;
   logo: string;
+  index: number;
 };
 
 const ContactCard: React.FC<ContactCardProps> = React.memo(
-  ({ name, links, logo }) => {
+  ({ name, links, logo, index }) => {
     const { resolvedTheme } = useTheme();
 
     const handleOpenLink = () => {
@@ -23,11 +24,11 @@ const ContactCard: React.FC<ContactCardProps> = React.memo(
       <motion.div
         initial="hidden"
         animate="show"
-        variants={fadeIn("up")}
-        className="w-[50px] green-pink-gradient p-[1.5px] rounded-[10px]"
+        variants={fadeIn({ direction: "up", delay: 0.5 * index })}
+        className="w-[45px] green-pink-gradient p-[2px] rounded-[10px]"
       >
         <div
-          className={`dark:bg-tertiary bg-tertiarylight rounded-[10px] p-[8px]`}
+          className={`dark:bg-tertiary bg-tertiarylight rounded-[8px] p-[6px]`}
           onClick={handleOpenLink}
         >
           <Image

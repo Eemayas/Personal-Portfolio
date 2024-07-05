@@ -14,7 +14,13 @@ const About: React.FC = () => {
   const { bios } = useSelector((state: RootState) => state.bioReducer);
   return (
     <>
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={textVariant()}
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.001 }}
+      >
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
@@ -34,5 +40,17 @@ const About: React.FC = () => {
     </>
   );
 };
+//       <motion.section
+//         variants={staggerContainer()}
+//         initial="hidden"
+//         whileInView={"show"}
+//         viewport={{ once: true, amount: 0.001 }}
+//         className={`${styles.padding} relative z-0`}
+//       >
+//         <span className="hash-span" id={idName}>
+//           &nbsp;
+//         </span>
+//         <Components />
+//       </motion.section>
 
 export default SectionWrapper(About, "about");

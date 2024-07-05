@@ -6,17 +6,17 @@ import ContactCard from "./components/ContactCard";
 import ProfileAvatars from "./components/ProfileAvatars";
 import TypeAnimationComp from "./components/TypeAnimationComp";
 import UpDownCircle from "./components/UpDownCircle";
-import { GetStaticProps } from "next";
 
 const Hero: React.FC = () => {
   return (
-    <section className="mt-20 md:mt-10 mx-auto">
+    <section className="-mt-10 mx-auto">
       <div
-        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row p-6 md:p-20 gap-5 items-center border-transparent animate-circle-rotate bg-white`}
+        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row p-6 md:p-20 gap-5 items-center border-transparent  bg-white`}
       >
-        <div className="m-0 w-[60%]">
+        {/* animate-circle-rotate */}
+        <div>
           <div
-            className={`inset-0 sm:w-[60%] mx-auto flex flex-row items-center justify-center gap-5`}
+            className={`inset-0 md:w-[60%] w-full mx-auto flex flex-row items-center justify-center gap-5`}
           >
             <div className="flex flex-col justify-center items-center mt-5">
               <div className="w-5 h-5 rounded-full bg-[#915eff]" />
@@ -25,12 +25,7 @@ const Hero: React.FC = () => {
             <div>
               <h1 className={`${styles.heroHeadText}`}>
                 Hi, I'm{" "}
-                <span className="text-[#915eff] ">
-                  <TypeAnimationComp
-                    sequence={["Prashant Manandhar", 1000]}
-                    cursor={false}
-                  />
-                </span>
+                <span className="text-[#915eff] ">Prashant Manandhar</span>
               </h1>
               <p className={`${styles.heroSubText} mt-2 `}>
                 <TypeAnimationComp
@@ -51,6 +46,7 @@ const Hero: React.FC = () => {
           <div className="pt-9 flex flex-row flex-wrap justify-center gap-5 md:gap-10">
             {contacts.map((contact, index) => (
               <ContactCard
+                index={index}
                 key={`contacts-${index}`}
                 name={contact.name}
                 links={contact.links}
@@ -59,7 +55,6 @@ const Hero: React.FC = () => {
             ))}
           </div>
         </div>
-
         <ProfileAvatars />
       </div>
       <div className="mt-2 w-full flex justify-center items-center">
