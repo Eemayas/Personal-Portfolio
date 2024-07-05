@@ -5,7 +5,7 @@ import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { CloseIcons, MenuIcons } from "@/components/social-icons/icons";
-import "css/tailwind.css";
+// import "css/tailwind.css";
 import ThemeSwitch from "./ThemeSwitch";
 import { Menu, RadioGroup, Transition } from "@headlessui/react";
 

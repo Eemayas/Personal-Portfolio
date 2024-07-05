@@ -219,13 +219,20 @@ export const projects: Project[] = [
     image: "/assets/projects/Project_Hub.webp",
     source_code_link: "https://github.com/Eemayas/4th-sem-projects",
   },
-  // {
-  //   name: "Remind Wallet",
-  //   description: "Project Management Website",
-  //   tags: ["MongoDB", "ExpressJS", "React", "Node"],
-  //   image: "/assets/projects/Project_Hub.webp",
-  //   source_code_link: "https://github.com/Eemayas/4th-sem-projects",
-  // },
+  {
+    name: "Remind Wallet",
+    description: "Flutter Based Expense Tracker Application",
+    tags: ["Flutter", "Firebase", "Hive"],
+    image: "/assets/projects/RemindWallet.svg",
+    source_code_link: "https://github.com/Eemayas/Expense-Tracker",
+  },
+  {
+    name: "CommentSense",
+    description: "NLP Sentiment Analysis Web Application",
+    tags: ["NextJS", "MongoDB", "Flask", "Python"],
+    image: "/assets/projects/CommentSense.webp",
+    source_code_link: "https://github.com/Eemayas/CommentSense",
+  },
 ];
 //
 // export {

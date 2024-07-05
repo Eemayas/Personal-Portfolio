@@ -32,7 +32,7 @@ const AdminPopup = () => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5">
+    <div className="fixed bottom-5 left-5">
       <div className="flex flex-col items-center justify-center ">
         <button
           onClick={togglePopup}
