@@ -5,8 +5,14 @@ import { SectionWrapper } from "@/lib/hoc";
 import { RootState } from "@/app/store";
 import { technologies } from "@/constants";
 import SkillsCard from "./components/SkillsCard";
-import SkillEditForm from "./components/SkillEditForm";
 import { TBioSkill } from "./types";
+import dynamic from "next/dynamic";
+
+// Dynamically import AboutEditForm
+const SkillEditForm = dynamic(() => import("./components/SkillEditForm"), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>Loading...</p>, // Fallback content while loading
+});
 
 const SkillSection: React.FC = () => {
   const [form, setForm] = useState<TBioSkill>({ title: "", selectedImage: "" });
@@ -40,13 +46,9 @@ const SkillSection: React.FC = () => {
             ))
           : ""}
       </div>
-      <SkillEditForm
-        adminState={adminState}
-        setId={setId}
-        id={id}
-        form={form}
-        setForm={setForm}
-      />
+      {adminState && (
+        <SkillEditForm setId={setId} id={id} form={form} setForm={setForm} />
+      )}
     </>
   );
 };

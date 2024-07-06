@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Avatar } from "@nextui-org/react";
 import { textVariant } from "@/lib/utils/motion";
 import Image from "next/image";
 
@@ -18,13 +18,12 @@ const ProfileAvatars: React.FC<ProfileAvatarsProps> = ({ imgsrc }) => {
     >
       <div className="w-60 relative flex justify-center items-center md:w-full h-full">
         <Image
-          width={200}
-          height={200}
-          style={{ height: "80%", width: "80%" }}
-          className="border-4 border-transparent animate-circle-rotate rounded-full"
           src={imgsrc}
-          alt={"profile Pic"}
+          alt="Profile Pic 2"
+          width={150}
+          height={150}
           loading="eager"
+          className="border-4 border-transparent animate-circle-rotate rounded-full w-[70%]"
           priority
         />
         <div className="absolute w-full h-full border-t-4 border-b-4 border-t-lime-500 border-b-blue-500 border-opacity-50 rounded-full animate-spin-right"></div>

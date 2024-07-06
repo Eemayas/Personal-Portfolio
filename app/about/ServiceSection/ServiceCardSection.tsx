@@ -6,8 +6,17 @@ import { TServiceCard } from "./types";
 import { RootState } from "@/app/store";
 import { bioCardServices } from "@/constants";
 import ServiceCard from "./components/ServiceCard";
-import ServiceCardEditForm from "./components/ServiceCardEditForm";
 import { SectionWrapper } from "@/lib/hoc";
+import dynamic from "next/dynamic";
+
+// Dynamically import AboutEditForm
+const ServiceCardEditForm = dynamic(
+  () => import("./components/ServiceCardEditForm"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>Loading...</p>, // Fallback content while loading
+  }
+);
 
 const ServiceCardSection: React.FC = () => {
   const [form, setForm] = useState<TServiceCard>({
@@ -47,13 +56,15 @@ const ServiceCardSection: React.FC = () => {
           <h1></h1>
         )}
       </div>
-      <ServiceCardEditForm
-        adminState={adminState}
-        setId={setId}
-        id={id}
-        form={form}
-        setForm={setForm}
-      />
+      {adminState && (
+        <ServiceCardEditForm
+          adminState={adminState}
+          setId={setId}
+          id={id}
+          form={form}
+          setForm={setForm}
+        />
+      )}
     </>
   );
 };

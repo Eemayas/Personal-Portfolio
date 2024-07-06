@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
             <div>
               <h1 className={`${styles.heroHeadText}`}>
                 Hi, I'm{" "}
-                <span className="text-[#915eff] ">Prashant Manandhar</span>
+                <span className="text-[#915eff]">Prashant Manandhar</span>
               </h1>
               <p className={`${styles.heroSubText} mt-2 `}>
                 <TypeAnimationComp

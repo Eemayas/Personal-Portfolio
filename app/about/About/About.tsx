@@ -1,56 +1,37 @@
-"use client";
 import React from "react";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useSelector } from "react-redux";
-import { styles } from "@/app/style";
 import { RootState } from "@/app/store";
-import { fadeIn, textVariant } from "@/lib/utils/motion";
 import ProfileAvatars from "./components/ProfileAvatars";
 import { Bio, ProfilePic2Path } from "@/constants";
-import AboutEditForm from "./components/AboutEditForm";
 import { SectionWrapper } from "@/lib/hoc";
+import {
+  DescriptionAnimation,
+  SectionTitle,
+} from "@/components/TextAnimations";
+
+// Dynamically import AboutEditForm
+const AboutEditForm = dynamic(() => import("./components/AboutEditForm"), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>Loading...</p>, // Fallback content while loading
+});
 
 const About: React.FC = () => {
   const { bios } = useSelector((state: RootState) => state.bioReducer);
+  const adminState = useSelector((state: RootState) => state.adminReducer);
+
   return (
     <>
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={textVariant()}
-        whileInView={"show"}
-        viewport={{ once: true, amount: 0.001 }}
-      >
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
-      </motion.div>
+      <SectionTitle SecondaryTitle={"Introduction"} PrimaryTitle={"Overview"} />
       <div className="md:flex-row flex flex-col-reverse justify-around">
-        <motion.p
-          className="md:w-[50%] mt-4 w-[100%] text-justify text-text-light dark:text-text-dark text-[17px]  leading-[30px]"
-          variants={fadeIn("", "", 0.1, 1)}
-        >
-          {!bios.length ? Bio : bios[0].bio}
-        </motion.p>
-
+        <DescriptionAnimation description={!bios.length ? Bio : bios[0].bio} />
         <ProfileAvatars
           imgsrc={bios.length ? bios[0].selectedImage : ProfilePic2Path}
         />
       </div>
-      <AboutEditForm formI={bios} />
+      {adminState && <AboutEditForm formI={bios} />}
     </>
   );
 };
-//       <motion.section
-//         variants={staggerContainer()}
-//         initial="hidden"
-//         whileInView={"show"}
-//         viewport={{ once: true, amount: 0.001 }}
-//         className={`${styles.padding} relative z-0`}
-//       >
-//         <span className="hash-span" id={idName}>
-//           &nbsp;
-//         </span>
-//         <Components />
-//       </motion.section>
 
 export default SectionWrapper(About, "about");
