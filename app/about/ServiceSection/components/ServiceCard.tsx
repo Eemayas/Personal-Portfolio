@@ -8,6 +8,7 @@ import { fadeIn } from "@/lib/utils/motion";
 import { TServiceCard } from "../types";
 import store from "@/app/store";
 import { deleteBioCard } from "../slices/serviceCardSlice";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ServiceCardProps {
   adminState: boolean;
@@ -32,28 +33,30 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <Tilt className="xs:w-[250px] w-full">
-      <motion.div
-        initial="hidden"
-        animate="show"
-        className="w-full green-pink-gradient p-[2px] rounded-[20px] shadow-card dark:shadow-card-dark"
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-      >
-        <div
-          className="dark:bg-tertiary bg-tertiarylight rounded-[18px] py-5 px-12 min-h-[280px] flex flex-col justify-evenly items-center"
-          //   options={{ max: 45, scale: 1, speed: 450 }}
+      <DisableAnimationOnMobile>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          className="w-full green-pink-gradient p-[2px] rounded-[20px] shadow-card dark:shadow-card-dark"
+          variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
         >
-          <Image
-            width={64}
-            height={64}
-            id={_id}
-            loading="lazy"
-            src={selectedImage}
-            alt={title}
-            className="w-16 h-16 object-contain"
-          />
-          <h3 className="text-[20px] font-bold text-center">{title}</h3>
-        </div>
-      </motion.div>
+          <div
+            className="dark:bg-tertiary bg-tertiarylight rounded-[18px] py-5 px-12 min-h-[280px] flex flex-col justify-evenly items-center"
+            //   options={{ max: 45, scale: 1, speed: 450 }}
+          >
+            <Image
+              width={64}
+              height={64}
+              id={_id}
+              loading="lazy"
+              src={selectedImage}
+              alt={title}
+              className="w-16 h-16 object-contain"
+            />
+            <h3 className="text-[20px] font-bold text-center">{title}</h3>
+          </div>
+        </motion.div>
+      </DisableAnimationOnMobile>
       {adminState && (
         <div className="flex items-end flex-col justify-normal xs:justify-end">
           <button

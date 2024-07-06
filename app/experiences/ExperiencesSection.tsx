@@ -14,6 +14,7 @@ import ExperienceEditForm from "./components/ExperienceEditForm";
 import { SectionWrapper } from "@/lib/hoc";
 import { experiencess } from "@/constants";
 import "@/components/VerticalTimeline/style.min.css";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 const Experience: React.FC = () => {
   const adminState = useSelector((state: RootState) => state.adminReducer);
@@ -42,10 +43,12 @@ const Experience: React.FC = () => {
 
   return (
     <IntersectionObserverComponent onIntersect={fetchData}>
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
-        <p className={styles.sectionSubText}>What I have done so Far</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
-      </motion.div>
+      <DisableAnimationOnMobile>
+        <motion.div initial="hidden" animate="show" variants={textVariant()}>
+          <p className={styles.sectionSubText}>What I have done so Far</p>
+          <h2 className={styles.sectionHeadText}>Overview</h2>
+        </motion.div>
+      </DisableAnimationOnMobile>
       <div className="mt-20 flex flex-col ">
         <VerticalTimeline animate layout="2-columns" lineColor={"#bc13fe"}>
           {experiencess.map((experience, index) => (

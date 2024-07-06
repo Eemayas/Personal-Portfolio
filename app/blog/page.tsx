@@ -8,6 +8,7 @@ import { styles } from "@/app/style";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/lib/hoc";
 import { useEffect, useState } from "react";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 // export const metadata = genPageMetadata({ title: "Blog" });
 
@@ -36,31 +37,37 @@ function BlogPage() {
 
   return (
     <>
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
-        <p className={styles.sectionSubText}>Latest updates</p>
-        <h2 className={styles.sectionHeadText}>Blogs</h2>
-      </motion.div>
+      <DisableAnimationOnMobile>
+        <motion.div initial="hidden" animate="show" variants={textVariant()}>
+          <p className={styles.sectionSubText}>Latest updates</p>
+          <h2 className={styles.sectionHeadText}>Blogs</h2>
+        </motion.div>
+      </DisableAnimationOnMobile>
       <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-[17px] max-w-3xl leading-[30px] "
-        >
-          {blogDescription}
-        </motion.p>
+        <DisableAnimationOnMobile>
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className="mt-3 text-[17px] max-w-3xl leading-[30px] "
+          >
+            {blogDescription}
+          </motion.p>
+        </DisableAnimationOnMobile>
       </div>
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={fadeIn("", "", 0.1, 1)}
-      >
-        <ListLayout
-          isHomePage={isHomePage}
-          posts={posts}
-          initialDisplayPosts={initialDisplayPosts}
-          pagination={pagination}
-          title="All Posts"
-        />
-      </motion.div>
+      <DisableAnimationOnMobile>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={fadeIn("", "", 0.1, 1)}
+        >
+          <ListLayout
+            isHomePage={isHomePage}
+            posts={posts}
+            initialDisplayPosts={initialDisplayPosts}
+            pagination={pagination}
+            title="All Posts"
+          />
+        </motion.div>
+      </DisableAnimationOnMobile>
     </>
   );
 }

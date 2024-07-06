@@ -27,6 +27,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "@/app/style";
 import { staggerContainer } from "../utils/motion";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 const SectionWrapper = (Component: React.ComponentType, idName?: string) =>
   function HOC() {
@@ -37,19 +38,21 @@ const SectionWrapper = (Component: React.ComponentType, idName?: string) =>
     }, [Component]);
 
     return (
-      <motion.section
-        key={key}
-        variants={staggerContainer()}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.001 }}
-        className={`${styles.padding} relative z-0`}
-      >
-        <span className="hash-span" id={idName}>
-          &nbsp;
-        </span>
-        <Component />
-      </motion.section>
+      <DisableAnimationOnMobile>
+        <motion.section
+          key={key}
+          variants={staggerContainer()}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.001 }}
+          className={`${styles.padding} relative z-0`}
+        >
+          <span className="hash-span" id={idName}>
+            &nbsp;
+          </span>
+          <Component />
+        </motion.section>
+      </DisableAnimationOnMobile>
     );
   };
 

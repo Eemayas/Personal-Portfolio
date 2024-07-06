@@ -10,6 +10,7 @@ import { textVariant } from "@/lib/utils/motion";
 import { TestimonialCard } from "./components/TestimonialCard";
 import { TestimonialForm } from "./components/TestimonialForm";
 import { fetchTestimonial } from "./slices/testimonialSlices";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 const TestimonialSection: React.FC = () => {
   const dispatch = useDispatch();
@@ -41,36 +42,40 @@ const TestimonialSection: React.FC = () => {
         <div className="mt-12 green-pink-gradient p-[2px] rounded-[20px]">
           <div className="dark:bg-background-dark bg-background-light rounded-[18px] pb-5">
             <div className={`${styles.padding} rounded-2xl min-h-[300px]`}>
-              <motion.div
-                initial="hidden"
-                animate="show"
-                variants={textVariant()}
-              >
-                <p className={styles.sectionSubText}>What others say</p>
-                <h2 className={styles.sectionHeadText}>Testimonials.</h2>
-              </motion.div>
+              <DisableAnimationOnMobile>
+                <motion.div
+                  initial="hidden"
+                  animate="show"
+                  variants={textVariant()}
+                >
+                  <p className={styles.sectionSubText}>What others say</p>
+                  <h2 className={styles.sectionHeadText}>Testimonials.</h2>
+                </motion.div>
+              </DisableAnimationOnMobile>
             </div>
             <div
               className={`${styles.paddingX} -mt-28 pd-14 flex flex-wrap gap-7`}
             >
-              <motion.div
-                initial="hidden"
-                animate="show"
-                variants={textVariant()}
-                className="mt-20 flex flex-wrap justify-center gap-7"
-              >
-                {testimonials.map((testimonial, index) => (
-                  <TestimonialCard
-                    index={index}
-                    adminState={adminState}
-                    {...testimonial}
-                    key={`testimonial-${index}`}
-                    setForm={setForm}
-                    setId={setId}
-                    _id={testimonial._id}
-                  />
-                ))}
-              </motion.div>
+              <DisableAnimationOnMobile>
+                <motion.div
+                  initial="hidden"
+                  animate="show"
+                  variants={textVariant()}
+                  className="mt-20 flex flex-wrap justify-center gap-7"
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <TestimonialCard
+                      index={index}
+                      adminState={adminState}
+                      {...testimonial}
+                      key={`testimonial-${index}`}
+                      setForm={setForm}
+                      setId={setId}
+                      _id={testimonial._id}
+                    />
+                  ))}
+                </motion.div>
+              </DisableAnimationOnMobile>
             </div>
           </div>
         </div>
