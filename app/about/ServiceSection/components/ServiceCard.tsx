@@ -1,6 +1,6 @@
 import React from "react";
 import { Tilt } from "react-tilt";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
@@ -28,13 +28,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   selectedImage,
   setForm,
 }) => {
-  const dispatch = useDispatch();
-
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
+        ref={ref}
         initial="hidden"
-        animate="show"
+        animate={isInView ? "show" : {}}
         className="w-full green-pink-gradient p-[2px] rounded-[20px] shadow-card dark:shadow-card-dark"
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
       >

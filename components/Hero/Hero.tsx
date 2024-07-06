@@ -11,9 +11,8 @@ const Hero: React.FC = () => {
   return (
     <section className="-mt-10 mx-auto">
       <div
-        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row p-6 md:p-20 gap-5 items-center border-transparent  bg-white`}
+        className={`bg-opacity-10 backdrop-blur-2xl rounded-[50px] drop-shadow-lg w-full h-fit md:min-h-[80%] max-w-7xl mx-auto flex flex-col-reverse md:flex-row p-6 md:p-20 gap-5 items-center border-transparent animate-circle-rotate  bg-white`}
       >
-        {/* animate-circle-rotate */}
         <div>
           <div
             className={`inset-0 md:w-[60%] w-full mx-auto flex flex-row items-center justify-center gap-5`}

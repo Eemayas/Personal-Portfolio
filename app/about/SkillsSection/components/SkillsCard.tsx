@@ -1,6 +1,6 @@
 import React from "react";
 import { Tilt } from "react-tilt";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { textVariant } from "@/lib/utils/motion";
@@ -27,9 +27,16 @@ const SkillsCard: React.FC<SkillsCardProps> = ({
   title,
   selectedImage,
 }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <Tilt className="xs:w-[120px] w-[120px]">
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "show" : {}}
+        variants={textVariant()}
+      >
         <div className="w-full green-pink-gradient p-[2px] rounded-[30px] shadow-card dark:shadow-card-dark">
           <div className="dark:bg-tertiary bg-tertiarylight rounded-[28px]">
             <Image
