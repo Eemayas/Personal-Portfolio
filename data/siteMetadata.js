@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: "https://eemayas.vercel.app/",
   siteRepo: "https://github.com/Eemayas/Personal-Portfolio",
   siteLogo: "/assets/Favicon/apple-touch-icon.png",
-  socialBanner: "/static/images/twitter-card.png",
+  socialBanner: "/assets/Profilepic.webp",
   mastodon: "https://mastodon.social/@mastodonuser",
   email: "prashantmanandhar2002@gmail.com ",
   github: "https://github.com/Eemayas",

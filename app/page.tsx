@@ -1,10 +1,10 @@
 // import Projects from "@/app/projects/page";
-// import Blogs from "@/app/blog/page";
 // import ContactPage from "./contacts/page";
-// import TestimonialSection from "./testinomial";
-// import ExperienceSection from "./experiences/ExperiencesSection";
+import TestimonialSection from "./testinomial";
+import ExperienceSection from "./experiences/ExperiencesSection";
 import Hero from "@/components/Hero";
 import AboutPage from "./about/page";
+// import Blogs from "@/app/blog/page";
 export default function Home() {
   return (
     <div className="relative z-0 ">
@@ -12,11 +12,11 @@ export default function Home() {
         <Hero />
       </div>
       <AboutPage />
-      {/* <Projects />
-      <Blogs />
+      {/* <Projects /> */}
+      {/* <Blogs /> */}
       <ExperienceSection />
       <TestimonialSection />
-      <ContactPage /> */}
+      {/* <ContactPage />  */}
     </div>
   );
 }

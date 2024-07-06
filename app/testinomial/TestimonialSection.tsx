@@ -8,8 +8,17 @@ import store, { RootState } from "../store";
 import IntersectionObserverComponent from "@/components/IntersectionObserverComponent";
 import { textVariant } from "@/lib/utils/motion";
 import { TestimonialCard } from "./components/TestimonialCard";
-import { TestimonialForm } from "./components/TestimonialForm";
+// import { TestimonialForm } from "./components/TestimonialForm";
 import { fetchTestimonial } from "./slices/testimonialSlices";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import dynamic from "next/dynamic";
+import { SectionTitle } from "@/components/TextAnimations";
+
+// Dynamically import AboutEditForm
+const TestimonialForm = dynamic(() => import("./components/TestimonialForm"), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>Loading...</p>, // Fallback content while loading
+});
 
 const TestimonialSection: React.FC = () => {
   const dispatch = useDispatch();
@@ -37,54 +46,44 @@ const TestimonialSection: React.FC = () => {
   return (
     <>
       <IntersectionObserverComponent onIntersect={fetchData}>
-        {/* {testimonials.length ? ( */}
         <div className="mt-12 green-pink-gradient p-[2px] rounded-[20px]">
           <div className="dark:bg-background-dark bg-background-light rounded-[18px] pb-5">
             <div className={`${styles.padding} rounded-2xl min-h-[300px]`}>
-              <motion.div
-                initial="hidden"
-                animate="show"
-                variants={textVariant()}
-              >
-                <p className={styles.sectionSubText}>What others say</p>
-                <h2 className={styles.sectionHeadText}>Testimonials.</h2>
-              </motion.div>
+              <SectionTitle
+                SecondaryTitle={"What others say"}
+                PrimaryTitle={"Testimonials"}
+              />
             </div>
             <div
               className={`${styles.paddingX} -mt-28 pd-14 flex flex-wrap gap-7`}
             >
-              <motion.div
-                initial="hidden"
-                animate="show"
-                variants={textVariant()}
-                className="mt-20 flex flex-wrap justify-center gap-7"
-              >
-                {testimonials.map((testimonial, index) => (
-                  <TestimonialCard
-                    index={index}
-                    adminState={adminState}
-                    {...testimonial}
-                    key={`testimonial-${index}`}
-                    setForm={setForm}
-                    setId={setId}
-                    _id={testimonial._id}
-                  />
-                ))}
-              </motion.div>
+              <DisableAnimationOnMobile>
+                <motion.div
+                  initial="hidden"
+                  animate="show"
+                  variants={textVariant()}
+                  className="mt-20 flex flex-wrap justify-center gap-7"
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <TestimonialCard
+                      index={index}
+                      adminState={adminState}
+                      {...testimonial}
+                      key={`testimonial-${index}`}
+                      setForm={setForm}
+                      setId={setId}
+                      _id={testimonial._id}
+                    />
+                  ))}
+                </motion.div>
+              </DisableAnimationOnMobile>
             </div>
           </div>
         </div>
-        {/* ) : (
-          <h1></h1>
-        )} */}
       </IntersectionObserverComponent>
-      <TestimonialForm
-        adminState={adminState}
-        form={form}
-        setId={setId}
-        setForm={setForm}
-        id={id}
-      />
+      {adminState && (
+        <TestimonialForm form={form} setId={setId} setForm={setForm} id={id} />
+      )}
     </>
   );
 };

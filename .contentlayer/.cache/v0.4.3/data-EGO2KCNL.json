@@ -210,7 +210,7 @@
           "datePublished": "2024-06-24T00:00:00.000Z",
           "dateModified": "2024-06-24T00:00:00.000Z",
           "description": "A comprehensive guide to understanding and using the .gitignore file in Git, including syntax, common patterns, and best practices.",
-          "image": "/static/images/twitter-card.png",
+          "image": "/assets/Profilepic.webp",
           "url": "https://eemayas.vercel.app//blog/1.Understanding-the-gitignore"
         }
       },
@@ -252,37 +252,37 @@
         "toc": [
           {
             "value": "Components",
-            "url": "#components-1",
+            "url": "#components",
             "depth": 1
           },
           {
             "value": "1. User Application Code",
-            "url": "#1-user-application-code-1",
+            "url": "#1-user-application-code",
             "depth": 2
           },
           {
             "value": "2. Standard C Library",
-            "url": "#2-standard-c-library-1",
+            "url": "#2-standard-c-library",
             "depth": 2
           },
           {
             "value": "3. I/O System (Device Drivers)",
-            "url": "#3-io-system-device-drivers-1",
+            "url": "#3-io-system-device-drivers",
             "depth": 2
           },
           {
             "value": "4. Kernel",
-            "url": "#4-kernel-1",
+            "url": "#4-kernel",
             "depth": 2
           },
           {
             "value": "5. Hardware Abstraction Layer (HAL)",
-            "url": "#5-hardware-abstraction-layer-hal-1",
+            "url": "#5-hardware-abstraction-layer-hal",
             "depth": 2
           },
           {
             "value": "Summary",
-            "url": "#summary-1",
+            "url": "#summary",
             "depth": 1
           }
         ],
@@ -293,7 +293,7 @@
           "datePublished": "2024-06-25T00:00:00.000Z",
           "dateModified": "2024-06-25T00:00:00.000Z",
           "description": "A comprehensive guide to understanding and using the .gitignore file in Git, including syntax, common patterns, and best practices.",
-          "image": "/static/images/twitter-card.png",
+          "image": "/assets/Profilepic.webp",
           "url": "https://eemayas.vercel.app//blog/2.Components-of-embedded-os"
         }
       },
@@ -341,37 +341,37 @@
         "toc": [
           {
             "value": "Different Data Structure",
-            "url": "#different-data-structure-1",
+            "url": "#different-data-structure",
             "depth": 1
           },
           {
             "value": "Comparison Sort",
-            "url": "#comparison-sort-1",
+            "url": "#comparison-sort",
             "depth": 1
           },
           {
             "value": "Greedy algorithms",
-            "url": "#greedy-algorithms-3",
+            "url": "#greedy-algorithms",
             "depth": 1
           },
           {
             "value": "Sorting in linear time",
-            "url": "#sorting-in-linear-time-1",
+            "url": "#sorting-in-linear-time",
             "depth": 1
           },
           {
             "value": "Explanation:",
-            "url": "#explanation-2",
+            "url": "#explanation",
             "depth": 2
           },
           {
             "value": "Dynamic Programming",
-            "url": "#dynamic-programming-1",
+            "url": "#dynamic-programming",
             "depth": 1
           },
           {
             "value": "Explanation:",
-            "url": "#explanation-3",
+            "url": "#explanation-1",
             "depth": 3
           }
         ],
@@ -382,7 +382,7 @@
           "datePublished": "2024-06-27T00:00:00.000Z",
           "dateModified": "2024-06-27T00:00:00.000Z",
           "description": "This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size.",
-          "image": "/static/images/twitter-card.png",
+          "image": "/assets/Profilepic.webp",
           "url": "https://eemayas.vercel.app//blog/3.Time-complexity"
         }
       },
@@ -428,157 +428,157 @@
         "toc": [
           {
             "value": "Sorting Algorithms",
-            "url": "#sorting-algorithms-2",
+            "url": "#sorting-algorithms",
             "depth": 1
           },
           {
             "value": "Bubble Sort",
-            "url": "#bubble-sort-2",
+            "url": "#bubble-sort",
             "depth": 2
           },
           {
             "value": "Selection Sort",
-            "url": "#selection-sort-2",
+            "url": "#selection-sort",
             "depth": 2
           },
           {
             "value": "Insertion Sort",
-            "url": "#insertion-sort-2",
+            "url": "#insertion-sort",
             "depth": 2
           },
           {
             "value": "Merge Sort",
-            "url": "#merge-sort-2",
+            "url": "#merge-sort",
             "depth": 2
           },
           {
             "value": "Quick Sort",
-            "url": "#quick-sort-2",
+            "url": "#quick-sort",
             "depth": 2
           },
           {
             "value": "Heap Sort",
-            "url": "#heap-sort-2",
+            "url": "#heap-sort",
             "depth": 2
           },
           {
             "value": "Sorting Algorithms in Linear time",
-            "url": "#sorting-algorithms-in-linear-time-2",
+            "url": "#sorting-algorithms-in-linear-time",
             "depth": 1
           },
           {
             "value": "Counting Sort",
-            "url": "#counting-sort-2",
+            "url": "#counting-sort",
             "depth": 2
           },
           {
             "value": "Radix Sort",
-            "url": "#radix-sort-2",
+            "url": "#radix-sort",
             "depth": 2
           },
           {
             "value": "Bucket Sort",
-            "url": "#bucket-sort-2",
+            "url": "#bucket-sort",
             "depth": 2
           },
           {
             "value": "BruteForce Algorithms",
-            "url": "#bruteforce-algorithms-2",
+            "url": "#bruteforce-algorithms",
             "depth": 1
           },
           {
             "value": "Sequential Search",
-            "url": "#sequential-search-2",
+            "url": "#sequential-search",
             "depth": 2
           },
           {
             "value": "String matching",
-            "url": "#string-matching-2",
+            "url": "#string-matching",
             "depth": 2
           },
           {
             "value": "Greedy Algorithms",
-            "url": "#greedy-algorithms-4",
+            "url": "#greedy-algorithms-1",
             "depth": 1
           },
           {
             "value": "Activity Selection",
-            "url": "#activity-selection-2",
+            "url": "#activity-selection",
             "depth": 2
           },
           {
             "value": "Dynamic Algorithms",
-            "url": "#dynamic-algorithms-2",
+            "url": "#dynamic-algorithms",
             "depth": 1
           },
           {
             "value": "Longest Common Subsequence",
-            "url": "#longest-common-subsequence-2",
+            "url": "#longest-common-subsequence",
             "depth": 2
           },
           {
             "value": "Matrix Chain multiplication",
-            "url": "#matrix-chain-multiplication-2",
+            "url": "#matrix-chain-multiplication",
             "depth": 2
           },
           {
             "value": "KnapSack Algorithms",
-            "url": "#knapsack-algorithms-2",
+            "url": "#knapsack-algorithms",
             "depth": 1
           },
           {
             "value": "KnapSack 01",
-            "url": "#knapsack-01-2",
+            "url": "#knapsack-01",
             "depth": 2
           },
           {
             "value": "BruteForce",
-            "url": "#bruteforce-4",
+            "url": "#bruteforce",
             "depth": 3
           },
           {
             "value": "Dynamic",
-            "url": "#dynamic-2",
+            "url": "#dynamic",
             "depth": 3
           },
           {
             "value": "KnapSack Fraction",
-            "url": "#knapsack-fraction-2",
+            "url": "#knapsack-fraction",
             "depth": 2
           },
           {
             "value": "BruteForce",
-            "url": "#bruteforce-5",
+            "url": "#bruteforce-1",
             "depth": 3
           },
           {
             "value": "Greedy",
-            "url": "#greedy-2",
+            "url": "#greedy",
             "depth": 3
           },
           {
             "value": "BackTracking",
-            "url": "#backtracking-2",
+            "url": "#backtracking",
             "depth": 1
           },
           {
             "value": "NQueens",
-            "url": "#nqueens-2",
+            "url": "#nqueens",
             "depth": 2
           },
           {
             "value": "Primal Test",
-            "url": "#primal-test-2",
+            "url": "#primal-test",
             "depth": 1
           },
           {
             "value": "Fermat Primal Test",
-            "url": "#fermat-primal-test-2",
+            "url": "#fermat-primal-test",
             "depth": 2
           },
           {
             "value": "Miller Rabin Primal Test",
-            "url": "#miller-rabin-primal-test-2",
+            "url": "#miller-rabin-primal-test",
             "depth": 2
           }
         ],
@@ -589,7 +589,7 @@
           "datePublished": "2024-06-29T00:00:00.000Z",
           "dateModified": "2024-06-29T00:00:00.000Z",
           "description": "This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size.",
-          "image": "/static/images/twitter-card.png",
+          "image": "/assets/Profilepic.webp",
           "url": "https://eemayas.vercel.app//blog/4.sorting-algorithmss"
         }
       },

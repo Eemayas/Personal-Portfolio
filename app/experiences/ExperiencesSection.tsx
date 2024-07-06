@@ -4,16 +4,23 @@ import { fetchExperiences } from "./slices/experiencesSlices";
 import store, { RootState } from "../store";
 import { useSelector } from "react-redux";
 import IntersectionObserverComponent from "@/components/IntersectionObserverComponent";
-import { motion } from "framer-motion";
 import { TExperience } from "./types";
-import { textVariant } from "@/lib/utils/motion";
-import { styles } from "../style";
 import VerticalTimeline from "@/components/VerticalTimeline/VerticalTimeline";
 import ExperienceCard from "./components/ExperienceCard";
-import ExperienceEditForm from "./components/ExperienceEditForm";
 import { SectionWrapper } from "@/lib/hoc";
 import { experiencess } from "@/constants";
 import "@/components/VerticalTimeline/style.min.css";
+import { SectionTitle } from "@/components/TextAnimations";
+import dynamic from "next/dynamic";
+
+// Dynamically import AboutEditForm
+const ExperienceEditForm = dynamic(
+  () => import("./components/ExperienceEditForm"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>Loading...</p>, // Fallback content while loading
+  }
+);
 
 const Experience: React.FC = () => {
   const adminState = useSelector((state: RootState) => state.adminReducer);
@@ -42,10 +49,11 @@ const Experience: React.FC = () => {
 
   return (
     <IntersectionObserverComponent onIntersect={fetchData}>
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
-        <p className={styles.sectionSubText}>What I have done so Far</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
-      </motion.div>
+      <SectionTitle
+        SecondaryTitle={"What I have done so Far"}
+        PrimaryTitle={"Overview"}
+      />
+
       <div className="mt-20 flex flex-col ">
         <VerticalTimeline animate layout="2-columns" lineColor={"#bc13fe"}>
           {experiencess.map((experience, index) => (
@@ -69,13 +77,14 @@ const Experience: React.FC = () => {
           ))}
         </VerticalTimeline>
       </div>
-      <ExperienceEditForm
-        adminState={adminState}
-        setId={setId}
-        id={id}
-        form={form}
-        setForm={setForm}
-      />
+      {adminState && (
+        <ExperienceEditForm
+          setId={setId}
+          id={id}
+          form={form}
+          setForm={setForm}
+        />
+      )}
     </IntersectionObserverComponent>
   );
 };

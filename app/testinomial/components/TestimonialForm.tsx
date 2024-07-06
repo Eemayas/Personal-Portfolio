@@ -1,23 +1,19 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import FileBase from "react-file-base64";
-import Image from "next/image";
 import { slideIn } from "@/lib/utils/motion";
 import store from "@/app/store";
 import { patchTestimonial, postTestimonial } from "../slices/testimonialSlices";
 import { TTestimonial } from "../types";
 import InputField from "@/components/InputField";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface TestimonialFormProps {
-  adminState: boolean;
   setId: React.Dispatch<React.SetStateAction<string>>;
   form: TTestimonial;
   setForm: React.Dispatch<React.SetStateAction<TTestimonial>>;
   id: string;
 }
-
-export const TestimonialForm: React.FC<TestimonialFormProps> = ({
-  adminState,
+const TestimonialForm: React.FC<TestimonialFormProps> = ({
   setId,
   form,
   setForm,
@@ -49,8 +45,8 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
   };
 
   return (
-    adminState && (
-      <div className=" flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
+    <div className=" flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
+      <DisableAnimationOnMobile>
         <motion.div
           initial="hidden"
           animate="show"
@@ -123,7 +119,8 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
             </button>
           </form>
         </motion.div>
-      </div>
-    )
+      </DisableAnimationOnMobile>
+    </div>
   );
 };
+export default TestimonialForm;

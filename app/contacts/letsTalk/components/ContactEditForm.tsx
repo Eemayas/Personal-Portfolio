@@ -6,6 +6,7 @@ import { Contact } from "../types";
 import { patchContact, postContact } from "../slices/contactSlice";
 import store from "@/app/store";
 import InputField from "@/components/InputField";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ContactFormProps {
   adminState: boolean;
@@ -45,44 +46,46 @@ const ContactEditForm: React.FC<ContactFormProps> = ({
 
   return adminState ? (
     <div className="mt-12 flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="my-12 flex-[0.75] bg-black-100 green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark "
-      >
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className=" flex flex-col gap-8 dark:bg-background-dark bg-background-light p-5 rounded-[14px]"
+      <DisableAnimationOnMobile>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={slideIn("left", "tween", 0.2, 1)}
+          className="my-12 flex-[0.75] bg-black-100 green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark "
         >
-          <InputField
-            label="Title"
-            type="text"
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-            placeholder="Phone Number/Email Address"
-            required
-          />
-          <InputField
-            label="Detail"
-            type="text"
-            name="detail"
-            value={form.detail}
-            onChange={handleChange}
-            placeholder="..."
-            required
-          />
-          <button
-            aria-label="Submit Button"
-            type="submit"
-            className="dark:bg-tertiary bg-tertiarylight py-3 px-8 rounded-xl outline-none w-fit  shadow-md shadow-primary"
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className=" flex flex-col gap-8 dark:bg-background-dark bg-background-light p-5 rounded-[14px]"
           >
-            {loading ? "Sending..." : "Send"}
-          </button>
-        </form>
-      </motion.div>
+            <InputField
+              label="Title"
+              type="text"
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              placeholder="Phone Number/Email Address"
+              required
+            />
+            <InputField
+              label="Detail"
+              type="text"
+              name="detail"
+              value={form.detail}
+              onChange={handleChange}
+              placeholder="..."
+              required
+            />
+            <button
+              aria-label="Submit Button"
+              type="submit"
+              className="dark:bg-tertiary bg-tertiarylight py-3 px-8 rounded-xl outline-none w-fit  shadow-md shadow-primary"
+            >
+              {loading ? "Sending..." : "Send"}
+            </button>
+          </form>
+        </motion.div>
+      </DisableAnimationOnMobile>
     </div>
   ) : null;
 };

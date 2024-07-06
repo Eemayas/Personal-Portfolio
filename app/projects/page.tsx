@@ -12,6 +12,7 @@ import { fetchProject } from "./slices/projectSlice";
 import { styles } from "../style";
 import ProjectForm from "./components/ProjectForm";
 import ProjectCard from "./components/ProjectCard";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 const Projects: React.FC = () => {
   const [hasFetched, setHasFetched] = useState(false);
@@ -59,10 +60,12 @@ const Projects: React.FC = () => {
 
   return (
     <IntersectionObserverComponent onIntersect={fetchData}>
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
-        <h2 className={styles.sectionHeadText}>Projects</h2>
-      </motion.div>
+      <DisableAnimationOnMobile>
+        <motion.div initial="hidden" animate="show" variants={textVariant()}>
+          <p className={styles.sectionSubText}>My work</p>
+          <h2 className={styles.sectionHeadText}>Projects</h2>
+        </motion.div>
+      </DisableAnimationOnMobile>
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
@@ -71,23 +74,25 @@ const Projects: React.FC = () => {
           {projectDescription}
         </motion.p>
       </div>
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={textVariant()}
-        className="mt-20 flex flex-wrap justify-center gap-7"
-      >
-        {displayedProjects.map((project, index) => (
-          <ProjectCard
-            adminState={adminState}
-            key={`project-${index}`}
-            setForm={setForm}
-            setId={setId}
-            index={index}
-            {...project}
-          />
-        ))}
-      </motion.div>
+      <DisableAnimationOnMobile>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={textVariant()}
+          className="mt-20 flex flex-wrap justify-center gap-7"
+        >
+          {displayedProjects.map((project, index) => (
+            <ProjectCard
+              adminState={adminState}
+              key={`project-${index}`}
+              setForm={setForm}
+              setId={setId}
+              index={index}
+              {...project}
+            />
+          ))}
+        </motion.div>
+      </DisableAnimationOnMobile>
       <ProjectForm
         adminState={adminState}
         setId={setId}

@@ -37,25 +37,25 @@ const POSTS_PER_PAGE = 5;
 export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag);
   // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(" ").join("-").slice(1);
-  const posts = allCoreContent(sortPosts(allBlogs));
-  const pageNumber = 1;
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
-  );
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-  };
+  // const title = tag[0].toUpperCase() + tag.split(" ").join("-").slice(1);
+  // const posts = allCoreContent(sortPosts(allBlogs));
+  // const pageNumber = 1;
+  // const initialDisplayPosts = posts.slice(
+  //   POSTS_PER_PAGE * (pageNumber - 1),
+  //   POSTS_PER_PAGE * pageNumber
+  // );
+  // const pagination = {
+  //   currentPage: pageNumber,
+  //   totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+  // };
   return (
     <ListLayout
-      posts={posts}
+      // posts={posts}
       tags={[tag]}
-      initialDisplayPosts={initialDisplayPosts}
-      pagination={pagination}
-      title="All Posts"
-      isHomePage={false}
+      // initialDisplayPosts={initialDisplayPosts}
+      // pagination={pagination}
+      // title="All Posts"
+      // isHomePage={false}
     />
   );
 }

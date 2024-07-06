@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { slideIn } from "@/lib/utils/motion";
 import { Contact } from "../types";
 import ContactCard from "./ContactCard";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ContactInfoProps {
   adminState: boolean;
@@ -18,22 +19,24 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
   setId,
 }) => {
   return contacts.length ? (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={slideIn("right", "tween", 0.2, 1)}
-      className="xs:flex-1 xs:mt-5 flex-col flex gap-5 xs:flex-wrap align-middle h-auto"
-    >
-      {contacts.map((contact, index) => (
-        <ContactCard
-          key={`contact-${index}`}
-          setForm={setForm}
-          setId={setId}
-          {...contact}
-          adminState={adminState}
-        />
-      ))}
-    </motion.div>
+    <DisableAnimationOnMobile>
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className="xs:flex-1 xs:mt-5 flex-col flex gap-5 xs:flex-wrap align-middle h-auto"
+      >
+        {contacts.map((contact, index) => (
+          <ContactCard
+            key={`contact-${index}`}
+            setForm={setForm}
+            setId={setId}
+            {...contact}
+            adminState={adminState}
+          />
+        ))}
+      </motion.div>
+    </DisableAnimationOnMobile>
   ) : (
     <h1>No Contacts</h1>
   );

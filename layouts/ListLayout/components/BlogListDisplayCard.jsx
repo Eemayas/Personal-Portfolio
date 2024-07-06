@@ -3,6 +3,10 @@ import Link from "next/link";
 import Tag from "@/components/Tag";
 import { formatDate } from "pliny/utils/formatDate";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import React from "react";
+import { fadeIn } from "@/lib/utils/motion";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 const randomImgUrl = [
   "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -16,54 +20,66 @@ const randomImgUrl = [
 const BlogListDisplayCard = ({ slug, date, title, tags, summary, images }) => {
   const index = Math.floor(Math.random() * 1000) % randomImgUrl.length;
   images = images ? images[0] : randomImgUrl[index];
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.1 });
   return (
-    <div className="green-pink-gradient my-8 w-full rounded-[30px] p-[2px] shadow-card dark:shadow-card-dark">
-      <div className="space-y-2 rounded-[28px] dark:bg-tertiary bg-tertiarylight p-6 hover:bg-gray-200 dark:hover:bg-gray-900 ">
-        <div className="flex flex-col items-center space-x-4 md:flex-row divide-gray-500 md:divide-x-1 divide-y-1 md:divide-y-0">
-          <div className="h-64 w-64 rounded-3xl object-fill shadow-lg">
-            <Image
-              width={200}
-              height={200}
-              src={images}
-              alt={`Image of ${title}`}
-              className="h-full w-full rounded-3xl object-cover"
-            />
-          </div>
-          <div className="mt-8 w-full sm:w-[60%] md:mt-0 md:pl-8">
-            <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-            <div className="space-y-5 xl:col-span-3">
-              <div className="space-y-6">
-                <h2 className="text-2xl font-bold leading-8 tracking-tight">
+    <DisableAnimationOnMobile>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        variants={fadeIn("up", "spring", 0.25, 0.75)}
+        animate={isInView ? "show" : {}}
+        className="green-pink-gradient my-8 w-full rounded-[30px] p-[2px] shadow-card dark:shadow-card-dark"
+      >
+        <div className="space-y-2 rounded-[28px] dark:bg-tertiary bg-tertiarylight p-6 hover:bg-gray-200 dark:hover:bg-gray-900 ">
+          <div className="flex flex-col items-center space-x-4 md:flex-row divide-gray-500 md:divide-x-1 divide-y-1 md:divide-y-0">
+            <div className="h-64 w-64 rounded-3xl object-fill shadow-lg">
+              <Image
+                width={200}
+                height={200}
+                src={images}
+                alt={`Image of ${title}`}
+                className="h-full w-full rounded-3xl object-cover"
+              />
+            </div>
+            <div className="mt-8 w-full sm:w-[60%] md:mt-0 md:pl-8">
+              <time dateTime={date}>
+                {formatDate(date, siteMetadata.locale)}
+              </time>
+              <div className="space-y-5 xl:col-span-3">
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                    <Link
+                      href={`/blog/${slug}`}
+                      className="text-gray-900 dark:text-gray-100"
+                    >
+                      {title}
+                    </Link>
+                  </h2>
+                  <div className="flex flex-wrap">
+                    {tags.map((tag) => (
+                      <Tag key={tag} text={tag} />
+                    ))}
+                  </div>
+                  <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                    {summary}
+                  </div>
+                </div>
+                <div className="text-base font-medium leading-6">
                   <Link
                     href={`/blog/${slug}`}
-                    className="text-gray-900 dark:text-gray-100"
+                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 "
+                    aria-label={`Read more: "${title}"`}
                   >
-                    {title}
+                    Read more &rarr;
                   </Link>
-                </h2>
-                <div className="flex flex-wrap">
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
                 </div>
-                <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                  {summary}
-                </div>
-              </div>
-              <div className="text-base font-medium leading-6">
-                <Link
-                  href={`/blog/${slug}`}
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 "
-                  aria-label={`Read more: "${title}"`}
-                >
-                  Read more &rarr;
-                </Link>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </DisableAnimationOnMobile>
   );
 };
 

@@ -31,37 +31,37 @@
   "toc": [
     {
       "value": "Components",
-      "url": "#components-1",
+      "url": "#components",
       "depth": 1
     },
     {
       "value": "1. User Application Code",
-      "url": "#1-user-application-code-1",
+      "url": "#1-user-application-code",
       "depth": 2
     },
     {
       "value": "2. Standard C Library",
-      "url": "#2-standard-c-library-1",
+      "url": "#2-standard-c-library",
       "depth": 2
     },
     {
       "value": "3. I/O System (Device Drivers)",
-      "url": "#3-io-system-device-drivers-1",
+      "url": "#3-io-system-device-drivers",
       "depth": 2
     },
     {
       "value": "4. Kernel",
-      "url": "#4-kernel-1",
+      "url": "#4-kernel",
       "depth": 2
     },
     {
       "value": "5. Hardware Abstraction Layer (HAL)",
-      "url": "#5-hardware-abstraction-layer-hal-1",
+      "url": "#5-hardware-abstraction-layer-hal",
       "depth": 2
     },
     {
       "value": "Summary",
-      "url": "#summary-1",
+      "url": "#summary",
       "depth": 1
     }
   ],
@@ -72,7 +72,7 @@
     "datePublished": "2024-06-25T00:00:00.000Z",
     "dateModified": "2024-06-25T00:00:00.000Z",
     "description": "A comprehensive guide to understanding and using the .gitignore file in Git, including syntax, common patterns, and best practices.",
-    "image": "/static/images/twitter-card.png",
+    "image": "/assets/Profilepic.webp",
     "url": "https://eemayas.vercel.app//blog/2.Components-of-embedded-os"
   }
 }

@@ -25,7 +25,7 @@ const AboutPage: React.FC = () => {
     <IntersectionObserverComponent onIntersect={fetchData}>
       <About />
       <ServiceCardSection />
-       <SkillSection />
+      <SkillSection />
     </IntersectionObserverComponent>
   );
 };

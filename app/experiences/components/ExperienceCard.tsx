@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { TExperience } from "../types";
 import VerticalTimelineElement from "@/components/VerticalTimeline/VerticalTimelineElement";
-import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { deleteExperiences } from "../slices/experiencesSlices";
 import store from "@/app/store";
+import dynamic from "next/dynamic";
 
 interface ExperienceCardProps {
   experience: TExperience;
@@ -13,7 +13,14 @@ interface ExperienceCardProps {
   setId: (id: string) => void;
   _id: string;
 }
-
+// Dynamically import AboutEditForm
+const EditAndDeleteButton = dynamic(
+  () => import("@/components/EditAndDeleteButton"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>...</p>, // Fallback content while loading
+  }
+);
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
   experience,
   adminState = false,
@@ -60,27 +67,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </ul>
       </div>
       {adminState && (
-        <div className="flex items-end flex-col justify-normal xs:justify-end">
-          <button
-            aria-label="Edit"
-            onClick={() => {
-              setId(_id!);
-              setForm(experience);
-            }}
-            className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-          >
-            <EditIcons />
-          </button>
-          <button
-            aria-label="Delete"
-            onClick={() => {
-              store.dispatch(deleteExperiences(_id!));
-            }}
-            className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-          >
-            <DeleteIcons />
-          </button>
-        </div>
+        <EditAndDeleteButton
+          onEditClick={() => {
+            setId(_id!);
+            setForm(experience);
+          }}
+          onDeleteClick={() => {
+            store.dispatch(deleteExperiences(_id!));
+          }}
+        />
       )}
     </VerticalTimelineElement>
   );

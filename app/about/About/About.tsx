@@ -6,7 +6,7 @@ import ProfileAvatars from "./components/ProfileAvatars";
 import { Bio, ProfilePic2Path } from "@/constants";
 import { SectionWrapper } from "@/lib/hoc";
 import {
-  DescriptionAnimation,
+  BioDescriptionAnimation,
   SectionTitle,
 } from "@/components/TextAnimations";
 
@@ -24,7 +24,9 @@ const About: React.FC = () => {
     <>
       <SectionTitle SecondaryTitle={"Introduction"} PrimaryTitle={"Overview"} />
       <div className="md:flex-row flex flex-col-reverse justify-around">
-        <DescriptionAnimation description={!bios.length ? Bio : bios[0].bio} />
+        <BioDescriptionAnimation
+          description={!bios.length ? Bio : bios[0].bio}
+        />
         <ProfileAvatars
           imgsrc={bios.length ? bios[0].selectedImage : ProfilePic2Path}
         />

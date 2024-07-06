@@ -5,9 +5,9 @@ import { TExperience } from "../types";
 import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
 import { patchExperiences, postExperiences } from "../slices/experiencesSlices";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ExperienceEditFormProps {
-  adminState: boolean;
   setId: React.Dispatch<React.SetStateAction<string>>;
   id: string;
   form: TExperience;
@@ -15,7 +15,6 @@ interface ExperienceEditFormProps {
 }
 
 const ExperienceEditForm: React.FC<ExperienceEditFormProps> = ({
-  adminState,
   setId,
   id,
   form,
@@ -60,8 +59,8 @@ const ExperienceEditForm: React.FC<ExperienceEditFormProps> = ({
   };
 
   return (
-    adminState && (
-      <div className="flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
+    <div className="flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
+      <DisableAnimationOnMobile>
         <motion.div
           initial="hidden"
           animate="show"
@@ -142,8 +141,8 @@ const ExperienceEditForm: React.FC<ExperienceEditFormProps> = ({
             </button>
           </form>
         </motion.div>
-      </div>
-    )
+      </DisableAnimationOnMobile>
+    </div>
   );
 };
 

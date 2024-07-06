@@ -9,6 +9,7 @@ import { contacts } from "@/constants";
 import SocialMediaForm from "./components/SocialMediaForm";
 import ContactCard from "./components/SocialMediaContactCard";
 import { RootState } from "@/app/store";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 const Contact = () => {
   const [form, setForm] = useState<{
     name: string;
@@ -30,14 +31,16 @@ const Contact = () => {
       <div className=" green-pink-gradient p-[2px] rounded-2xl shadow-card dark:shadow-card-dark">
         <div className="dark:bg-background-dark bg-background-light rounded-[14px]">
           <div className="p-8">
-            <motion.div
-              initial="hidden"
-              animate="show"
-              variants={textVariant()}
-            >
-              <p className={styles.sectionSubText}>Get In Touch.</p>
-              <h2 className={styles.sectionHeadText}>Contacts</h2>
-            </motion.div>
+            <DisableAnimationOnMobile>
+              <motion.div
+                initial="hidden"
+                animate="show"
+                variants={textVariant()}
+              >
+                <p className={styles.sectionSubText}>Get In Touch.</p>
+                <h2 className={styles.sectionHeadText}>Contacts</h2>
+              </motion.div>
+            </DisableAnimationOnMobile>
           </div>{" "}
           <div className="flex flex-row flex-wrap justify-center gap-10 pb-10">
             {(socialMedias.length ? socialMedias : contacts).map(

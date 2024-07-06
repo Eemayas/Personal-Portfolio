@@ -37,37 +37,37 @@
   "toc": [
     {
       "value": "Different Data Structure",
-      "url": "#different-data-structure-1",
+      "url": "#different-data-structure",
       "depth": 1
     },
     {
       "value": "Comparison Sort",
-      "url": "#comparison-sort-1",
+      "url": "#comparison-sort",
       "depth": 1
     },
     {
       "value": "Greedy algorithms",
-      "url": "#greedy-algorithms-3",
+      "url": "#greedy-algorithms",
       "depth": 1
     },
     {
       "value": "Sorting in linear time",
-      "url": "#sorting-in-linear-time-1",
+      "url": "#sorting-in-linear-time",
       "depth": 1
     },
     {
       "value": "Explanation:",
-      "url": "#explanation-2",
+      "url": "#explanation",
       "depth": 2
     },
     {
       "value": "Dynamic Programming",
-      "url": "#dynamic-programming-1",
+      "url": "#dynamic-programming",
       "depth": 1
     },
     {
       "value": "Explanation:",
-      "url": "#explanation-3",
+      "url": "#explanation-1",
       "depth": 3
     }
   ],
@@ -78,7 +78,7 @@
     "datePublished": "2024-06-27T00:00:00.000Z",
     "dateModified": "2024-06-27T00:00:00.000Z",
     "description": "This article explores time complexity in algorithms, explaining how it measures the efficiency and performance of different algorithms based on input size.",
-    "image": "/static/images/twitter-card.png",
+    "image": "/assets/Profilepic.webp",
     "url": "https://eemayas.vercel.app//blog/3.Time-complexity"
   }
 }

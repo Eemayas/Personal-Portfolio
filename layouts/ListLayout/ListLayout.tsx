@@ -1,85 +1,43 @@
 "use client";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import { CoreContent } from "pliny/utils/contentlayer.js";
-import type { Blog } from "contentlayer/generated";
-import Link from "@/components/Link";
-import siteMetadata from "@/data/siteMetadata";
+import { useEffect, useState } from "react";
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js";
+import { allBlogs, type Blog } from "contentlayer/generated";
 import BlogListDisplayCard from "./components/BlogListDisplayCard";
 import tagData from "app/tag-data.json";
-interface PaginationProps {
-  totalPages: number;
-  currentPage: number;
-}
+import Pagination from "./components/Pagination";
+
 interface ListLayoutProps {
   tags?: any[];
-  isHomePage: boolean;
-  posts: CoreContent<Blog>[];
-  title: string;
-  initialDisplayPosts?: CoreContent<Blog>[];
-  pagination?: PaginationProps;
+  // isHomePage: boolean;
+  // posts: CoreContent<Blog>[];
+  // initialDisplayPosts?: CoreContent<Blog>[];
+  // pagination?: PaginationProps;
 }
 
-function Pagination({ totalPages, currentPage }: PaginationProps) {
-  const pathname = usePathname();
-  const basePath = pathname.split("/")[1];
-  const prevPage = currentPage - 1 > 0;
-  const nextPage = currentPage + 1 <= totalPages;
+export default function ListLayout({ tags = [] }: ListLayoutProps) {
+  const [isHomePage, setIsHomePage] = useState(true);
+  const [POSTS_PER_PAGE, setPOSTS_PER_PAGE] = useState(2);
 
-  return (
-    <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button
-            className="cursor-auto disabled:opacity-50"
-            disabled={!prevPage}
-          >
-            Previous
-          </button>
-        )}
-        {prevPage && (
-          <Link
-            href={
-              currentPage - 1 === 1
-                ? `/${basePath}/`
-                : `/${basePath}/page/${currentPage - 1}`
-            }
-            rel="prev"
-          >
-            Previous
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button
-            className="cursor-auto disabled:opacity-50"
-            disabled={!nextPage}
-          >
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
-          </Link>
-        )}
-      </nav>
-    </div>
-  );
-}
-
-export default function ListLayout({
-  posts,
-  title,
-  isHomePage,
-  initialDisplayPosts = [],
-  pagination,
-  tags = [],
-}: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState("");
   const [selectedTags, setSelectedTags] = useState(tags);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isHome = !window.location.href.includes("blog");
+      setIsHomePage(isHome);
+      !isHome ? setPOSTS_PER_PAGE(5) : "";
+    }
+  }, []);
+  const posts = allCoreContent(sortPosts(allBlogs));
+  const pageNumber = 1;
+  const initialDisplayPosts = posts.slice(
+    POSTS_PER_PAGE * (pageNumber - 1),
+    POSTS_PER_PAGE * pageNumber
+  );
+  const pagination = {
+    currentPage: pageNumber,
+    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+  };
 
   // Filter posts by search value
   const filteredBySearchValue = posts.filter((post) => {
