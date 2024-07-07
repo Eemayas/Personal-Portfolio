@@ -9,10 +9,17 @@ import useForm from "./hooks/useForm";
 import { Contact, EmailSender } from "./types";
 import { styles } from "@/app/style";
 import ContactInfo from "./components/ContactInfo";
-import ContactEditForm from "./components/ContactEditForm";
 import { SectionWrapper } from "@/lib/hoc";
 import InputField from "@/components/InputField";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import dynamic from "next/dynamic";
+import { SectionTitle } from "@/components/TextAnimations";
+
+// Dynamically import AboutEditForm
+const ContactEditForm = dynamic(() => import("./components/ContactEditForm"), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>...</p>, // Fallback content while loading
+});
 
 const LetsTalk: React.FC = () => {
   const {
@@ -33,11 +40,7 @@ const LetsTalk: React.FC = () => {
     message: "",
   });
   const [id, setId] = useState<string>("0");
-  const {
-    contacts,
-    loading: contactLoading,
-    error,
-  } = useSelector((state: RootState) => state.contactReducer);
+  const { contacts } = useSelector((state: RootState) => state.contactReducer);
   const adminState = useSelector((state: RootState) => state.adminReducer);
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -114,18 +117,15 @@ const LetsTalk: React.FC = () => {
                   placeholder="What's your email address?"
                   required
                 />
-                <label className="flex flex-col">
-                  <span className="font-medium mb-4">Your Message</span>
-                  <textarea
-                    rows={7}
-                    name="message"
-                    value={letsTalkForm.message.toString()}
-                    onChange={handleletsTalkFormetsTalkFormFormChange}
-                    placeholder="What you want to say?"
-                    className="dark:bg-tertiary bg-tertiarylight py-4 px-6 rounded-lg outline-none border-none font-medium"
-                    required
-                  />
-                </label>
+                <InputField
+                  label={"Your Message"}
+                  type={"textarea"}
+                  name={"message"}
+                  value={letsTalkForm.message.toString()}
+                  placeholder={"What you want to say?"}
+                  onChange={handleletsTalkFormetsTalkFormFormChange}
+                />
+
                 <button
                   aria-label="BTN"
                   type="submit"
@@ -153,12 +153,14 @@ const LetsTalk: React.FC = () => {
           />
         )}
       </div>
-      <ContactEditForm
-        adminState={adminState}
-        setId={setId}
-        id={id}
-        contactInfoForm={contactInfoForm}
-      />
+      {adminState && (
+        <ContactEditForm
+          adminState={adminState}
+          setId={setId}
+          id={id}
+          contactInfoForm={contactInfoForm}
+        />
+      )}
     </>
   );
 };

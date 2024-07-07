@@ -44,7 +44,7 @@ const ContactEditForm: React.FC<ContactFormProps> = ({
     setForm(contactInfoForm);
   }, [contactInfoForm]);
 
-  return adminState ? (
+  return (
     <div className="mt-12 flex md:w-[80%] xl:flex-row flex-col gap-10 overflow-hidden">
       <DisableAnimationOnMobile>
         <motion.div
@@ -87,7 +87,7 @@ const ContactEditForm: React.FC<ContactFormProps> = ({
         </motion.div>
       </DisableAnimationOnMobile>
     </div>
-  ) : null;
+  );
 };
 
 export default ContactEditForm;

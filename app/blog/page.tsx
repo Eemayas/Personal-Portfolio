@@ -16,20 +16,7 @@ function BlogPage() {
       <SectionTitle SecondaryTitle={"Latest updates"} PrimaryTitle={"Blogs"} />
       <DescriptionAnimation description={blogDescription} />
 
-      {/*       <DisableAnimationOnMobile>
-        <motion.div
-        initial="hidden"
-        animate="show"
-        variants={fadeIn("up", "", 0.1, 1)}
-      > */}
-      <ListLayout
-      // isHomePage={isHomePage}
-      // posts={posts}
-      // initialDisplayPosts={initialDisplayPosts}
-      // pagination={pagination}
-      />
-      {/* </motion.div>
-      </DisableAnimationOnMobile> */}
+      <ListLayout />
     </>
   );
 }

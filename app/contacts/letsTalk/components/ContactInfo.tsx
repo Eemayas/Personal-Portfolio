@@ -38,7 +38,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
       </motion.div>
     </DisableAnimationOnMobile>
   ) : (
-    <h1>No Contacts</h1>
+    ""
   );
 };
 

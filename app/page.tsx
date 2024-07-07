@@ -1,5 +1,5 @@
 // import Projects from "@/app/projects/page";
-// import ContactPage from "./contacts/page";
+import ContactPage from "./contacts/page";
 import TestimonialSection from "./testinomial";
 import ExperienceSection from "./experiences/ExperiencesSection";
 import Hero from "@/components/Hero";
@@ -16,7 +16,7 @@ export default function Home() {
       {/* <Blogs /> */}
       <ExperienceSection />
       <TestimonialSection />
-      {/* <ContactPage />  */}
+      <ContactPage />
     </div>
   );
 }
