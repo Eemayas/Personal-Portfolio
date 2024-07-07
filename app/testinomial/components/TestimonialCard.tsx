@@ -1,12 +1,17 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
 import Image from "next/image";
-import { fadeIn } from "@/lib/utils/motion";
-import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import store from "@/app/store";
 import { deleteTestimonial } from "../slices/testimonialSlices";
 import { TTestimonial } from "../types";
+import dynamic from "next/dynamic";
+
+const EditAndDeleteButton = dynamic(
+  () => import("@/components/EditAndDeleteButton"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>...</p>, // Fallback content while loading
+  }
+);
 
 interface TestimonialCardProps {
   index: number;
@@ -62,13 +67,9 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </div>
         </div>
       </div>{" "}
-      <div
-        className="flex items-end flex-col justify-normal xs:justify-end"
-        style={{ display: adminState ? "block" : "none" }}
-      >
-        <button
-          aria-label="Edit"
-          onClick={() => {
+      {adminState && (
+        <EditAndDeleteButton
+          onEditClick={() => {
             setId(_id);
             setForm({
               name: name,
@@ -78,20 +79,11 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
               company: company,
             });
           }}
-          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit font-bold shadow-md shadow-slate-500"
-        >
-          <EditIcons />
-        </button>
-        <button
-          aria-label="Delete"
-          onClick={() => {
+          onDeleteClick={() => {
             store.dispatch(deleteTestimonial(_id));
           }}
-          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-        >
-          <DeleteIcons />
-        </button>
-      </div>
+        />
+      )}
     </>
   );
 };

@@ -1,12 +1,15 @@
-import React from 'react';
-import { DeleteIcons, EditIcons } from './social-icons/icons';
+import React from "react";
+import { DeleteIcons, EditIcons } from "./social-icons/icons";
 
 interface EditAndDeleteButtonProps {
   onEditClick: () => void;
   onDeleteClick: () => void;
 }
 
-const EditAndDeleteButton: React.FC<EditAndDeleteButtonProps> = ({ onEditClick, onDeleteClick }) => {
+const EditAndDeleteButton: React.FC<EditAndDeleteButtonProps> = ({
+  onEditClick,
+  onDeleteClick,
+}) => {
   return (
     <div className="flex items-end flex-col justify-normal xs:justify-end">
       <button

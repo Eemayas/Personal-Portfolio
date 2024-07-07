@@ -15,7 +15,6 @@ import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile"
 import dynamic from "next/dynamic";
 import { SectionTitle } from "@/components/TextAnimations";
 
-// Dynamically import AboutEditForm
 const ContactEditForm = dynamic(() => import("./components/ContactEditForm"), {
   ssr: false, // Disable server-side rendering for this component
   loading: () => <p>...</p>, // Fallback content while loading

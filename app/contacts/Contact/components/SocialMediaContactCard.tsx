@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
 import { textVariant } from "@/lib/utils/motion";
-import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { deleteSocialMedia } from "../slices/socialMediaSlice";
 import store from "@/app/store";
 import { TSocialMediaContact } from "../types";
 import { useTheme } from "next-themes";
-import { log } from "console";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import dynamic from "next/dynamic";
 
+const EditAndDeleteButton = dynamic(
+  () => import("@/components/EditAndDeleteButton"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>...</p>, // Fallback content while loading
+  }
+);
 interface SocialMediaContactCardProps {
   adminState: boolean;
   name: string;
@@ -61,25 +67,13 @@ const SocialMediaContactCard: React.FC<SocialMediaContactCardProps> = ({
           </div>
 
           {adminState && (
-            <div className="flex items-end flex-col justify-normal xs:justify-end">
-              <button
-                aria-label="Edit"
-                onClick={() => {
-                  setId(_id);
-                  setForm({ name, logo, links });
-                }}
-                className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-              >
-                <EditIcons />
-              </button>
-              <button
-                aria-label="Delete"
-                onClick={() => store.dispatch(deleteSocialMedia(_id))}
-                className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-              >
-                <DeleteIcons />
-              </button>
-            </div>
+            <EditAndDeleteButton
+              onEditClick={() => {
+                setId(_id);
+                setForm({ name, logo, links });
+              }}
+              onDeleteClick={() => store.dispatch(deleteSocialMedia(_id))}
+            />
           )}
         </Tilt>
       </motion.div>
@@ -88,25 +82,3 @@ const SocialMediaContactCard: React.FC<SocialMediaContactCardProps> = ({
 };
 
 export default SocialMediaContactCard;
-
-const MyComponent = () => {
-  return (
-    <div className="flex items-center justify-center">
-      {/* Using img tag */}
-      <img
-        src="data:image/svg+xml;base64,PHN2ZyB...[base64-encoded SVG data]..."
-        alt="SVG Image"
-        className="h-8 w-8 text-blue-500"
-      />
-
-      {/* Using div with background image */}
-      <div
-        className="h-8 w-8 bg-contain bg-center"
-        style={{
-          backgroundImage:
-            "url(data:image/svg+xml;base64,PHN2ZyB...[base64-encoded SVG data]...)",
-        }}
-      ></div>
-    </div>
-  );
-};

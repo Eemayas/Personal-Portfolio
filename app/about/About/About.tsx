@@ -10,7 +10,6 @@ import {
   SectionTitle,
 } from "@/components/TextAnimations";
 
-// Dynamically import AboutEditForm
 const AboutEditForm = dynamic(() => import("./components/AboutEditForm"), {
   ssr: false, // Disable server-side rendering for this component
   loading: () => <p>Loading...</p>, // Fallback content while loading

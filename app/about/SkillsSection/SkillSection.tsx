@@ -8,7 +8,6 @@ import SkillsCard from "./components/SkillsCard";
 import { TBioSkill } from "./types";
 import dynamic from "next/dynamic";
 
-// Dynamically import AboutEditForm
 const SkillEditForm = dynamic(() => import("./components/SkillEditForm"), {
   ssr: false, // Disable server-side rendering for this component
   loading: () => <p>Loading...</p>, // Fallback content while loading

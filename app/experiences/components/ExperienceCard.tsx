@@ -13,7 +13,7 @@ interface ExperienceCardProps {
   setId: (id: string) => void;
   _id: string;
 }
-// Dynamically import AboutEditForm
+
 const EditAndDeleteButton = dynamic(
   () => import("@/components/EditAndDeleteButton"),
   {

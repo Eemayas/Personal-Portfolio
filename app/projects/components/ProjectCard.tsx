@@ -1,14 +1,19 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { EditIcons, DeleteIcons } from "@/components/social-icons/icons";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
 import { Project } from "../types";
-import { fadeIn, textVariant } from "@/lib/utils/motion";
 import store from "@/app/store";
 import { deleteProject } from "../slices/projectSlice";
+import dynamic from "next/dynamic";
 
+const EditAndDeleteButton = dynamic(
+  () => import("@/components/EditAndDeleteButton"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>...</p>, // Fallback content while loading
+  }
+);
 interface ProjectCardProps extends Project {
   index: number;
   adminState: boolean;
@@ -88,13 +93,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
       </Tilt>
-      <div
-        className="flex items-end flex-col justify-normal  xs:justify-end"
-        style={{ display: adminState ? "block" : "none" }}
-      >
-        <button
-          aria-label="Edit Project"
-          onClick={() => {
+      {adminState && (
+        <EditAndDeleteButton
+          onEditClick={() => {
             setId(_id);
             setForm({
               name,
@@ -105,18 +106,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               websitelinks,
             });
           }}
-          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-        >
-          <EditIcons />
-        </button>
-        <button
-          aria-label="Delete Project"
-          onClick={() => store.dispatch(deleteProject(_id))}
-          className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-        >
-          <DeleteIcons />
-        </button>
-      </div>
+          onDeleteClick={() => store.dispatch(deleteProject(_id))}
+        />
+      )}
     </>
   );
 };

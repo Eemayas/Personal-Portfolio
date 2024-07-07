@@ -13,7 +13,6 @@ import "@/components/VerticalTimeline/style.min.css";
 import { SectionTitle } from "@/components/TextAnimations";
 import dynamic from "next/dynamic";
 
-// Dynamically import AboutEditForm
 const ExperienceEditForm = dynamic(
   () => import("./components/ExperienceEditForm"),
   {

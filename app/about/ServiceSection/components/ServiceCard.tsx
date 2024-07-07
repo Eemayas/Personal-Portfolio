@@ -2,14 +2,20 @@ import React from "react";
 import { Tilt } from "react-tilt";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { fadeIn } from "@/lib/utils/motion";
 import { TServiceCard } from "../types";
 import store from "@/app/store";
 import { deleteBioCard } from "../slices/serviceCardSlice";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import dynamic from "next/dynamic";
 
+const EditAndDeleteButton = dynamic(
+  () => import("@/components/EditAndDeleteButton"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>...</p>, // Fallback content while loading
+  }
+);
 interface ServiceCardProps {
   adminState: boolean;
   setId?: (id: string) => void;
@@ -60,29 +66,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </DisableAnimationOnMobile>
 
       {adminState && (
-        <div className="flex items-end flex-col justify-normal xs:justify-end">
-          <button
-            aria-label="Edit"
-            onClick={() => {
-              setId(_id || "0");
-              setForm({ title, selectedImage, _id: _id || "0" });
-            }}
-            className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-          >
-            <EditIcons />
-          </button>
-          <button
-            aria-label="Delete"
-            onClick={() => {
-              if (_id) {
-                store.dispatch(deleteBioCard(_id));
-              }
-            }}
-            className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-          >
-            <DeleteIcons />
-          </button>
-        </div>
+        <EditAndDeleteButton
+          onEditClick={() => {
+            setId(_id || "0");
+            setForm({ title, selectedImage, _id: _id || "0" });
+          }}
+          onDeleteClick={() => {
+            if (_id) {
+              store.dispatch(deleteBioCard(_id));
+            }
+          }}
+        />
       )}
     </Tilt>
   );

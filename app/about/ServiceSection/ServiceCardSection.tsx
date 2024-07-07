@@ -9,7 +9,6 @@ import ServiceCard from "./components/ServiceCard";
 import { SectionWrapper } from "@/lib/hoc";
 import dynamic from "next/dynamic";
 
-// Dynamically import AboutEditForm
 const ServiceCardEditForm = dynamic(
   () => import("./components/ServiceCardEditForm"),
   {

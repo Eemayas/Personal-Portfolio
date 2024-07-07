@@ -4,7 +4,6 @@ import { Contact } from "../types";
 import store from "@/app/store";
 import dynamic from "next/dynamic";
 
-// Dynamically import AboutEditForm
 const EditAndDeleteButton = dynamic(
   () => import("@/components/EditAndDeleteButton"),
   {

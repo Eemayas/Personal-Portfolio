@@ -2,11 +2,19 @@ import React from "react";
 import { Tilt } from "react-tilt";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { DeleteIcons, EditIcons } from "@/components/social-icons/icons";
 import { textVariant } from "@/lib/utils/motion";
 import { deleteBioSkill } from "../slices/skillSlice";
 import store from "@/app/store";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import dynamic from "next/dynamic";
+
+const EditAndDeleteButton = dynamic(
+  () => import("@/components/EditAndDeleteButton"),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => <p>...</p>, // Fallback content while loading
+  }
+);
 
 interface SkillsCardProps {
   adminState?: boolean;
@@ -55,27 +63,15 @@ const SkillsCard: React.FC<SkillsCardProps> = ({
             </div>
           </div>
           {adminState && (
-            <div className="flex items-end flex-col justify-normal xs:justify-end">
-              <button
-                aria-label="BTN"
-                onClick={() => {
-                  setId(_id!);
-                  setForm({ title, selectedImage });
-                }}
-                className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-              >
-                <EditIcons />
-              </button>
-              <button
-                aria-label="BTN"
-                onClick={() => {
-                  store.dispatch(deleteBioSkill(_id!));
-                }}
-                className="dark:bg-tertiary bg-tertiarylight flex justify-end mt-2 py-3 px-5 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-slate-500"
-              >
-                <DeleteIcons />
-              </button>
-            </div>
+            <EditAndDeleteButton
+              onEditClick={() => {
+                setId(_id!);
+                setForm({ title, selectedImage });
+              }}
+              onDeleteClick={() => {
+                store.dispatch(deleteBioSkill(_id!));
+              }}
+            />
           )}
         </motion.div>
       </DisableAnimationOnMobile>
