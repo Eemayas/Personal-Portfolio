@@ -1,5 +1,5 @@
 import React, { useRef, FormEvent, useState, ChangeEvent } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { useSelector } from "react-redux";
 import { slideIn } from "@/lib/utils/motion";
@@ -77,7 +77,8 @@ const LetsTalk: React.FC = () => {
         }
       );
   };
-
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <>
       <div
@@ -85,8 +86,9 @@ const LetsTalk: React.FC = () => {
       >
         <DisableAnimationOnMobile>
           <motion.div
+            ref={ref}
             initial="hidden"
-            animate="show"
+            animate={isInView ? "show" : {}}
             variants={slideIn("left", "tween", 0.2, 1)}
             className="flex-[0.75] green-pink-gradient p-[2px] rounded-2xl mb-10"
           >

@@ -7,13 +7,18 @@ import IntersectionObserverComponent from "@/components/IntersectionObserverComp
 import { projects as defaultProjects } from "@/constants";
 import { Project } from "./types";
 import store, { RootState } from "../store";
-import { fadeIn, textVariant } from "@/lib/utils/motion";
+import { textVariant } from "@/lib/utils/motion";
 import { fetchProject } from "./slices/projectSlice";
 import { styles } from "../style";
-import ProjectForm from "./components/ProjectForm";
 import ProjectCard from "./components/ProjectCard";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import { DescriptionAnimation } from "@/components/TextAnimations";
+import dynamic from "next/dynamic";
 
+const ProjectForm = dynamic(() => import("./components/ProjectForm"), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>...</p>, // Fallback content while loading
+});
 const Projects: React.FC = () => {
   const [hasFetched, setHasFetched] = useState(false);
   const [isHomePage, setIsHomePage] = useState(true);
@@ -66,14 +71,8 @@ const Projects: React.FC = () => {
           <h2 className={styles.sectionHeadText}>Projects</h2>
         </motion.div>
       </DisableAnimationOnMobile>
-      <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-[17px] max-w-3xl leading-[30px]"
-        >
-          {projectDescription}
-        </motion.p>
-      </div>
+      <DescriptionAnimation description={projectDescription} />
+
       <DisableAnimationOnMobile>
         <motion.div
           initial="hidden"
@@ -93,13 +92,15 @@ const Projects: React.FC = () => {
           ))}
         </motion.div>
       </DisableAnimationOnMobile>
-      <ProjectForm
-        adminState={adminState}
-        setId={setId}
-        form={form}
-        setForm={setForm}
-        id={id}
-      />
+      {adminState && (
+        <ProjectForm
+          adminState={adminState}
+          setId={setId}
+          form={form}
+          setForm={setForm}
+          id={id}
+        />
+      )}
     </IntersectionObserverComponent>
   );
 };

@@ -24,7 +24,9 @@ export default function ListLayout({ tags = [] }: ListLayoutProps) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const isHome = !window.location.href.includes("blog");
+      const isHome =
+        !window.location.href.includes("blog") &&
+        !window.location.href.includes("tag");
       setIsHomePage(isHome);
       !isHome ? setPOSTS_PER_PAGE(5) : "";
     }
@@ -49,8 +51,6 @@ export default function ListLayout({ tags = [] }: ListLayoutProps) {
   // Filter posts by selected tags, ensuring all tags match
   const filteredBlogPosts = filteredBySearchValue.filter((post) => {
     if (selectedTags.length === 0) return true;
-    console.log(post.tags);
-    console.log(selectedTags);
     return selectedTags.every((tag) => post.tags.includes(tag));
   });
 
@@ -74,6 +74,7 @@ export default function ListLayout({ tags = [] }: ListLayoutProps) {
     }
   };
 
+  console.log(isHomePage);
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">

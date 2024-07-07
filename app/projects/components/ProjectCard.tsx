@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { Tilt } from "react-tilt";
 import Image from "next/image";
 import { Project } from "../types";
 import store from "@/app/store";
@@ -34,7 +32,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   source_code_link,
   websitelinks,
 }) => {
-  const dispatch = useDispatch();
   const tagColorList = [
     "green-text-gradient",
     "pink-text-gradient",
@@ -43,14 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="green-pink-gradient p-[2px] rounded-2xl w-[300px] sm:w-[360px]  shadow-card dark:shadow-card-dark"
-      >
+      <div className="green-pink-gradient p-[2px] rounded-2xl w-[300px] sm:w-[360px]  shadow-card dark:shadow-card-dark">
         <div className="dark:bg-tertiary bg-tertiarylight  p-[18px] rounded-[14px]">
           <div className="relative w-full h-[230px]">
             <Image
@@ -92,7 +82,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             ))}
           </div>
         </div>
-      </Tilt>
+      </div>
       {adminState && (
         <EditAndDeleteButton
           onEditClick={() => {

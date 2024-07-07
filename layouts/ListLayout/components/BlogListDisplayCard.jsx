@@ -42,12 +42,12 @@ const BlogListDisplayCard = ({ slug, date, title, tags, summary, images }) => {
                 className="h-full w-full rounded-3xl object-cover"
               />
             </div>
-            <div className="mt-8 w-full sm:w-[60%] md:mt-0 md:pl-8">
+            <div className="mt-8 w-full md:w-[60%] md:mt-0 md:pl-8">
               <time dateTime={date}>
                 {formatDate(date, siteMetadata.locale)}
               </time>
               <div className="space-y-5 xl:col-span-3">
-                <div className="space-y-6">
+                <div className="space-y-2">
                   <h2 className="text-2xl font-bold leading-8 tracking-tight">
                     <Link
                       href={`/blog/${slug}`}

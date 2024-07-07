@@ -40,7 +40,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex gap-10">
-          <ul className=" list-none hidden sm:flex flex-row gap-10">
+          <ul className=" list-none hidden md:flex flex-row gap-10">
             {navLinks.map((Links) => {
               return (
                 <li
@@ -58,7 +58,7 @@ const Navbar = () => {
             })}
           </ul>
 
-          <div className="sm:hidden flex flex-1 justify-end items-center">
+          <div className="md:hidden flex flex-1 justify-end items-center">
             <Menu as="div" className="relative inline-block text-left">
               <div onClick={() => setToogle(true)}>
                 <Menu.Button aria-label="Small Screen navbar">

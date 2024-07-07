@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { textVariant } from "@/lib/utils/motion";
 import Image from "next/image";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
@@ -10,11 +10,14 @@ interface ProfileAvatarsProps {
 }
 
 const ProfileAvatars: React.FC<ProfileAvatarsProps> = ({ imgsrc }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <DisableAnimationOnMobile>
       <motion.div
+        ref={ref}
         initial="hidden"
-        animate="show"
+        animate={isInView ? "show" : {}}
         variants={textVariant()}
         className="w-full h-60 flex justify-center items-center md:h-80 md:w-80"
       >

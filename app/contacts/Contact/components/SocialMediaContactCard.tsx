@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
 import { textVariant } from "@/lib/utils/motion";
@@ -37,9 +37,16 @@ const SocialMediaContactCard: React.FC<SocialMediaContactCardProps> = ({
   setId,
 }) => {
   const { resolvedTheme } = useTheme();
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <DisableAnimationOnMobile>
-      <motion.div initial="hidden" animate="show" variants={textVariant()}>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "show" : {}}
+        variants={textVariant()}
+      >
         <Tilt className="xs:w-[110px] w-[110px]">
           <div className="w-full green-pink-gradient p-[2px] rounded-[30px] shadow-card dark:shadow-card-dark">
             <div
