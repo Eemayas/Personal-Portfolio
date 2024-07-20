@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const { withContentlayer } = require("next-contentlayer2");
+
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 const nextConfig = {
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
@@ -53,5 +57,4 @@ const nextConfig = {
     return config;
   },
 };
-
-module.exports = withContentlayer(nextConfig);
+module.exports = withBundleAnalyzer(withContentlayer(nextConfig));

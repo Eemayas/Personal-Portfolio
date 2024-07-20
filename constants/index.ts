@@ -233,6 +233,13 @@ export const projects: Project[] = [
     image: "/assets/projects/CommentSense.webp",
     source_code_link: "https://github.com/Eemayas/CommentSense",
   },
+  {
+    name: "DarazScrapper",
+    description: "Web scrapping tool for Daraz",
+    tags: ["NextJS", "MongoDB", "Corn Job", "Python"],
+    image: "/assets/projects/DarazScrapper.webp",
+    source_code_link: "https://github.com/Eemayas/Daraz_Scraper",
+  },
 ];
 //
 // export {
