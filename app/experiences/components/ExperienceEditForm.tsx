@@ -6,6 +6,7 @@ import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
 import { patchExperiences, postExperiences } from "../slices/experiencesSlices";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ExperienceEditFormProps {
   setId: React.Dispatch<React.SetStateAction<string>>;

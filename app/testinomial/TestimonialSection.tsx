@@ -76,6 +76,26 @@ const TestimonialSection: React.FC = () => {
                   ))}
                 </motion.div>
               </DisableAnimationOnMobile>
+              <DisableAnimationOnMobile>
+                <motion.div
+                  initial="hidden"
+                  animate="show"
+                  variants={textVariant()}
+                  className="mt-20 flex flex-wrap justify-center gap-7"
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <TestimonialCard
+                      index={index}
+                      adminState={adminState}
+                      {...testimonial}
+                      key={`testimonial-${index}`}
+                      setForm={setForm}
+                      setId={setId}
+                      _id={testimonial._id}
+                    />
+                  ))}
+                </motion.div>
+              </DisableAnimationOnMobile>
             </div>
           </div>
         </div>

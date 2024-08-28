@@ -6,6 +6,7 @@ import store from "@/app/store";
 import { patchBioCard, postBioCard } from "../slices/serviceCardSlice";
 import InputField from "@/components/InputField";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ServiceCardEditFormProps {
   setId: (id: string) => void;

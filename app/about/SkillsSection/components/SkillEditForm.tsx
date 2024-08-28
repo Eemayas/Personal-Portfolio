@@ -6,6 +6,7 @@ import { TBioSkill } from "../types";
 import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface SkillEditFormProps {
   setId: React.Dispatch<React.SetStateAction<string>>;

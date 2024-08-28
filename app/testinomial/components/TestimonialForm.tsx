@@ -6,6 +6,7 @@ import { patchTestimonial, postTestimonial } from "../slices/testimonialSlices";
 import { TTestimonial } from "../types";
 import InputField from "@/components/InputField";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface TestimonialFormProps {
   setId: React.Dispatch<React.SetStateAction<string>>;
