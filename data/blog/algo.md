@@ -2964,3 +2964,358 @@ def remove_edge(self, vertex1, vertex2):
 | RemoveVertex | O(1)      | O(n)         | O(n)       |
 | AddEdge      | O(1)      | O(n)         | O(n)       |
 | RemoveEdge   | O(1)      | O(n)         | O(n)       |
+
+Sure! Below is a detailed explanation of the AVL tree insertion process, along with pseudocode and commented code in Python.
+
+## AVL Tree Operations?
+
+### AVL Tree Insertion
+
+**Pseudocode**
+
+```plaintext
+function insert(node, key):
+    if node is null:
+        return new Node(key)
+
+    if key < node.key:
+        node.left = insert(node.left, key)
+    else if key > node.key:
+        node.right = insert(node.right, key)
+    else:
+        return node  // Duplicate keys are not allowed
+
+    // Update the height of this ancestor node
+    node.height = 1 + max(height(node.left), height(node.right))
+
+    // Get the balance factor
+    balance = getBalance(node)
+
+    // If the node becomes unbalanced, then there are 4 cases
+
+    // Left Left Case
+    if balance > 1 and key < node.left.key:
+        return rightRotate(node)
+
+    // Right Right Case
+    if balance < -1 and key > node.right.key:
+        return leftRotate(node)
+
+    // Left Right Case
+    if balance > 1 and key > node.left.key:
+        node.left = leftRotate(node.left)
+        return rightRotate(node)
+
+    // Right Left Case
+    if balance < -1 and key < node.right.key:
+        node.right = rightRotate(node.right)
+        return leftRotate(node)
+
+    return node
+```
+
+**Python Code**
+
+```python
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+        self.height = 1  # New node is initially added at leaf
+
+class AVLTree:
+    def insert(self, root, key):
+        # Step 1: Perform the normal BST insertion
+        if not root:
+            return Node(key)
+
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        elif key > root.key:
+            root.right = self.insert(root.right, key)
+        else:
+            # Duplicate keys are not allowed
+            return root
+
+        # Step 2: Update the height of the ancestor node
+        root.height = 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+
+        # Step 3: Get the balance factor
+        balance = self.getBalance(root)
+
+        # Step 4: If the node becomes unbalanced, then there are 4 cases
+
+        # Left Left Case
+        if balance > 1 and key < root.left.key:
+            return self.rightRotate(root)
+
+        # Right Right Case
+        if balance < -1 and key > root.right.key:
+            return self.leftRotate(root)
+
+        # Left Right Case
+        if balance > 1 and key > root.left.key:
+            root.left = self.leftRotate(root.left)
+            return self.rightRotate(root)
+
+        # Right Left Case
+        if balance < -1 and key < root.right.key:
+            root.right = self.rightRotate(root.right)
+            return self.leftRotate(root)
+
+        return root
+
+    def getHeight(self, node):
+        if not node:
+            return 0
+        return node.height
+
+    def getBalance(self, node):
+        if not node:
+            return 0
+        return self.getHeight(node.left) - self.getHeight(node.right)
+
+    def rightRotate(self, z):
+        y = z.left
+        T3 = y.right
+
+        # Perform rotation
+        y.right = z
+        z.left = T3
+
+        # Update heights
+        z.height = 1 + max(self.getHeight(z.left), self.getHeight(z.right))
+        y.height = 1 + max(self.getHeight(y.left), self.getHeight(y.right))
+
+        # Return the new root
+        return y
+
+    def leftRotate(self, z):
+        y = z.right
+        T2 = y.left
+
+        # Perform rotation
+        y.left = z
+        z.right = T2
+
+        # Update heights
+        z.height = 1 + max(self.getHeight(z.left), self.getHeight(z.right))
+        y.height = 1 + max(self.getHeight(y.left), self.getHeight(y.right))
+
+        # Return the new root
+        return y
+
+# Example usage:
+if __name__ == "__main__":
+    avl_tree = AVLTree()
+    root = None
+
+    # Inserting nodes
+    keys = [10, 20, 30, 40, 50, 25]
+    for key in keys:
+        root = avl_tree.insert(root, key)
+
+    # The AVL tree is now balanced after all insertions
+```
+
+Sure, here's the pseudocode and commented Python code for AVL tree deletion as well:
+
+### AVL Tree Deletion
+
+**Pseudocode**
+
+```plaintext
+function delete(node, key):
+    // Step 1: Perform the standard BST delete
+    if node is null:
+        return node
+
+    if key < node.key:
+        node.left = delete(node.left, key)
+    else if key > node.key:
+        node.right = delete(node.right, key)
+    else:
+        // Node with only one child or no child
+        if node.left is null or node.right is null:
+            temp = node.left if node.left is not null else node.right
+            if temp is null:
+                temp = node
+                node = null
+            else:
+                node = temp
+        else:
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            node.key = minValue(node.right)
+            // Recursively delete the inorder successor
+            node.right = delete(node.right, node.key)
+
+    // If the tree has only one node, return it
+    if node is null:
+        return node
+
+    // Step 2: Update the height of the current node
+    node.height = 1 + max(height(node.left), height(node.right))
+
+    // Step 3: Get the balance factor
+    balance = getBalance(node)
+
+    // Step 4: If the node becomes unbalanced, then there are 4 cases
+
+    // Left Left Case
+    if balance > 1 and getBalance(node.left) >= 0:
+        return rightRotate(node)
+
+    // Left Right Case
+    if balance > 1 and getBalance(node.left) < 0:
+        node.left = leftRotate(node.left)
+        return rightRotate(node)
+
+    // Right Right Case
+    if balance < -1 and getBalance(node.right) <= 0:
+        return leftRotate(node)
+
+    // Right Left Case
+    if balance < -1 and getBalance(node.right) > 0:
+        node.right = rightRotate(node.right)
+        return leftRotate(node)
+
+    return node
+```
+
+**Python Code**
+
+```python
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+        self.height = 1  # New node is initially added at leaf
+
+class AVLTree:
+    def delete(self, root, key):
+        # Step 1: Perform the standard BST delete
+        if not root:
+            return root
+
+        if key < root.key:
+            root.left = self.delete(root.left, key)
+        elif key > root.key:
+            root.right = self.delete(root.right, key)
+        else:
+            # Node with only one child or no child
+            if (root.left is None) or (root.right is None):
+                temp = root.left if root.left else root.right
+                if temp is None:
+                    temp = root
+                    root = None
+                else:
+                    root = temp
+            else:
+                # Node with two children: Get the inorder successor (smallest in the right subtree)
+                temp = self.minValueNode(root.right)
+                root.key = temp.key
+                # Recursively delete the inorder successor
+                root.right = self.delete(root.right, temp.key)
+
+        # If the tree has only one node, return it
+        if root is None:
+            return root
+
+        # Step 2: Update the height of the current node
+        root.height = 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+
+        # Step 3: Get the balance factor
+        balance = self.getBalance(root)
+
+        # Step 4: If the node becomes unbalanced, then there are 4 cases
+
+        # Left Left Case
+        if balance > 1 and self.getBalance(root.left) >= 0:
+            return self.rightRotate(root)
+
+        # Left Right Case
+        if balance > 1 and self.getBalance(root.left) < 0:
+            root.left = self.leftRotate(root.left)
+            return self.rightRotate(root)
+
+        # Right Right Case
+        if balance < -1 and self.getBalance(root.right) <= 0:
+            return self.leftRotate(root)
+
+        # Right Left Case
+        if balance < -1 and self.getBalance(root.right) > 0:
+            root.right = self.rightRotate(root.right)
+            return self.leftRotate(root)
+
+        return root
+
+    def minValueNode(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current
+
+    def getHeight(self, node):
+        if not node:
+            return 0
+        return node.height
+
+    def getBalance(self, node):
+        if not node:
+            return 0
+        return self.getHeight(node.left) - self.getHeight(node.right)
+
+    def rightRotate(self, z):
+        y = z.left
+        T3 = y.right
+
+        # Perform rotation
+        y.right = z
+        z.left = T3
+
+        # Update heights
+        z.height = 1 + max(self.getHeight(z.left), self.getHeight(z.right))
+        y.height = 1 + max(self.getHeight(y.left), self.getHeight(y.right))
+
+        # Return the new root
+        return y
+
+    def leftRotate(self, z):
+        y = z.right
+        T2 = y.left
+
+        # Perform rotation
+        y.left = z
+        z.right = T2
+
+        # Update heights
+        z.height = 1 + max(self.getHeight(z.left), self.getHeight(z.right))
+        y.height = 1 + max(self.getHeight(y.left), self.getHeight(y.right))
+
+        # Return the new root
+        return y
+
+# Example usage:
+if __name__ == "__main__":
+    avl_tree = AVLTree()
+    root = None
+
+    # Inserting nodes
+    keys = [10, 20, 30, 40, 50, 25]
+    for key in keys:
+        root = avl_tree.insert(root, key)
+
+    # Deleting a node
+    root = avl_tree.delete(root, 30)
+
+    # The AVL tree is now balanced after the deletion
+```
+
+### Time complexities for AVL tree Operation:
+
+| Operation | Best Case | Average Case | Worst Case |
+| --------- | --------- | ------------ | ---------- |
+| Insertion | O(log n)  | O(log n)     | O(log n)   |
+| Deletion  | O(log n)  | O(log n)     | O(log n)   |
