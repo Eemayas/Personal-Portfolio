@@ -7,7 +7,6 @@ import { patchProject, postProject } from "../slices/projectSlice";
 import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
-import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ProjectFormProps {
   adminState: boolean;

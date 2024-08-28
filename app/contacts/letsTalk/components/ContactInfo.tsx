@@ -4,7 +4,6 @@ import { slideIn } from "@/lib/utils/motion";
 import { Contact } from "../types";
 import ContactCard from "./ContactCard";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
-import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface ContactInfoProps {
   adminState: boolean;

@@ -7,7 +7,6 @@ import { patchSocialMedia, postSocialMedia } from "../slices/socialMediaSlice";
 import store from "@/app/store";
 import { TSocialMediaContact } from "../types";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
-import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
 
 interface SocialMediaFormProps {
   setId: React.Dispatch<React.SetStateAction<string>>;
