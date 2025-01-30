@@ -1,5 +1,3 @@
-/** @format */
-
 import { TExperience } from "@/app/experiences/types";
 import { Project } from "@/app/projects/types";
 
@@ -201,151 +199,46 @@ export const experiencess: TExperience[] = [
 
 export const projects: Project[] = [
   {
-    name: "README Crafter",
-    description:
-      "An automated README file generator that analyzes project codebases and leverages language models like LLaMA to create structured documentation.",
-    tags: [
-      "Next.js",
-      "MongoDB",
-      "TypeScript",
-      "Python",
-      "TensorFlow",
-      "Flask",
-      "Ollama",
-      "LLaMA 3.1",
-    ],
-    image: "/assets/projects/README Crafter.webp",
-    source_code_link: "https://github.com/Eemayas/README-Crafter",
+    name: "Car Racess",
+    description: "Terminal based Car race game",
+    tags: ["C++"],
+    image: "/assets/projects/Car_race_game.webp",
+    source_code_link: "https://github.com/Eemayas/2nd-sem-Final-Project.git",
+  },
+  {
+    name: "Meal Up",
+    description: "Recipe App",
+    tags: ["Flutter", "Firebase", "Dart"],
+    image: "/assets/projects/Meal_up.webp",
+    source_code_link: "https://github.com/Eemayas/3rd_Sem-Project-Final-Codes",
+  },
+  {
+    name: "ProjectHub",
+    description: "Project Management Website",
+    tags: ["MongoDB", "ExpressJS", "React", "Node"],
+    image: "/assets/projects/Project_Hub.webp",
+    source_code_link: "https://github.com/Eemayas/4th-sem-projects",
+  },
+  {
+    name: "Remind Wallet",
+    description: "Flutter Based Expense Tracker Application",
+    tags: ["Flutter", "Firebase", "Hive"],
+    image: "/assets/projects/RemindWallet.svg",
+    source_code_link: "https://github.com/Eemayas/Expense-Tracker",
   },
   {
     name: "CommentSense",
-    description:
-      "An NLP-based tool that classifies YouTube comment sentiments using machine learning and provides a React-based interface for moderation.",
-    tags: [
-      "Next.js",
-      "MongoDB",
-      "TypeScript",
-      "Python",
-      "TensorFlow",
-      "Flask",
-      "NLP",
-    ],
+    description: "NLP Sentiment Analysis Web Application",
+    tags: ["NextJS", "MongoDB", "Flask", "Python"],
     image: "/assets/projects/CommentSense.webp",
     source_code_link: "https://github.com/Eemayas/CommentSense",
   },
   {
-    name: "Daraz Scraper",
-    description:
-      "A web scraper that extracts product information from Daraz for price and availability tracking, with scheduled scraping and real-time monitoring.",
-    tags: [
-      "Next.js",
-      "MongoDB",
-      "TypeScript",
-      "Python",
-      "BeautifulSoup",
-      "Selenium",
-      "pandas",
-      "requests",
-    ],
-    image: "/assets/projects/Daraz Scraper.webp",
+    name: "DarazScrapper",
+    description: "Web scrapping tool for Daraz",
+    tags: ["NextJS", "MongoDB", "Corn Job", "Python"],
+    image: "/assets/projects/DarazScrapper.webp",
     source_code_link: "https://github.com/Eemayas/Daraz_Scraper",
-  },
-  {
-    name: "Donor Link",
-    description:
-      "A full-stack demand forecasting solution for blood supply chains using neural networks, with a Next.js front end for visualizing demand trends.",
-    tags: [
-      "Next.js",
-      "Flask",
-      "Python",
-      "TypeScript",
-      "scikit-learn",
-      "Keras",
-      "Pandas",
-      "NumPy",
-    ],
-    image: "/assets/projects/DonorLink.png",
-    source_code_link: "https://github.com/Eemayas/Donor_Link",
-  },
-  {
-    name: "Project Hub",
-    description:
-      "A project management platform with a responsive UI, structured database, RESTful APIs, and enhanced user experience through feedback-based improvements.",
-    tags: ["React", "Node.js", "MongoDB", "Express", "TypeScript"],
-    image: "/assets/projects/Project_Hub.webp",
-    source_code_link: "https://github.com/Eemayas/Project-Hub",
-  },
-  {
-    name: "GO_GO_Nihongo",
-    description:
-      "A tool that applies Optical Character Recognition (OCR) to extract Japanese text from images, translate it into English, and reintegrate the translated text while maintaining layout integrity.",
-    tags: [
-      "EasyOCR",
-      "MangaOCR",
-      "HuggingFace",
-      "TensorFlow",
-      "Python",
-      "Streamlit",
-    ],
-    image: "/assets/projects/GO_GO_Nihongo.webp",
-    source_code_link: "https://github.com/Eemayas/GO_GO_Nihongo",
-  },
-  {
-    name: "NepSense",
-    description:
-      "A Nepali language NLP tool for detecting offensive content and sentiment analysis, designed with a Streamlit interface for accessibility.",
-    tags: ["Python", "TensorFlow", "Streamlit", "Google Colab", "NLP"],
-    image: "/assets/projects/NepSense.webp",
-    source_code_link: "https://github.com/Eemayas/NepSense",
-  },
-  {
-    name: "Image Watermarking using SVD",
-    description:
-      "A web app that utilizes Singular Value Decomposition (SVD) for watermark insertion and extraction, ensuring robust and secure image watermarking.",
-    tags: ["Streamlit", "Python", "NumPy", "SVD", "Image Processing"],
-    image: "/assets/projects/Image Watermarking using SVD.webp",
-    source_code_link: "https://watermarking-image-svd.streamlit.app/",
-  },
-  {
-    name: "Remind Wallet",
-    description:
-      "An innovative expense-tracking and budget management tool that helps users monitor financial activity and achieve savings goals.",
-    tags: ["Flutter", "Firebase", "Dart"],
-    image: "/assets/projects/RemindWallet.svg",
-    source_code_link: "https://github.com/Eemayas/Remind-Wallet",
-  },
-  {
-    name: "Smart Kagaj",
-    description:
-      "A secure digital document management system with encryption, contract signing, and export functionality.",
-    tags: ["Flutter", "Firebase", "Dart"],
-    image: "/assets/projects/Smart Kagaj.webp",
-    source_code_link: "https://github.com/Eemayas/Smart-Kagaj",
-  },
-  {
-    name: "Meal Up",
-    description:
-      "A meal-planning app that enhances user experiences with food preparation and integrates third-party APIs for recipes and nutrition.",
-    tags: ["Flutter", "Firebase", "Dart"],
-    image: "/assets/projects/Meal_up.webp",
-    source_code_link: "https://github.com/Eemayas/Meal-Up",
-  },
-  {
-    name: "Fourier Series Wave Circles Animation",
-    description:
-      "A graphical simulation demonstrating Fourier series using animated circles to form waveforms dynamically.",
-    tags: ["C++", "CMake", "OpenGL"],
-    image: "/assets/projects/Fourier Series Wave Circles Animation.webp",
-    source_code_link:
-      "https://github.com/Eemayas/Fourier-Series-Wave-Circles-Animation-Graphics-Project",
-  },
-  {
-    name: "Car Race Game",
-    description:
-      "An engaging car racing game with dynamic gameplay, user-friendly controls, and real-time scoring features.",
-    tags: ["C++"],
-    image: "/assets/projects/Car_race_game.webp",
-    source_code_link: "https://github.com/Eemayas/Car-Race-Game",
   },
 ];
 //

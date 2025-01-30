@@ -40,8 +40,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <>
-      <div className="green-pink-gradient p-[2px] rounded-2xl w-[300px] sm:w-[360px]  shadow-card dark:shadow-card-dark">
-        <div className="dark:bg-tertiary bg-tertiarylight  p-[18px] rounded-[14px]">
+      <div className="green-pink-gradient p-[2px] rounded-2xl w-[300px] sm:w-[360px] shadow-card dark:shadow-card-dark">
+        <div className="dark:bg-tertiary bg-tertiarylight p-[18px] rounded-[14px] w-full h-full flex flex-col">
           <div className="relative w-full h-[230px]">
             <Image
               width={240}
@@ -67,9 +67,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </div>
             </div>
           </div>
-          <div className="mt-5">
-            <h3 className=" font-bold text-[24px]">{name}</h3>
-            <p className="mt-2  text-[14px]">{description}</p>
+          <div className="mt-5 flex-grow">
+            <h3 className="font-bold text-[24px]">{name}</h3>
+            <p className="mt-2 text-[14px]">{description}</p>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             {tags.map((tag, index) => (
@@ -83,6 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
       </div>
+
       {adminState && (
         <EditAndDeleteButton
           onEditClick={() => {
