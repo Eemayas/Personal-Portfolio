@@ -1,6 +1,5 @@
 /** @format */
 
-import { combineReducers } from "@reduxjs/toolkit";
 import socialMediaReducer, {
   TSocialMediaState,
 } from "@/app/contacts/Contact/slices/socialMediaSlice";
@@ -24,6 +23,7 @@ import experiencesReducer, {
   TExperienceState,
 } from "@/app/experiences/slices/experiencesSlices";
 import adminReducer from "@/components/AdminPopUp/slices/adminSlices";
+import { combineReducers } from "@reduxjs/toolkit";
 // TODO: For the type of reducer
 export interface RootState {
   socialMediaReducer: TSocialMediaState;

@@ -1,6 +1,8 @@
+/** @format */
+
 import type { Metadata } from "next";
 import "css/tailwind.css";
-import { Providers, ThemeProviders } from "./providers";
+import { ReduxProviders, ThemeProviders } from "./providers";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdminPopup from "@/components/AdminPopUp";
@@ -18,14 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-background-light text-black antialiased dark:bg-background-dark dark:text-white min-h-screen">
-        <ThemeProviders>
-          <Providers>
+        <ReduxProviders>
+          <ThemeProviders>
             <NavBar />
             <main className={` max-w-7xl mx-auto pt-24`}>{children}</main>
             <Footer />
             <AdminPopup />
-          </Providers>
-        </ThemeProviders>
+          </ThemeProviders>
+        </ReduxProviders>
       </body>
     </html>
   );
