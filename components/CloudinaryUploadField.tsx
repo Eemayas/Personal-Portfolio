@@ -27,7 +27,7 @@ const CloudinaryUpload = ({ label, name, form, setForm }) => {
 
             // Update the form with the public_id of the uploaded image
             if (setForm) {
-              setForm({ ...form, [name]: secure_url });
+              setForm({ ...form, image: secure_url });
             }
             console.log("Uploaded image secure_url:", secure_url);
           }

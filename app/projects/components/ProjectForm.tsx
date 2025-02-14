@@ -115,6 +115,17 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
               label="Website Links"
               required
             />
+            <InputField
+              type="url"
+              name="image"
+              value={form.image}
+              onChange={(e) =>
+                setForm({ ...form, image: e.target.value })
+              }
+              placeholder="https://www.example.com/"
+              label="Image link"
+              required
+            />
 
             <CloudinaryUpload
               label="Upload your image"
