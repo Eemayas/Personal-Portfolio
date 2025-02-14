@@ -1,4 +1,8 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @format
+ * @type {import('next').NextConfig}
+ */
+
 const { withContentlayer } = require("next-contentlayer2");
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
@@ -20,6 +24,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "picsum.photos",
         pathname: "/**", // Allows all paths
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
       },
     ],
   },

@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
@@ -7,6 +9,7 @@ import { patchProject, postProject } from "../slices/projectSlice";
 import { slideIn } from "@/lib/utils/motion";
 import InputField from "@/components/InputField";
 import { DisableAnimationOnMobile } from "@/components/DisableAnimationOnMobile";
+import CloudinaryUpload from "@/components/CloudinaryUploadField";
 
 interface ProjectFormProps {
   adminState: boolean;
@@ -17,13 +20,11 @@ interface ProjectFormProps {
 }
 
 const ProjectForm: React.FC<ProjectFormProps> = ({
-  adminState,
   setId,
   form,
   setForm,
   id,
 }) => {
-  const dispatch = useDispatch();
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
 
@@ -114,17 +115,18 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
               label="Website Links"
               required
             />
-            <InputField
-              label="Select an Image"
-              type="file"
+
+            <CloudinaryUpload
+              label="Upload your image"
               name="image"
-              value={form.image}
-              placeholder="Upload a image"
-              setForm={setForm}
               form={form}
-              onChange={(e) => setForm({ ...form, image: e.target.value })}
-              required
+              setForm={setForm}
             />
+
+            <div className="form-result">
+              <h2>Form Data:</h2>
+              <pre>{JSON.stringify(form, null, 2)}</pre>
+            </div>
 
             <button
               aria-label="Submit"
