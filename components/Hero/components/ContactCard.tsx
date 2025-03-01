@@ -27,10 +27,10 @@ const ContactCard: React.FC<ContactCardProps> = React.memo(
           initial="hidden"
           animate="show"
           variants={fadeIn({ direction: "up", delay: 0.5 * index })}
-          className="w-[45px] green-pink-gradient p-[2px] rounded-[10px]"
+          className="green-pink-gradient w-[45px] rounded-[10px] p-[2px]"
         >
           <div
-            className={`dark:bg-tertiary bg-tertiarylight rounded-[8px] p-[6px]`}
+            className={`rounded-[8px] bg-tertiarylight p-[6px] dark:bg-tertiary`}
             onClick={handleOpenLink}
           >
             <Image
@@ -39,10 +39,10 @@ const ContactCard: React.FC<ContactCardProps> = React.memo(
               width={50}
               height={50}
               loading="lazy"
-              className="w-full h-full object-contain"
+              className="h-full w-full object-contain"
               style={{
                 filter:
-                  resolvedTheme === "dark"
+                  resolvedTheme == "dark"
                     ? "invert(100%) sepia(72%) saturate(310%) hue-rotate(177deg) brightness(95%) contrast(94%)"
                     : "invert(22%) sepia(4%) saturate(3517%) hue-rotate(179deg) brightness(96%) contrast(88%)",
               }}
@@ -51,7 +51,7 @@ const ContactCard: React.FC<ContactCardProps> = React.memo(
         </motion.div>
       </DisableAnimationOnMobile>
     );
-  }
+  },
 );
 
 ContactCard.displayName = "ContactCard";

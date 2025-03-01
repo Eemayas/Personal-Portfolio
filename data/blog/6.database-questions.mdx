@@ -1,0 +1,1093 @@
+---
+title: "Questions"
+date: "2025-02-03"
+tags:
+  - algorithms
+  - dsa
+  - computer-science
+summary: "This blog post provides a comprehensive exploration of various data structures and their associated operations, including detailed Python code implementations and analysis of their time complexities."
+authors: 
+  - default
+---
+
+## Differences between DBMS and RDBMS
+
+### DBMS (Database Management System)
+- Provides an organized way of managing, retrieving, and storing data from a collection of logically related information.
+- General system for managing databases.
+
+### RDBMS (Relational Database Management System)
+- A type of DBMS that provides relational integrity.
+- Data is related to each other and is mostly stored in the form of tables.
+- Ensures that relationships between tables are maintained.
+
+In summary, RDBMS is a specialized type of DBMS that focuses on relational integrity and table-based data storage.
+
+## Explain the terms Database and DBMS
+
+**Database**: A database is a **big container where all your data is in a logical format**. You can retrieve data from this particular database and then generate the required results.
+
+**DBMS**: A Database Management System (DBMS) is a **software application that interacts with databases, applications, and users to capture and analyze the required data**. The data stored in the database can be retrieved, deleted, and modified based on the client's requirements using the DBMS. 
+
+## Types of Database Management Systems
+
+1. **Relational Database Management System (RDBMS)**: This type of DBMS uses a structure that allows users to access data in relation to another piece of data in the database. Data is mostly **stored in the form of tables**.
+
+2. **Hierarchical Database Management System**: This type of DBMS has a structure similar to that of a tree, where the nodes represent the records and the branches represent the fields.
+
+3. **Network Database Management System**: This type of DBMS supports many-to-many relationships, where multiple member records can be linked.
+
+4. **Object-Oriented Database Management System**: This type of DBMS uses small individual software units called objects to store pieces of data and the instructions for the actions to be done with that particular data.
+
+In summary:
+- **RDBMS**: Data is stored in tables and related to each other.
+- **Hierarchical DBMS**: Data is organized in a tree structure.
+- **Network DBMS**: Supports many-to-many relationships.
+- **Object-Oriented DBMS**: Uses objects to store data and instructions.
+
+I hope this part is clear. Now let's move forward with the next section.
+
+## Advantages of DBMS
+
+This is one of the most popular questions asked in interviews. Knowing the advantages is crucial before using any system. The advantages of database management systems (DBMS) are:
+
+- **Data Independence**: Allows changes to the structure of data without affecting the structure of any running application programs.
+- **Sharing of Data**: Multiple users can use the data from the same database simultaneously.
+- **Integrity Constraints**: These constraints allow the data to be stored in the database in a refined manner.
+- **Redundancy Control**: Supports a mechanism to control the redundancy of data by integrating all the data into a single database.
+- **Backup and Recovery Facilities**: Provides features for backup and recovery to automatically create data backups and restore the data as and when required.
+
+That was about the advantages of DBMS.
+
+## Different Languages in DBMS
+
+The different languages present in DBMS are mainly DDL, DML, DCL, and TCL.
+
+### DDL (Data Definition Language)
+DDL consists of commands used to define the database. These commands are used to do the groundwork and foundation of your database.
+
+### DML (Data Manipulation Language)
+DML consists of commands used to manipulate the data present in the database. Once your foundation is built, you use DML commands to manipulate data.
+
+### DCL (Data Control Language)
+DCL consists of commands that deal with user permissions and controls of the database system. Whenever you want to control user permissions or grant specific permissions, DCL commands come into the picture.
+
+### TCL (Transaction Control Language)
+TCL consists of commands that deal with the transactions of the database. Whenever you want to manage database transactions, TCL commands are used.
+
+These are the main different languages present in DBMS: DDL, DML, DCL, and TCL.
+
+Here's an expanded comparison of **DDL, DML, DCL, and TCL** with more differences:  
+
+| Feature           | **DDL (Data Definition Language)** | **DML (Data Manipulation Language)** | **DCL (Data Control Language)** | **TCL (Transaction Control Language)** |
+|------------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|
+| **Purpose**       | Defines and modifies the structure of database objects. | Manipulates and processes data stored in tables. | Manages user permissions and access control. | Manages transactions and ensures data integrity. |
+| **Effect on Data** | Affects the database schema (structure), not the actual data. | Works with data inside tables without modifying the schema. | Does not affect data but controls access to it. | Affects how changes to data are saved or undone. |
+| **Persistence**   | Changes are permanent and affect the entire database. | Changes may be temporary until committed. | Changes are permanent once executed. | Controls how permanent changes are applied. |
+| **Rollback Possible?** | No (Once executed, it cannot be rolled back, except `TRUNCATE` under some DBMS). | Yes, changes can be rolled back before committing. | No, once executed, permissions remain unless explicitly changed. | Yes, transactions can be rolled back before commit. |
+| **Scope**         | Works on database objects like tables, indexes, and schemas. | Works on records inside tables. | Works on user roles and access permissions. | Works on transactions, ensuring atomicity. |
+| **Examples**      | `CREATE TABLE`, `ALTER TABLE`, `DROP TABLE`, `TRUNCATE` | `SELECT`, `INSERT`, `UPDATE`, `DELETE` | `GRANT`, `REVOKE` | `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `SET TRANSACTION` |
+
+
+## Query Optimization
+
+Query optimization is the phase that **identifies a plan for evaluating a query with the least estimated cost**. This phase is crucial when there are multiple algorithms and methods to execute the same task. 
+
+### Explanation
+Query optimization ensures that the query evaluation plan has the least estimated cost. 
+
+### Advantages
+- **Faster Output**: Provides results more quickly.
+- **Efficiency**: Executes a large number of queries in less time.
+- **Resource Management**: Reduces time and space complexity.
+
+## Null Values
+
+A null value is not the same as zero or a blank space. A null value represents a value that is **unavailable, unknown, unassigned, or not applicable**. In contrast, zero is a number, and a blank space is a character. These three terms are completely different:
+- **Zero**: A number.
+- **Blank space**: A character.
+- **Null**: Represents a value that is unavailable, unknown, unassigned, or not applicable.
+
+## Aggregation and Atomicity
+
+### Aggregation
+Aggregation is a feature of the entity-relationship model that **allows a relationship set to participate in another relationship set**.
+
+### Atomicity
+Atomicity is a property that states a database modification **must either follow all the rules or none at all**. If **one part of the transaction fails, the entire transaction fails**.
+
+
+## Different Levels of Abstraction
+
+In a database management system, there are mainly three different levels of data abstraction:
+
+1. **Physical Level**: 
+    - It is the lowest level of abstraction.
+    - Describes how the data is stored.
+
+2. **Logical Level**: 
+    - The next level of abstraction after the physical level.
+    - Determines what data is stored in the database and the relationships between the data points.
+
+3. **View Level**: 
+    - The highest level of abstraction.
+    - Describes only a part of the entire database.
+
+These three levels of data abstraction are:
+
+1. **Physical Level**: Describes how the data is stored.
+2. **Logical Level**: Determines what data is stored in the database and the relationships among those data points.
+3. **View Level**: Describes only a part of the entire database.
+
+
+## What is an Entity-Relationship Model?
+
+An Entity-Relationship (ER) model is a diagrammatic approach to database design where real-world objects are represented as entities, and the relationships between them are depicted. This approach helps database administrators understand the schema easily.
+
+So, that was about the ER model.
+## Entity, Entity Types, and Entity Set
+
+### Entity
+An entity is a real-world object with attributes, which are the characteristics of that object. For example, an employee can be an entity with attributes like employee ID, employee name, and employee phone number.
+
+### Entity Type
+An entity type is a collection of entities having the same attributes. It generally refers to one or more related tables in a database. An entity type uniquely identifies the entity. For example, an employee entity type can have attributes such as employee ID, employee name, and department.
+
+### Entity Set
+An entity set is a collection of all the entities of a particular entity type in a database. For example, a set of employees, a set of companies, or a set of people can be considered an entity set.
+
+So, this is what entity, entity type, and entity set mean.
+## Relationships in Database Management System
+
+A relationship in a database management system is a scenario where two entities are related to each other. In such a scenario, the table consisting of the foreign key references the primary key of the other table. For example, if you have two tables, Table A and Table B, the foreign key of Table A will reference the primary key of Table B.
+
+### Types of Relationships
+
+1. **One-to-One Relationship**: 
+    - A single row in Table A is related to a single row in Table B.
+    - **Example**: A table `Person` with a `PersonID` and a table `Passport` with a `PassportID`, where each person has one unique passport.
+
+2. **One-to-Many Relationship**: 
+    - A single row in Table A is related to many rows in Table B.
+    - **Example**: A table `Customer` with a `CustomerID` and a table `Order` with an `OrderID`, where each customer can place multiple orders.
+
+3. **Many-to-Many Relationship**: 
+    - Many rows in Table A can be related to many rows in Table B.
+    - **Example**: A table `Student` with a `StudentID` and a table `Course` with a `CourseID`, where each student can enroll in multiple courses and each course can have multiple students. This is typically implemented with a junction table `Enrollment` that includes `StudentID` and `CourseID`.
+
+4. **Self-Referencing Relationship**: 
+    - A record in Table A is related to the same table itself, meaning the entity is related to itself.
+    - **Example**: A table `Employee` with an `EmployeeID` and a `ManagerID`, where each employee can have a manager who is also an employee in the same table.
+
+## What is Concurrency Control?
+
+Concurrency control is a **process of managing simultaneous operations in a database so that the database integrity is not compromised**. There are mainly two approaches involved in concurrency control:
+
+1. **Optimistic Approach**: This approach involves versioning.
+2. **Pessimistic Approach**: This approach involves locking.
+1. 
+1. Optimistic Approach
+The optimistic approach to concurrency control assumes that multiple transactions can frequently complete without interfering with each other. Instead of locking resources, it uses versioning to detect conflicts. Here's how it works:
+
+- **Read Phase**: The transaction reads the data and keeps track of the version of the data it read.
+- **Validation Phase**: Before committing, the transaction checks if the data it read has been modified by another transaction since it was read.
+- **Write Phase**: If no conflicts are detected, the transaction commits and updates the data. If a conflict is detected, the transaction is rolled back and may be retried.
+
+This approach is useful in environments with low contention, as it allows for higher concurrency and better performance.
+
+2. Pessimistic Approach
+The pessimistic approach to concurrency control assumes that conflicts between transactions are likely to happen. It uses locking to prevent other transactions from accessing the data while it is being modified. Here's how it works:
+
+- **Locking**: When a transaction wants to read or write data, it locks the data to prevent other transactions from accessing it.
+- **Modification**: The transaction modifies the data.
+- **Unlocking**: Once the transaction is complete, it releases the lock, allowing other transactions to access the data.
+
+This approach is useful in environments with high contention, as it ensures data consistency by preventing conflicts. However, it can lead to reduced concurrency and potential deadlocks.
+
+### Summary
+- **Optimistic Approach**: Uses versioning, assumes low contention, higher concurrency.
+- **Pessimistic Approach**: Uses locking, assumes high contention, ensures data consistency.
+
+## What are ACID Properties in Database?
+
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties ensure that data transactions are processed reliably in a database system:
+
+1. **Atomicity**: Ensures that each transaction is treated as a single unit, which either succeeds completely or fails completely. This means that if any part of the transaction fails, the entire transaction is rolled back, leaving the database in its previous state. This property is crucial for maintaining the integrity of the database, especially in scenarios involving multiple operations that must all succeed together.
+
+2. **Consistency**: Ensures that a transaction can only bring the database from one valid state to another, maintaining database invariants. This means that any data written to the database must be valid according to all defined rules, including constraints, cascades, triggers, and any combination thereof. Consistency ensures that the database remains in a consistent state before and after the transaction.
+
+3. **Isolation**: Ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially. This means that transactions are isolated from each other, and the intermediate state of a transaction is invisible to other transactions. Isolation levels can vary, providing different balances between performance and consistency.
+
+4. **Durability**: Ensures that once a transaction has been committed, it will remain so, even in the event of a system failure. This means that the results of the transaction are permanently recorded in the database, and the system can recover to this state even after a crash. Durability is typically achieved through the use of transaction logs and backup mechanisms.
+
+
+## What is Normalization and What are the Different Types?
+
+Normalization is a **process of organizing data to avoid any duplication of data and redundancy**. There are mainly successive levels of normalization, known as normal forms, and each consecutive normal form depends on the previous one. The different types of normalization are:
+
+1. **1NF (First Normal Form)**
+2. **2NF (Second Normal Form)**
+3. **3NF (Third Normal Form)**
+4. **BCNF (Boyce-Codd Normal Form)**
+
+To explain these types of normalization, let's take an example. Consider a table with the following columns: salutation, full name, address, movies rented, and category.
+
+### Example Table
+
+| Salutation | Full Name      | Address          | Movies Rented         | Category |
+|------------|----------------|------------------|-----------------------|----------|
+| Miss       | Alice Johnson  | 123 Main St      | Mission Impossible, Clash of Titans    | Action,Action   |
+| Mr.        | David Allen    | 3rd Street 45    | Interstellar,Edge of Tomorrow        | Sci-Fi, Sci-Fi   |
+| Mr.        | David Allen    | 7th Avenue       | Inception             | Action   |
+
+### 1NF (First Normal Form)
+
+In 1NF, each table cell should have a single value, and each record should be unique. The table is divided into unique records:
+
+| Salutation | Full Name      | Address          | Movies Rented         | Category |
+|------------|----------------|------------------|-----------------------|----------|
+| Miss       | Alice Johnson  | 123 Main St      | Mission Impossible    | Action   |
+| Miss       | Alice Johnson  | 123 Main St      | Clash of Titans       | Action   |
+| Mr.        | David Allen    | 3rd Street 45    | Interstellar          | Sci-Fi   |
+| Mr.        | David Allen    | 3rd Street 45    | Edge of Tomorrow      | Sci-Fi   |
+| Mr.        | David Allen    | 7th Avenue       | Inception             | Action   |
+
+### 2NF (Second Normal Form)
+
+To be in 2NF, the database should be in 1NF and have a single-column primary key. The table is divided into two tables: one for user details and one for movies rented. A table is in 2NF if it is in 1NF and there are no partial dependencies. This means that all non-key attributes must be fully functionally dependent on the entire primary key, not just part of it.
+
+**Table 1: User Details**
+
+| ID | Salutation | Full Name      | Address       |
+|----|------------|----------------|---------------|
+| 1  | Miss       | Alice Johnson  | 123 Main St   |
+| 2  | Mr.        | David Allen    | 3rd Street 45 |
+| 3  | Mr.        | David Allen    | 7th Avenue    |
+
+**Table 2: Movies Rented**
+
+| ID | Movies Rented         | Category |
+|----|-----------------------|----------|
+| 1  | Mission Impossible    | Action   |
+| 1  | Clash of Titans       | Action   |
+| 2  | Interstellar          | Sci-Fi   |
+| 2  | Edge of Tomorrow      | Sci-Fi   |
+| 3  | Inception             | Action   |
+
+### 3NF (Third Normal Form)
+
+To be in 3NF, the database should be in 2NF and must not have any transitive functional dependencies. An additional table is created for salutation.
+
+**Table 3: Salutation**
+
+| Salutation ID | Salutation |
+|---------------|------------|
+| 1             | Mr.        |
+| 2             | Miss       |
+| 3             | Mrs.       |
+| 4             | Dr.        |
+
+**Updated Table 1: User Details**
+
+| ID | Salutation ID | Full Name      | Address       |
+|----|---------------|----------------|---------------|
+| 1  | 2             | Alice Johnson  | 123 Main St   |
+| 2  | 1             | David Allen    | 3rd Street 45 |
+| 3  | 1             | David Allen    | 7th Avenue    |
+
+### BCNF (Boyce-Codd Normal Form)
+
+BCNF is used when the database is already in 3NF but there are still anomalies. It ensures that there is only one candidate key present.
+
+These are the various normal forms: 1NF, 2NF, 3NF, and BCNF.
+
+## Different Types of Keys in Database
+
+There are mainly seven types of keys in a database:
+
+1. **Candidate Key**: A set of attributes that can uniquely identify a tuple. Each table can have more than one candidate key. Out of all the candidate keys, one key can be chosen as the primary key. For example, in a table with `CustomerID` and `PanNumber`, both can uniquely identify each tuple, so they are candidate keys.
+
+2. **Super Key**: A set of attributes that can uniquely identify every tuple. A candidate key, primary key, and unique key are all super keys, but not all super keys are candidate keys.
+
+3. **Primary Key**: A set of attributes used to uniquely identify every tuple. For example, if `CustomerID` is chosen as the primary key from the candidate keys `CustomerID` and `PanNumber`.
+
+4. **Unique Key**: Similar to the primary key but allows null values in the column. For example, `PanNumber` can be considered a unique key as **it might have null values for some entries**.
+
+5. **Alternate Key**: **Candidate keys that are not chosen as the primary key**. For example, if `CustomerID` is the primary key, then `PanNumber` is the alternate key.
+
+6. **Foreign Key**: An attribute that can only take values present as values of some attribute in another table. For example, `CustomerID` in the `CustomerPayment` table refers to `CustomerID` in the `Customers` table.
+
+7. **Composite Key**: A combination of two or more columns that uniquely identify each tuple. For example, `CustomerID` and `DateOfPayment` together can uniquely identify each tuple in a table.
+
+<Image
+  src="/assets/blogsImages/image.png"
+  alt="Types of Keys in Database"
+  width={700}
+  height={400}
+/>
+
+## Correlated Subqueries
+
+What do you understand by correlated subqueries in database management systems? 
+
+A **correlated subquery is a type of subquery that relies on another query**. When subqueries are executed for each of the rows of the outer query, they are termed as correlated subqueries. Each subquery is executed a single time for every row of the outer query, which means it processes row by row. 
+
+You can also understand correlated subqueries as those queries used for row-by-row processing by the parent statement. The parent statement can be a `SELECT`, `UPDATE`, or `DELETE` statement.
+
+### Examples
+
+#### Example 1: Using Correlated Subquery with `SELECT`
+```sql
+SELECT e1.EmployeeID, e1.EmployeeName
+FROM Employees e1
+WHERE e1.Salary > (
+    SELECT AVG(e2.Salary)
+    FROM Employees e2
+    WHERE e2.DepartmentID = e1.DepartmentID
+);
+```
+In this example, the subquery calculates the average salary for each department, and the outer query selects employees whose salary is greater than the average salary of their respective departments.
+
+#### Example 2: Using Correlated Subquery with `UPDATE`
+```sql
+UPDATE Employees e1
+SET e1.Bonus = (
+    SELECT AVG(e2.Bonus)
+    FROM Employees e2
+    WHERE e2.DepartmentID = e1.DepartmentID
+)
+WHERE e1.Bonus IS NULL;
+```
+This example updates the `Bonus` field of employees to the average bonus of their respective departments, but only for those employees whose bonus is currently `NULL`.
+
+#### Example 3: Using Correlated Subquery with `DELETE`
+```sql
+DELETE FROM Employees e1
+WHERE e1.EmployeeID IN (
+    SELECT e2.EmployeeID
+    FROM Employees e2
+    WHERE e2.DepartmentID = e1.DepartmentID
+    AND e2.Salary < 30000
+);
+```
+In this example, the correlated subquery identifies employees with a salary less than 30,000 in the same department, and the outer query deletes those employees.
+
+## Database Partitioning
+
+### Explanation
+Database partitioning is the process of dividing a logical database into independent units for better availability, performance, and manageability.
+
+### Importance
+- **Improved Availability**: Enables access to large parts of specific partitions.
+- **Cost Efficiency**: Allows the use of cheap and slow storage for data.
+- **Enhanced Performance**: Improves query performance.
+
+## What do you understand by functional and transitive dependency in database management systems?
+
+### Functional Dependency
+A functional dependency is a constraint used to **describe the relationship among different attributes in a relation**. For example, if you consider a relation `A1` having attributes `X` and `Y`, the functional dependency among these two attributes will be `X` implies `Y` or `Y` is functionally dependent on `X`.
+`X -> Y`
+
+### Transitive Dependency
+A transitive dependency is a constraint that can only occur in a relation of three or more attributes. For example, if you consider the same relation `A1` having attributes `X`, `Y`, and `Z`, then `X` implies `Z` is said to hold transitive dependency only if the following functional dependencies hold true:
+- `X` implies `Y`
+- `Y` does not imply `X`
+- `Y` implies `Z`
+
+So that was about functional dependency and transitive dependency. 
+
+## What is the difference between two-tier and three-tier architecture?
+
+### Two-Tier Architecture
+- Similar to a client-server architecture.
+- Clients directly communicate with the database at the server side.
+- Easier to implement and manage.
+- Suitable for small-scale applications.
+- Limited scalability and flexibility.
+
+<Image
+  src="/assets/blogsImages/image-1.png"
+  alt="Types of Keys in Database"
+  width={700}
+  height={400}
+/>
+
+### Three-Tier Architecture
+- Contains an extra layer between the client and the server.
+- Clients communicate with an application or a GUI on the server side.
+- The application layer then communicates with the database system.
+- Makes the system more secure and accessible.
+- Better scalability and flexibility.
+- Suitable for large-scale applications.
+- Easier to maintain and update.
+- Supports distributed computing.
+
+<Image
+  src="/assets/blogsImages/image-2.png"
+  alt="Types of Keys in Database"
+  width={700}
+  height={400}
+/>
+
+## Difference between Unique Key and Primary Key
+
+| Feature                  | **Unique Key**                              | **Primary Key**                             |
+|--------------------------|---------------------------------------------|---------------------------------------------|
+| **Null Values**          | Can store null values                       | Cannot have a null value                    |
+| **Number per Table**     | Each table can have more than one unique key| Each table can have only one primary key    |
+| **Purpose**              | Ensures all values in a column are unique   | Uniquely identifies each record in a table  |
+| **Index Creation**       | Automatically creates a non-clustered index | Automatically creates a clustered index     |
+| **Modification**         | Can be modified                             | Cannot be modified once set                 |
+| **Constraint**           | Defined using `UNIQUE` constraint           | Defined using `PRIMARY KEY` constraint      |
+
+## What is a Checkpoint in Database Management System?
+
+A checkpoint is a mechanism where **all the previous logs are removed from the system and permanently stored on the storage disk**. Checkpoints are those points from where the transaction log record can be used to recover all the committed data up to the point of the crash.
+
+## Triggers and Stored Procedures
+
+### Differences between Triggers and Stored Procedures
+
+This is one of the most popular questions asked in DBMS interviews. Here are the key differences:
+
+| Feature                     | **Triggers**                                                                 | **Stored Procedures**                                                                 |
+|-----------------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| **Definition**              | Special kind of stored procedure that is not directly called by a user. A trigger is created and programmed to fire when a specific event occurs. | Group of SQL statements that can be reused. These statements are created and stored in the database. |
+| **Execution**               | Cannot be called or executed directly by a user. They are executed when the corresponding events occur. | Can be executed using the `EXECUTE` or `EXEC` command whenever needed.                |
+| **Scheduling**              | Cannot be scheduled.                                                         | Can be scheduled in a job to execute at a predefined time.                            |
+| **Calling within Each Other** | Cannot directly call another trigger within a trigger.                      | Can call a stored procedure from another stored procedure.                            |
+| **Parameters**              | Parameters cannot be passed as input.                                        | Parameters can be passed as input.                                                    |
+| **Return Values**           | Cannot return values.                                                        | Can return zero or more values.                                                       |
+| **Transactions**            | Transactions are not allowed within a trigger.                               | Transactions can be used within stored procedures.                                    |
+
+
+These are the basic differences between triggers and stored procedures.
+## Differences between Hash Join, Merge Join, and Nested Loops
+
+### Hash Join
+- **Usage**: Typically used for joining large tables.
+- **Mechanism**: Creates a hash table on the join key of one table and scans the other table to find matching rows.
+- **Example**:
+    ```sql
+    SELECT *
+    FROM Employees e
+    JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID
+    ```
+
+### Merge Join
+- **Usage**: Used when projections of the join tables are sorted on the join columns.
+- **Mechanism**: Merges two sorted lists by scanning both tables and matching rows based on the join key.
+- **Example**:
+    ```sql
+    SELECT *
+    FROM Employees e
+    JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID
+    ORDER BY e.DepartmentID, d.DepartmentID
+    ```
+
+### Nested Loops
+- **Usage**: Suitable for smaller tables or when one table is significantly smaller than the other.
+- **Mechanism**: Consists of an outer loop and an inner loop, where the inner loop is executed for each iteration of the outer loop based on a condition.
+- **Example**:
+    ```sql
+    SELECT *
+    FROM Employees e
+    JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID
+    WHERE e.Salary > 50000
+    ```
+
+These are the main differences between hash join, merge join, and nested loops.
+## Proactive, Retroactive, and Simultaneous Updates
+
+### Proactive Update
+Proactive updates are applied to the database **before** they become effective in the real-world environment.
+
+**Example**: Updating the price of a product in the database before the new pricing policy is implemented.
+
+### Retroactive Update
+Retroactive updates are applied to the database **after** they become effective in the real-world environment.
+
+**Example**: Adjusting employee salaries in the database after a pay raise has been announced and implemented.
+
+### Simultaneous Update
+Simultaneous updates are applied to the database **at the same time** as they become effective in the real-world environment.
+
+**Example**: Updating the stock levels in the database as soon as new inventory is received and recorded.
+
+In summary:
+- **Proactive Update**: Applied before it becomes effective in the real world.
+- **Retroactive Update**: Applied after it becomes effective in the real world.
+## Clustered and Non-Clustered Index
+
+### Definition of Index
+Indexes are data structures that improve the speed of data retrieval operations on a specific table. They use more storage to maintain extra copies of data by using additional writes. Indexes are mainly used for searching algorithms to retrieve data quickly.
+
+### Differences between Clustered and Non-Clustered Index
+
+| Feature            | **Clustered Index**                                                                 | **Non-Clustered Index**                                                                 |
+|--------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Speed**          | Comparatively faster than a non-clustered index.                                    | Slower compared to a clustered index.                                                  |
+| **Data Storage**   | Alters the way records are stored in a database by sorting the rows by the column set as the clustered index. | Does not alter the way data is stored but creates a separate object within a table that points back to the original table rows after searching. |
+| **Number of Indexes** | One table can have only one clustered index.                                       | One table can have many non-clustered indexes.                                         |
+
+### Example
+
+#### Clustered Index
+```sql
+-- Creating a table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    DepartmentID INT
+);
+
+-- Creating a clustered index on EmployeeID
+CREATE CLUSTERED INDEX IDX_EmployeeID ON Employees(EmployeeID);
+```
+
+#### Non-Clustered Index
+```sql
+-- Creating a non-clustered index on LastName
+CREATE NONCLUSTERED INDEX IDX_LastName ON Employees(LastName);
+```
+
+## Intension and Extension
+
+### Intension (Database Schema)
+Intension, or most commonly known as the database schema, defines the description of the database. This is specified during the database design and mostly remains unchanged.
+
+### Extension (Database Snapshot)
+Extension refers to the **number of tuples available in the database at any instance of time**. This value keeps changing as and when tuples are created, updated, or deleted. The data present in the database at a specific instance of time is known as the extension of the database or most commonly known as the snapshot of the database.
+
+
+## What do you understand by Cursor and what are the different types of it?
+
+A cursor is a database object that helps in manipulating data row by row and represents a result set. The types of cursors available are:
+
+### Implicit Cursor
+- Declared automatically as soon as the execution of SQL takes place.
+- The user is not explicitly informed about the declaration of the cursor.
+
+### Explicit Cursor
+- Defined by the PL/SQL as it handles a query that returns more than a single row.
+- Requires explicit declaration and control by the user.
+
+That was about cursors and their different types.
+## Specialization and Generalization
+
+### Specialization
+Specialization is the **process of defining a set of subclasses of an entity type**. Each subclass contains all the attributes and relationships of the parent entity. Additionally, subclasses may have specific attributes and relationships unique to themselves.
+
+### Generalization
+Generalization is the **process of identifying common attributes and relationships for a particular set of entities and defining a common superclass for them**.
+
+So, specialization focuses on creating more specific entity types from a general entity type, while generalization focuses on combining similar entity types into a more general entity type.
+
+## Data Independence
+
+When you say an application has data independence, it implies that the application is independent of the storage structure and the data access strategies of data. Data independence is achieved through the use of database management systems (DBMS) that provide an abstraction layer between the application and the physical data storage. There are two types of data independence:
+
+1. **Logical Data Independence**: The ability to change the logical schema without altering the external schema or application programs. This means that changes in the logical structure of the database, such as adding new fields or tables, do not require changes to the application.
+
+2. **Physical Data Independence**: The ability to change the physical schema without altering the logical schema. This means that changes in the physical storage of the data, such as using different storage devices or file structures, do not affect the logical structure of the database or the application.
+
+Data independence is crucial for maintaining and evolving database systems without disrupting the applications that rely on them.
+
+## Integrity Rules
+
+There are mainly two different integrity rules present in DBMS: **entity integrity** and **referential integrity**.
+
+### Entity Integrity
+**This rule states that the value of the primary key can never be null**. All the tuples in the column identified as the primary key should have a value.
+
+### Referential Integrity
+This rule states that **either the value of the foreign key is null or it should be the primary key of another relation**.
+
+These are the basic integrity rules present in database management systems: entity integrity and referential integrity.
+
+## Fill Factor
+
+The fill factor concept refers to the percentage of space left on each leaf-level page of an index that is packed with data. The default value is typically 100%.
+
+In summary:
+- **Fill Factor**: Percentage of space left on each leaf-level page.
+- **Default Value**: Generally 100%.
+
+
+## Index Hunting
+
+### What is Index Hunting and How Does it Help in Improving Query Performance?
+
+Index hunting is the process of optimizing a collection of indexes to improve query performance. This is achieved by:
+
+- **Boosting Indexes**: Enhancing the collection of indexes to improve the speed and efficiency of query processing.
+- **Query Optimizer**: Using the query optimizer to suggest the best queries.
+- **Performance Metrics**: Utilizing index query distribution and performance metrics to evaluate the effect.
+- **Tuning Databases**: Focusing on a small collection of problem queries to fine-tune the database.
+
+## Differences Between Network and Hierarchical Database Models
+
+### Network Database Model
+- **Structure**: Each node can have multiple children nodes and vice versa.
+- **Relationships**: Supports one-to-one, one-to-many, and many-to-many relationships.
+
+### Hierarchical Database Model
+- **Structure**: **Top-down structure** where each parent node can have multiple child nodes, but a single child node can have only one parent node.
+- **Relationships**: Supports one-to-one and one-to-many relationships.
+
+In summary:
+- **Network Model**: Each parent node can have multiple child nodes and vice versa.
+- **Hierarchical Model**: Each parent can have many child nodes, but a child node can have only one parent node.
+
+
+## What is Deadlock and How Can it Be Resolved?
+
+Deadlock is a situation that occurs **when two transactions wait on a resource that is locked by the other transaction**. Deadlocks can be **prevented by making all transactions acquire all the locks at the same instance of time**. Once a deadlock occurs, the **only way to resolve it is to abort one of the transactions and remove the partially completed one.**
+
+## Differences Between Exclusive Lock and Shared Lock
+
+| Feature           | **Exclusive Lock**                                                                 | **Shared Lock**                                                                 |
+|-------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **Purpose**       | A lock on a data item when a transaction is about to perform a write operation.     | Allows more than one transaction to read the data items.                        |
+| **Concurrency**   | Prevents other transactions from accessing the locked data item.                    | Multiple transactions can access the locked data item for reading.              |
+| **Usage**         | Used for operations that modify data (e.g., `INSERT`, `UPDATE`, `DELETE`).          | Used for operations that only read data (e.g., `SELECT`).                       |
+| **Lock Type**     | Write lock.                                                                         | Read lock.                                                                     |
+| **Conflict**      | Conflicts with other exclusive locks and shared locks.                              | Conflicts only with exclusive locks.                                           |
+| **Duration**      | Held until the transaction is completed.                                            | Held until the read operation is completed.                                    |
+| **Granularity**   | Can be applied at different levels (e.g., row, page, table).                        | Can be applied at different levels (e.g., row, page, table).                   |
+
+
+## Differences Between DROP, TRUNCATE, and DELETE Commands
+
+### DROP Command
+- Used to delete a database, table, or view.
+- Data cannot be rolled back.
+- It is a DDL (Data Definition Language) command.
+- Slower than TRUNCATE.
+- Deletes the full structure of the table.
+
+### TRUNCATE Command
+- Used to delete all rows from a table.
+- Data cannot be rolled back.
+- It is a DDL command.
+- Faster than DROP and DELETE.
+- Preserves the structure of the table.
+
+### DELETE Command
+- Used to delete a row from the table.
+- Data can be rolled back.
+- It is a DML (Data Manipulation Language) command.
+- Slower than TRUNCATE.
+- Deletes the structure of the row from the table.
+
+In summary:
+- **DROP**: Deletes the full structure of the table, cannot be rolled back, slower.
+- **TRUNCATE**: Deletes all rows, cannot be rolled back, faster, preserves structure.
+- **DELETE**: Deletes specific rows, can be rolled back, slower, deletes row structure.
+
+## What is SQL and Where is it Used?
+
+SQL, or most commonly known as Structured Query Language, is the core of relational databases. It is used for accessing and managing databases. This language is primarily used to manipulate and retrieve data from a structured data format in the form of tables and holds relationships between those tables. 
+
+In layman's terms, you can use SQL to communicate with the database.
+
+So that was about what SQL is.
+
+## What is SubQuery
+
+A subquery is a query inside another query, defined to retrieve data or information from the database. In a subquery:
+- The outer query is called the main query.
+- The inner query is called the subquery.
+
+Subqueries are always executed first, and the result of the subquery is passed to the main query, which then executes. Subqueries can be nested inside a `SELECT`, `UPDATE`, or any other query. They can also use comparison operators like `>`, `<`, `=`, etc.
+
+### Example
+
+#### Example 1: Using Subquery with `SELECT`
+```sql
+SELECT EmployeeID, EmployeeName
+FROM Employees
+WHERE DepartmentID = (
+    SELECT DepartmentID
+    FROM Departments
+    WHERE DepartmentName = 'Sales'
+);
+```
+In this example, the subquery retrieves the `DepartmentID` for the 'Sales' department, and the main query selects employees who belong to that department.
+
+#### Example 2: Using Subquery with `UPDATE`
+```sql
+UPDATE Employees
+SET Salary = Salary * 1.1
+WHERE DepartmentID = (
+    SELECT DepartmentID
+    FROM Departments
+    WHERE DepartmentName = 'HR'
+);
+```
+This example updates the salary of employees in the 'HR' department by 10%.
+
+#### Example 3: Using Subquery with `DELETE`
+```sql
+DELETE FROM Employees
+WHERE EmployeeID IN (
+    SELECT EmployeeID
+    FROM Employees
+    WHERE HireDate < '2020-01-01'
+);
+```
+In this example, the subquery identifies employees hired before January 1, 2020, and the main query deletes those employees.
+
+This was about subqueries in SQL.
+
+## Difference between Union and Union All
+
+### Union
+- Combines the result set of two or more `SELECT` statements consisting of distinct values.
+- Syntax: `UNION`
+- Performance: Lower performance as duplicate rows need to be removed.
+
+#### Example
+```sql
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+```
+
+### Union All
+- Combines the result set of two or more `SELECT` statements including duplicate values.
+- Syntax: `UNION ALL`
+- Performance: Better performance as duplicate rows do not need to be removed.
+
+#### Example
+```sql
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+```
+
+## Clause in SQL
+
+A clause in SQL is used to limit the result set by specifying a condition to the query. Clauses filter rows from the entire set of records.
+
+### Examples
+- **WHERE Clause**: Filters records based on specified conditions.
+- **HAVING Clause**: Filters records after an aggregation operation.
+
+### Differences Between HAVING and WHERE Clauses
+
+- **Usage**:
+    - **HAVING Clause**: Can only be used with the `SELECT` statement.
+    - **WHERE Clause**: Can be used with various SQL statements, including `SELECT`, `UPDATE`, `DELETE`, etc.
+
+- **Grouping**:
+    - **HAVING Clause**: Used with the `GROUP BY` function in a query.
+    - **WHERE Clause**: Applied to each row before they are part of the `GROUP BY` function in a query.
+
+- **Behavior**:
+    - **HAVING Clause**: Filters records after an aggregation operation.
+    - **WHERE Clause**: Filters records before any grouping or aggregation.
+
+- **Interchangeability**:
+    - When `GROUP BY` is not used, the `HAVING` clause behaves like the `WHERE` clause.
+
+In summary:
+- **HAVING**: Used with `SELECT` and `GROUP BY`, filters after aggregation.
+- **WHERE**: Used with multiple SQL statements, filters before grouping.
+
+## Pattern Matching
+
+To perform pattern matching in SQL, you have to use the `LIKE` operator. With the `LIKE` operator, you can use the percentage symbol (`%`) and the underscore symbol (`_`).
+
+- **Percentage Symbol (`%`)**: Matches 0 or more characters.
+- **Underscore Symbol (`_`)**: Matches exactly one character.
+
+### Examples
+
+1. **Match Names Starting with 'S'**:
+    ```sql
+    SELECT * FROM customers WHERE customer_name LIKE 'S%';
+    ```
+    This query selects all customer names starting with 'S'. For example, names like 'Sonia' and 'Sam' will be matched.
+
+2. **Match Names Starting with 'XYZ' Followed by One Character**:
+    ```sql
+    SELECT * FROM customers WHERE customer_name LIKE 'XYZ_';
+    ```
+    This query matches names that start with 'XYZ' and have exactly one character after that. For example, 'XYZ1' and 'XYZA' will be matched.
+
+## Case Manipulation Functions in SQL
+
+There are mainly three case manipulation functions in SQL: `LOWER`, `UPPER`, and `INITCAP`.
+
+### LOWER Function
+This function returns the string in lowercase. It takes a string as an argument and converts it to lowercase.
+
+**Syntax**:
+```sql
+LOWER('string')
+```
+
+**Example**:
+```sql
+SELECT LOWER('HELLO WORLD');
+```
+**Result**:
+```
+hello world
+```
+
+### UPPER Function
+This function returns the string in uppercase. It takes a string as an argument and converts it to uppercase.
+
+**Syntax**:
+```sql
+UPPER('string')
+```
+
+**Example**:
+```sql
+SELECT UPPER('hello world');
+```
+**Result**:
+```
+HELLO WORLD
+```
+
+### INITCAP Function
+This function returns the string with the first letter in uppercase and all other letters in lowercase.
+
+**Syntax**:
+```sql
+INITCAP('string')
+```
+
+**Example**:
+```sql
+SELECT INITCAP('hello world');
+```
+**Result**:
+```
+Hello World
+```
+
+## Joints in SQL
+
+### What are Joints in SQL?
+
+A joint class is used to combine rows from two or more tables based on a related column between them. It is used to merge tables or retrieve data from them.
+
+### Types of Joints
+
+### Examples with Dummy Data and Joins
+
+Let's consider two tables, `Employees` and `Departments`, with the following dummy data:
+
+**Employees Table:**
+
+| EmployeeID | EmployeeName | DepartmentID |
+|------------|--------------|--------------|
+| 1          | John Doe     | 101          |
+| 2          | Jane Smith   | 102          |
+| 3          | Emily Davis  | 103          |
+| 4          | Michael Brown| 101          |
+
+**Departments Table:**
+
+| DepartmentID | DepartmentName |
+|--------------|----------------|
+| 101          | HR             |
+| 102          | IT             |
+| 104          | Finance        |
+
+1. **Inner Join**: Returns records with matching values in both tables.
+    ```sql
+    SELECT e.EmployeeName, d.DepartmentName
+    FROM Employees e
+    INNER JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID;
+    ```
+    **Result:**
+    | EmployeeName  | DepartmentName |
+    |---------------|----------------|
+    | John Doe      | HR             |
+    | Michael Brown | HR             |
+    | Jane Smith    | IT             |
+
+2. **Right Join**: Returns all records from the right table and the matching records from the left table.
+    ```sql
+    SELECT e.EmployeeName, d.DepartmentName
+    FROM Employees e
+    RIGHT JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID;
+    ```
+    **Result:**
+    | EmployeeName  | DepartmentName |
+    |---------------|----------------|
+    | John Doe      | HR             |
+    | Michael Brown | HR             |
+    | Jane Smith    | IT             |
+    | NULL          | Finance        |
+
+3. **Left Join**: Returns all records from the left table and the matching records from the right table.
+    ```sql
+    SELECT e.EmployeeName, d.DepartmentName
+    FROM Employees e
+    LEFT JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID;
+    ```
+    **Result:**
+    | EmployeeName  | DepartmentName |
+    |---------------|----------------|
+    | John Doe      | HR             |
+    | Michael Brown | HR             |
+    | Jane Smith    | IT             |
+    | Emily Davis   | NULL           |
+
+4. **Full Join**: Returns all records with a matching value in either the left or right table.
+    ```sql
+    SELECT e.EmployeeName, d.DepartmentName
+    FROM Employees e
+    FULL JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID;
+    ```
+    **Result:**
+    | EmployeeName  | DepartmentName |
+    |---------------|----------------|
+    | John Doe      | HR             |
+    | Michael Brown | HR             |
+    | Jane Smith    | IT             |
+    | Emily Davis   | NULL           |
+    | NULL          | Finance        |
+
+<Image
+  src="/assets/blogsImages/image-3.png"
+  alt="Types of Keys in Database"
+  width={700}
+  height={400}
+/>
+
+For a detailed understanding of the different types of joints in SQL, refer to my session on SQL joints.
+
+## View in SQL
+
+### What is a View?
+
+A view in SQL is a single table derived from other tables. It contains rows and columns similar to a real table and has fields from one or more tables.
+
+### Creating a View
+
+To create a view, use the following syntax:
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+### Updating a View
+
+To update a view, use the following syntax:
+```sql
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+### Dropping a View
+
+To drop a view, use the following syntax:
+```sql
+DROP VIEW view_name;
+```
+
+## SQL Query Interview Questions
+
+### Creating a Duplicate Table
+
+#### With Data
+
+To create a duplicate table with data, use the following query:
+```sql
+CREATE TABLE duplicate_customer AS
+SELECT * FROM customers;
+```
+
+#### Without Data
+
+To create a duplicate table without data, use the following query:
+```sql
+CREATE TABLE duplicate_customer AS
+SELECT * FROM customers WHERE 1 = 2;
+```
+## Calculate Even and Odd Records from a Table
+
+To calculate the even and odd records from a table, you can write two different queries using the `MOD` function.
+
+### Retrieve Even Records
+
+To retrieve the even records from the `customers` table, use the following query:
+
+```sql
+SELECT customerID
+FROM (
+    SELECT ROW_NUMBER() OVER (ORDER BY customerID) AS row_num, customerID
+    FROM customers
+) subquery
+WHERE row_num % 2 = 0;
+```
+
+### Retrieve Odd Records
+
+To retrieve the odd records from the `customers` table, use the following query:
+
+```sql
+SELECT customerID
+FROM (
+    SELECT ROW_NUMBER() OVER (ORDER BY customerID) AS row_num, customerID
+    FROM customers
+) AS subquery
+WHERE MOD(row_num, 2) = 1;
+```
+
+The `MOD` function is used to determine whether a number is even or odd. If the remainder is `0` when divided by `2`, the number is even. If the remainder is `1`, the number is odd.
+
+## Removing Duplicate Rows from a Table
+
+To remove duplicate rows from a table, follow these steps:
+
+### Step 1: Select Duplicate Rows
+
+First, select the duplicate rows from the table without using the `DISTINCT` keyword. You can use the following query:
+
+```sql
+SELECT customer_number
+FROM customers
+WHERE rowid IN (
+    SELECT MAX(rowid)
+    FROM customers C
+    WHERE customer_number = C.customer_number
+    GROUP BY customer_number
+);
+```
+
+### Step 2: Delete Duplicate Rows
+
+Once all the duplicate records are selected, delete the duplicate records from the `customers` table using the following query:
+
+```sql
+DELETE FROM customers
+WHERE rowid IN (
+    SELECT MAX(rowid)
+    FROM customers C
+    WHERE customer_number = C.customer_number
+    GROUP BY customer_number
+);
+```
+
+This process ensures that only unique rows remain in the table.

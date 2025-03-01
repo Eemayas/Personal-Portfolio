@@ -5,5 +5,6 @@ import blog__2ComponentsOfEmbeddedOsMdx from './blog__2.Components-of-embedded-o
 import blog__3TimeComplexityMdx from './blog__3.Time-complexity.mdx.json' assert { type: 'json' }
 import blog__4SortingAlgorithmssMdx from './blog__4.sorting-algorithmss.mdx.json' assert { type: 'json' }
 import blog__5DataStructureMdx from './blog__5.data-structure.mdx.json' assert { type: 'json' }
+import blog__6DatabaseQuestionsMdx from './blog__6.database-questions.mdx.json' assert { type: 'json' }
 
-export const allBlogs = [blog__1UnderstandingTheGitignoreMdx, blog__2ComponentsOfEmbeddedOsMdx, blog__3TimeComplexityMdx, blog__4SortingAlgorithmssMdx, blog__5DataStructureMdx]
+export const allBlogs = [blog__1UnderstandingTheGitignoreMdx, blog__2ComponentsOfEmbeddedOsMdx, blog__3TimeComplexityMdx, blog__4SortingAlgorithmssMdx, blog__5DataStructureMdx, blog__6DatabaseQuestionsMdx]

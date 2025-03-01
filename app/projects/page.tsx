@@ -1,8 +1,10 @@
+/** @format */
+
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { SectionWrapper } from "@/lib/hoc";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import IntersectionObserverComponent from "@/components/IntersectionObserverComponent";
 import { projects as defaultProjects } from "@/constants";
 import { Project } from "./types";
@@ -16,12 +18,22 @@ import { DescriptionAnimation } from "@/components/TextAnimations";
 import dynamic from "next/dynamic";
 
 const ProjectForm = dynamic(() => import("./components/ProjectForm"), {
-  ssr: false, // Disable server-side rendering for this component
-  loading: () => <p>...</p>, // Fallback content while loading
+  ssr: false,
+  loading: () => <p>...</p>,
 });
+
+const TABS = ["All", "Web Development","React",, "Mobile", "Others"];
+
+const tabVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  exit: { opacity: 0, x: 50, transition: { duration: 0.3, ease: "easeInOut" } },
+};
+
 const Projects: React.FC = () => {
   const [hasFetched, setHasFetched] = useState(false);
   const [isHomePage, setIsHomePage] = useState(true);
+  const [activeTab, setActiveTab] = useState("Dashboard");
   const [displayedProjects, setDisplayedProjects] =
     useState<Project[]>(defaultProjects);
   const [form, setForm] = useState<Project>({
@@ -36,7 +48,7 @@ const Projects: React.FC = () => {
   const { projects } = useSelector((state: RootState) => state.projectReducer);
   const adminState = useSelector((state: RootState) => state.adminReducer);
 
-  const projectDescription = `Below are a few selected projects that demonstrate my skills and experience, showcasing real-world examples of my work. Each project is accompanied by a brief description, as well as links to code repositories and live demos. These projects serve as tangible evidence of my ability to tackle intricate challenges, adapt to various technologies, and efficiently handle project management`;
+  const projectDescription = `Below are a few selected projects that demonstrate my skills and experience, showcasing real-world examples of my work.`;
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,16 +63,9 @@ const Projects: React.FC = () => {
       setHasFetched(true);
     }
   }, [hasFetched]);
+
   useEffect(() => {
-    setDisplayedProjects(
-      isHomePage
-        ? projects.length
-          ? projects.slice(0, 3)
-          : defaultProjects.slice(0, 3)
-        : projects.length
-        ? projects
-        : defaultProjects
-    );
+    setDisplayedProjects(isHomePage ? projects.slice(0, 3) : projects);
   }, [isHomePage, projects]);
 
   return (
@@ -73,12 +78,42 @@ const Projects: React.FC = () => {
       </DisableAnimationOnMobile>
       <DescriptionAnimation description={projectDescription} />
 
-      <DisableAnimationOnMobile>
+      <div className="my-4 w-full rounded-md border border-gray-200 bg-tertiarylight text-gray-900 dark:border-gray-500 dark:bg-tertiary dark:text-gray-100">
+        <div className="relative right-0">
+          <ul
+            className="relative flex list-none flex-wrap rounded-md bg-[#1e293b] px-1.5 py-1.5"
+            data-tabs="tabs"
+            role="list"
+          >
+            {TABS.map((tab) => (
+              <li key={tab} className="z-30 flex-auto text-center">
+                <a
+                  className={`z-30 mb-0 flex w-full cursor-pointer items-center justify-center rounded-md border-0 px-0 py-2 text-sm transition-all ease-in-out ${
+                    activeTab === tab
+                      ? "bg-[#6366f1] text-white shadow"
+                      : "text-gray-300"
+                  }`}
+                  onClick={() => setActiveTab(tab)}
+                  data-tab-target=""
+                  role="tab"
+                  aria-selected={activeTab === tab}
+                >
+                  {tab}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <AnimatePresence mode="wait">
         <motion.div
+          key={activeTab}
           initial="hidden"
-          animate="show"
-          variants={textVariant()}
-          className="mt-20 flex flex-wrap justify-center gap-7"
+          animate="visible"
+          exit="exit"
+          variants={tabVariants}
+          className="mt-10 flex flex-wrap justify-center gap-7"
         >
           {displayedProjects.map((project, index) => (
             <ProjectCard
@@ -91,7 +126,7 @@ const Projects: React.FC = () => {
             />
           ))}
         </motion.div>
-      </DisableAnimationOnMobile>
+      </AnimatePresence>
       {adminState && (
         <ProjectForm
           adminState={adminState}
